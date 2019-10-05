@@ -1,0 +1,682 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>FinSec - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">FinSec</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>FinSec - User Guide</h1></div><div id="content"><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>AY1920S1-CS2103T-W12-1</code>      Since: <code>Aug 2019</code>      Licence: <code>MIT</code></p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#Features">3. Features</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
+<li><a href="#changing-views-code-goto-code">3.2. Changing Views : <code>goto</code></a></li>
+<li><a href="#adding-a-person-code-add_person-code">3.3. Adding a person <code>add_person</code></a></li>
+<li><a href="#editing-a-person-code-edit_person-code">3.4. Editing a person : <code>edit_person</code></a></li>
+<li><a href="#adding-a-claim-code-add_claim-code">3.5. Adding a claim : <code>add_claim</code></a></li>
+<li><a href="#editing-a-claim-code-edit_claim-code">3.6. Editing a claim : <code>edit_claim</code></a></li>
+<li><a href="#adding-an-income">3.7. Adding an income</a></li>
+<li><a href="#editing-an-income">3.8. Editing an income</a></li>
+<li><a href="#checking-a-person-or-claim">3.9. Checking a Person or Claim</a></li>
+<li><a href="#deleting-a-person">3.10. Deleting a Person</a></li>
+<li><a href="#filter">3.11. Filter</a></li>
+<li><a href="#see-budget-pop-up">3.12. See budget (Pop-up)</a></li>
+<li><a href="#sorting-claims-list-based-on-dates">3.13. Sorting claims list based on dates</a></li>
+<li><a href="#resolving-claims">3.14. Resolving claims</a></li>
+<li><a href="#attaching-pictures-to-claims">3.15. Attaching Pictures to Claims</a></li>
+<li><a href="#grouping-users">3.16. Grouping Users</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+</ul>
+</li>
+<li><a href="#upcoming-features">4. Upcoming Features</a>
+<ul class="sectlevel2">
+<li><a href="#keeping-a-transaction-history">4.1. Keeping a Transaction History</a></li>
+<li><a href="#detecting-duplicates">4.2. Detecting duplicates</a></li>
+<li><a href="#budgeting-and-limiting">4.3. Budgeting and limiting</a></li>
+<li><a href="#typing-guide">4.4. Typing Guide</a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FinSec is a Financial Planner that helps the finance secretaries of any department in NUS, preferably from the School of Computing so that they would be more likely to like the idea of having a CLI app.
+The app focuses on the tracking of claims that will help the While FinSec has a Graphical User Interface (GUI), its main form of input is Command Line Interface (CLI) based, thus favoring people who can type fast. Starting using it now and enjoy!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/releases">here</a>.</p>
+</li>
+<li>
+<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+</li>
+<li>
+<p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui.png" alt="Ui" width="790">
+</div>
+</div>
+</li>
+<li>
+<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
+</li>
+<li>
+<p>Some example commands you can try:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com : adds a contact named `John Doe</code> to the Address Book.</p>
+</li>
+<li>
+<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+</li>
+<li>
+<p><strong><code>exit</code></strong> : exits the app</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<div class="sectionbody">
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command Format</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+</li>
+<li>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-views-code-goto-code"><a class="link" href="#changing-views-code-goto-code">3.2. Changing Views : <code>goto</code></a></h3>
+<div class="paragraph">
+<p>Displays a list of all people in the contact list<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>goto</code><br></p>
+</div>
+<div class="paragraph">
+<p>Additional Parameters: claims, contacts, income<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goto (parameter)</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>goto contacts</code>
+<code>goto claims</code>
+<code>goto income</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-person-code-add_person-code"><a class="link" href="#adding-a-person-code-add_person-code">3.3. Adding a person <code>add_person</code></a></h3>
+<div class="paragraph">
+<p>Adds a person to the contacts list<br></p>
+</div>
+<div class="paragraph">
+<p>Format:
+<code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_person n/John Doe p/98765432 e/johnd@example.com</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-person-code-edit_person-code"><a class="link" href="#editing-a-person-code-edit_person-code">3.4. Editing a person : <code>edit_person</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing person<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>edit_person</code></p>
+</div>
+<div class="paragraph">
+<p>Format:
+<code>edit_person INDEX n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>` edit_person 2 n/john lim p/92222223 e/johnlim@gmail.com`</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-a-claim-code-add_claim-code"><a class="link" href="#adding-a-claim-code-add_claim-code">3.5. Adding a claim : <code>add_claim</code></a></h3>
+<div class="paragraph">
+<p>Adds a claim to the claims list<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>add_claim</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-claim-code-edit_claim-code"><a class="link" href="#editing-a-claim-code-edit_claim-code">3.6. Editing a claim : <code>edit_claim</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing claim<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>edit_claim</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit_claim INDEX d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-income"><a class="link" href="#adding-an-income">3.7. Adding an income</a></h3>
+<div class="paragraph">
+<p>Adds an income to the income list<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>add_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_income d/Shirt Sales a/307.5 n/Lee Wei Gen p/96777777 t/Marketing</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-income"><a class="link" href="#editing-an-income">3.8. Editing an income</a></h3>
+<div class="paragraph">
+<p>Edits an income on the income list<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>edit_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit_income 2 d/Camp Fees a/1150.50 n/Lee Wei Gen p/96777777 t/FOP</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="checking-a-person-or-claim"><a class="link" href="#checking-a-person-or-claim">3.9. Checking a Person or Claim</a></h3>
+<div class="paragraph">
+<p>Displays the details of the Person or Claim</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>check</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>check INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check 1</code> (in contacts page, show details of the person in index 1)</p>
+</li>
+<li>
+<p><code>check 2</code> (in claims page, show details of the claim in index 2)</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">3.10. Deleting a Person</a></h3>
+<div class="paragraph">
+<p>Deletes a Person from the contact list</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>delete</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 1</code> (removes first person in the contact list)</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed person list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="filter"><a class="link" href="#filter">3.11. Filter</a></h3>
+<div class="paragraph">
+<p>Filters using a keyword from the list</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>filter</code></p>
+</div>
+<div class="paragraph">
+<p>Format: `filter w/KEYWORD)</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter w/Sports</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+</li>
+<li>
+<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+</li>
+<li>
+<p>Only the name is searched.</p>
+</li>
+<li>
+<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+</li>
+<li>
+<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code><br></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>filter John</code><br>
+Returns <code>john</code> and <code>John Doe</code><br></p>
+</li>
+<li>
+<p><code>filter Betsy Tim John</code><br>
+Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="see-budget-pop-up"><a class="link" href="#see-budget-pop-up">3.12. See budget (Pop-up)</a></h3>
+<div class="paragraph">
+<p>Format: <code>budget</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-claims-list-based-on-dates"><a class="link" href="#sorting-claims-list-based-on-dates">3.13. Sorting claims list based on dates</a></h3>
+<div class="paragraph">
+<p>Sorts claims in claims list based on dates, either in chronological or reverse order</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>sort</code></p>
+</div>
+<div class="paragraph">
+<p>Format:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Sort in normal order <code>sort</code></p>
+</li>
+<li>
+<p>Sort in reverse order <code>sort -r</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="resolving-claims"><a class="link" href="#resolving-claims">3.14. Resolving claims</a></h3>
+<div class="paragraph">
+<p>Resolves claims</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>resolve</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>resolve INDEX s/STATUS</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>resolve 1 s/approved (in claims page, approve a claim)</code></p>
+</li>
+<li>
+<p><code>resolve 2 s/rejected (in claims page, reject a claim)</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="attaching-pictures-to-claims"><a class="link" href="#attaching-pictures-to-claims">3.15. Attaching Pictures to Claims</a></h3>
+<div class="paragraph">
+<p>Attaches a picture of the claim in the 'docs/claims/images' folder (directory is subject to change) to a claim.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>attach</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>attach INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>attach 1</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Popup will appear upon entering of this command to allow the user to choose an image and it will be attached to the
+specified index from the user input</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="grouping-users"><a class="link" href="#grouping-users">3.16. Grouping Users</a></h3>
+<div class="paragraph">
+<p>Assigns tags to the people in the contact list to group them together to aid in finding specific groups of people</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>tag</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>tag INDEX t/TAG</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>tag 1 t/FOP t/Sports</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Further tagging can be done to people with current tags already, it will append to each other and be seen
+in the contacts list</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
+<div class="paragraph">
+<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">4. Upcoming Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="keeping-a-transaction-history"><a class="link" href="#keeping-a-transaction-history">4.1. Keeping a Transaction History</a></h3>
+<div class="paragraph">
+<p>Keeps a list of past records</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="detecting-duplicates"><a class="link" href="#detecting-duplicates">4.2. Detecting duplicates</a></h3>
+<div class="paragraph">
+<p>Automatically detect duplicate names of contacts or claims</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="budgeting-and-limiting"><a class="link" href="#budgeting-and-limiting">4.3. Budgeting and limiting</a></h3>
+<div class="paragraph">
+<p>Adds a separate limit to warn the user if the person’s claims exceeded the budget or if resolving the claim puts the cash-on-hand below budget.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="typing-guide"><a class="link" href="#typing-guide">4.4. Typing Guide</a></h3>
+<div class="paragraph">
+<p>Automatically detects command and comes up with suggestions as a pop-up on what syntax comes next</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Help</strong> : <code>help</code></p>
+</li>
+<li>
+<p><strong>Changing of Views</strong> <code>goto (parameter)</code>
+e.g. <code>goto claims</code></p>
+</li>
+<li>
+<p><strong>Add person</strong> <code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+</li>
+<li>
+<p><strong>Edit person</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]</code><br>
+e.g. <code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code><br></p>
+</li>
+<li>
+<p><strong>Add claim</strong> <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
+e.g. <code>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
+</li>
+<li>
+<p><strong>Edit claim</strong> <code>edit_claim INDEX d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
+e.g. <code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
+</li>
+<li>
+<p><strong>Adding income</strong> <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
+e.g. <code>add_income d/Shirt Sales a/307.5 n/Lee Wei Gen p/96777777 t/Marketing</code></p>
+</li>
+<li>
+<p><strong>Editing income</strong> <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
+e.g. <code>edit_income 2 d/Camp Fees a/1150.50 n/Lee Wei Gen p/96777777 t/FOP</code></p>
+</li>
+<li>
+<p><strong>Checking Person or Claim</strong> <code>check INDEX</code><br>
+e.g.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check 1</code> (in contacts page, show details of the person in index 1)</p>
+</li>
+<li>
+<p><code>check 2</code> (in claims page, show details of the claim in index 2)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Deleting a person</strong> <code>delete INDEX</code><br>
+e.g. <code>delete 3</code></p>
+</li>
+<li>
+<p><strong>Filter</strong> : <code>filter w/KEYWORD</code><br>
+e.g. <code>filter Orientation Camp</code></p>
+</li>
+<li>
+<p><strong>See Budget</strong> <code>budget</code></p>
+</li>
+<li>
+<p><strong>Sorting claims based on dates</strong> <code>sort</code> or <code>sort -r</code></p>
+</li>
+<li>
+<p><strong>Resolving Claims</strong> <code>resolve INDEX s/STATUS</code><br>
+e.g.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>resolve 1 s/approved (in claims page, approve a claim)</code></p>
+</li>
+<li>
+<p><code>resolve 2 s/rejected (in claims page, reject a claim)</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Attaching Pictures to Claims</strong> <code>attach INDEX</code><br>
+e.g. <code>attach 1</code></p>
+</li>
+<li>
+<p><strong>Grouping Users</strong> <code>tag INDEX t/TAG</code><br>
+e.g. <code>tag 1 t/FOP t/Sports</code></p>
+</li>
+<li>
+<p><strong>Closing application</strong> <code>exit</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-05 18:38:28 UTC</div></div></div></body></html>
