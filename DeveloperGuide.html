@@ -843,17 +843,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is <code>FinSec</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-adding-a-person" class="discrete">Use case: Adding a person</h3>
+<h3 id="use-case-adding-a-contact" class="discrete">Use case: Adding a contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a person</p>
+<p>User requests to add a contact</p>
 </li>
 <li>
-<p>FinSec adds a person</p>
+<p>FinSec adds a contact</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -866,57 +866,37 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The name is invalid.</p>
+<p>1a. The contact details are existing.</p>
 </li>
 </ul>
 </div>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a1. FinSec shows an error message.</p>
+<p>1a1. FinSec shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1</p>
 </div>
 </li>
 </ul>
 </div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The given name is existing.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. FinSec shows an error message.</p>
-</li>
-<li>
-<p>3a2. FinSec confirms the addition.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-<h3 id="use-case-editing-a-person" class="discrete">Use case: Editing a person</h3>
+<h3 id="use-case-editing-a-contact" class="discrete">Use case: Editing a contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view list of people</p>
+<p>User requests to view list of contacts</p>
 </li>
 <li>
-<p>FinSec shows a list of people</p>
+<p>FinSec shows a list of contacts</p>
 </li>
 <li>
-<p>User requests which person to edit and the details to change</p>
+<p>User requests which contact to edit and the details to change</p>
 </li>
 <li>
-<p>FinSec edits the person</p>
+<p>FinSec edits the contact</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -929,7 +909,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The list of people is empty.</p>
+<p>2a. The list of contacts is empty.</p>
 </li>
 </ul>
 </div>
@@ -939,7 +919,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. The name is invalid.</p>
+<p>3a. The contact is not on the list.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -953,23 +933,23 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<h3 id="use-case-delete-contact" class="discrete">Use case: Delete contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list persons</p>
+<p>User requests to list contacts</p>
 </li>
 <li>
-<p>FinSec shows a list of persons</p>
+<p>FinSec shows a list of contacts</p>
 </li>
 <li>
-<p>User requests to delete a specific person in the list</p>
+<p>User requests to delete a specific contact in the list</p>
 </li>
 <li>
-<p>FinSec deletes the person</p>
+<p>FinSec deletes the contact</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1002,9 +982,6 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
 <h3 id="use-case-goto-view" class="discrete">Use case: Goto view</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1012,13 +989,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to goto view (People, Claims, Income)</p>
-</li>
-<li>
-<p>FinSec shows a list of views available</p>
-</li>
-<li>
-<p>User requests which view to go to</p>
+<p>User requests to change view (Contacts, Claims, Income)</p>
 </li>
 <li>
 <p>FinSec brings user to that view</p>
@@ -1034,26 +1005,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The view is empty.</p>
+<p>1a. The view is invalid.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The given view is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. FinSec shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
+<p>Use case resumes at step 1.</p>
 </div>
 </li>
 </ul>
@@ -1291,29 +1245,23 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<h3 id="use-case-check-existing-claims-of-person" class="discrete">Use case: Check existing claims of person</h3>
+<h3 id="use-case-check-details-of-contact" class="discrete">Use case: Check details of contact</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to change view to Claims</p>
+<p>User requests to view list of contacts</p>
 </li>
 <li>
-<p>FinSec changes view to Claims</p>
+<p>FinSec shows a list of contacts</p>
 </li>
 <li>
-<p>User requests to view list of people in claims</p>
+<p>User requests which contact to check by index</p>
 </li>
 <li>
-<p>FinSec shows a list of people in claims</p>
-</li>
-<li>
-<p>User requests which person to check by index</p>
-</li>
-<li>
-<p>FinSec displays person with their claims</p>
+<p>FinSec displays contact and details</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1326,12 +1274,58 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The person list is empty.</p>
+<p>2a. The contacts list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The index entered is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FinSec shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-check-status-of-claims-of-person" class="discrete">Use case: Check status of claims of person</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to change view to Claims</p>
+</li>
+<li>
+<p>FinSec changes view to claims</p>
+</li>
+<li>
+<p>FinSec shows a list of claims</p>
+</li>
+<li>
+<p>User requests which claim to check by index</p>
+</li>
+<li>
+<p>FinSec displays details of particular claim</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
 </div>
 <div class="ulist none">
 <ul class="none">
@@ -1360,17 +1354,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<h3 id="use-case-filter-using-keywords-from-list" class="discrete">Use case: Filter using keywords from list</h3>
+<h3 id="use-case-filter-using-keyword" class="discrete">Use case: Filter using keyword</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view list of income or people</p>
+<p>User requests to view list of income, claims or contacts</p>
 </li>
 <li>
-<p>FinSec shows a list of income or people</p>
+<p>FinSec shows the list</p>
 </li>
 <li>
 <p>User requests to filter the list based on keyword</p>
@@ -1389,7 +1383,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The income or people list is empty.</p>
+<p>2a. The incomes, claims or contacts list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1517,57 +1511,6 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
-<h3 id="use-case-adding-pictures-to-claims" class="discrete">Use case: Adding pictures to claims</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to change view to claims</p>
-</li>
-<li>
-<p>FinSec shows the claim view</p>
-</li>
-<li>
-<p>User requests to add picture to claim by index</p>
-</li>
-<li>
-<p>FinSec adds a picture to that claim</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The claims list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The index entered is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. FinSec shows an error message.
-+ Use case resumes at step 2.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-adding-tags" class="discrete">Use case: Adding tags</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1575,16 +1518,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view list of people</p>
+<p>User requests to view list of contacts</p>
 </li>
 <li>
-<p>FinSec shows a list of people</p>
+<p>FinSec shows a list of contacts</p>
 </li>
 <li>
-<p>User requests to add tags to people</p>
+<p>User requests to add tags to contact</p>
 </li>
 <li>
-<p>FinSec adds tags to the person</p>
+<p>FinSec adds tags to the contact</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1597,9 +1540,24 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The people list is empty.</p>
+<p>2a. The contact list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The contact index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. FinSec shows an error message.
++ Use case resumes at step 2.</p>
+</li>
+</ul>
 </div>
 </li>
 </ul>
@@ -1804,4 +1762,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 14:14:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-15 14:21:42 UTC</div></div></div></body></html>
