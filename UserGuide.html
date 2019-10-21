@@ -15,22 +15,20 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#changing-views-code-goto-code">3.2. Changing Views : <code>goto</code></a></li>
-<li><a href="#adding-a-person-code-add_person-code">3.3. Adding a person <code>add_person</code></a></li>
-<li><a href="#editing-a-person-code-edit_person-code">3.4. Editing a person : <code>edit_person</code></a></li>
+<li><a href="#adding-a-person-code-add_contact-code">3.3. Adding a person <code>add_contact</code></a></li>
+<li><a href="#editing-a-contact-code-edit_person-code">3.4. Editing a contact : <code>edit_person</code></a></li>
 <li><a href="#adding-a-claim-code-add_claim-code">3.5. Adding a claim : <code>add_claim</code></a></li>
 <li><a href="#editing-a-claim-code-edit_claim-code">3.6. Editing a claim : <code>edit_claim</code></a></li>
 <li><a href="#adding-an-income">3.7. Adding an income</a></li>
 <li><a href="#editing-an-income">3.8. Editing an income</a></li>
 <li><a href="#checking-a-person-or-claim">3.9. Checking a Person or Claim</a></li>
 <li><a href="#deleting-a-person">3.10. Deleting a Person</a></li>
-<li><a href="#filter">3.11. Filter</a></li>
-<li><a href="#see-budget-pop-up">3.12. See budget (Pop-up)</a></li>
-<li><a href="#sorting-claims-list-based-on-dates">3.13. Sorting claims list based on dates</a></li>
-<li><a href="#resolving-claims">3.14. Resolving claims</a></li>
-<li><a href="#attaching-pictures-to-claims">3.15. Attaching Pictures to Claims</a></li>
-<li><a href="#grouping-users">3.16. Grouping Users</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.18. Saving the data</a></li>
+<li><a href="#see-budget-pop-up">3.11. See budget (Pop-up)</a></li>
+<li><a href="#resolving-claims">3.12. Resolving claims</a></li>
+<li><a href="#attaching-pictures-to-claims">3.13. Attaching Pictures to Claims</a></li>
+<li><a href="#grouping-users">3.14. Grouping Users</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#upcoming-features">4. Upcoming Features</a>
@@ -158,13 +156,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add_person-code"><a class="link" href="#adding-a-person-code-add_person-code">3.3. Adding a person <code>add_person</code></a></h3>
+<h3 id="adding-a-person-code-add_contact-code"><a class="link" href="#adding-a-person-code-add_contact-code">3.3. Adding a person <code>add_contact</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the contacts list<br></p>
+<p>Adds a contact to the contacts list list<br></p>
 </div>
 <div class="paragraph">
 <p>Format:
-<code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]</code></p>
+<code>add_contact n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -172,22 +170,22 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>add_person n/John Doe p/98765432 e/johnd@example.com</code></p>
+<p><code>add_contact n/John Doe p/98765432 e/johnd@example.com</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit_person-code"><a class="link" href="#editing-a-person-code-edit_person-code">3.4. Editing a person : <code>edit_person</code></a></h3>
+<h3 id="editing-a-contact-code-edit_person-code"><a class="link" href="#editing-a-contact-code-edit_person-code">3.4. Editing a contact : <code>edit_person</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person<br></p>
+<p>Edits an existing contact<br></p>
 </div>
 <div class="paragraph">
-<p>Keyword: <code>edit_person</code></p>
+<p>Keyword: <code>edit_contact</code></p>
 </div>
 <div class="paragraph">
 <p>Format:
-<code>edit_person INDEX n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]</code></p>
+<code>edit_contact INDEX n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -195,7 +193,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>` edit_person 2 n/john lim p/92222223 e/johnlim@gmail.com`</p>
+<p>` edit_contact 2 n/john lim p/92222223 e/johnlim@gmail.com`</p>
 </li>
 </ul>
 </div>
@@ -353,95 +351,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="filter"><a class="link" href="#filter">3.11. Filter</a></h3>
-<div class="paragraph">
-<p>Filters using a keyword from the list</p>
-</div>
-<div class="paragraph">
-<p>Keyword: <code>filter</code></p>
-</div>
-<div class="paragraph">
-<p>Format: `filter w/KEYWORD)</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>filter w/Sports</code></p>
-</li>
-</ul>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code><br></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>filter John</code><br>
-Returns <code>john</code> and <code>John Doe</code><br></p>
-</li>
-<li>
-<p><code>filter Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="see-budget-pop-up"><a class="link" href="#see-budget-pop-up">3.12. See budget (Pop-up)</a></h3>
+<h3 id="see-budget-pop-up"><a class="link" href="#see-budget-pop-up">3.11. See budget (Pop-up)</a></h3>
 <div class="paragraph">
 <p>Format: <code>budget</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-claims-list-based-on-dates"><a class="link" href="#sorting-claims-list-based-on-dates">3.13. Sorting claims list based on dates</a></h3>
-<div class="paragraph">
-<p>Sorts claims in claims list based on dates, either in chronological or reverse order</p>
-</div>
-<div class="paragraph">
-<p>Keyword: <code>sort</code></p>
-</div>
-<div class="paragraph">
-<p>Format:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Sort in normal order <code>sort</code></p>
-</li>
-<li>
-<p>Sort in reverse order <code>sort -r</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="resolving-claims"><a class="link" href="#resolving-claims">3.14. Resolving claims</a></h3>
+<h3 id="resolving-claims"><a class="link" href="#resolving-claims">3.12. Resolving claims</a></h3>
 <div class="paragraph">
 <p>Resolves claims</p>
 </div>
@@ -466,7 +382,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="attaching-pictures-to-claims"><a class="link" href="#attaching-pictures-to-claims">3.15. Attaching Pictures to Claims</a></h3>
+<h3 id="attaching-pictures-to-claims"><a class="link" href="#attaching-pictures-to-claims">3.13. Attaching Pictures to Claims</a></h3>
 <div class="paragraph">
 <p>Attaches a picture of the claim in the 'docs/claims/images' folder (directory is subject to change) to a claim.</p>
 </div>
@@ -500,7 +416,7 @@ specified index from the user input</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="grouping-users"><a class="link" href="#grouping-users">3.16. Grouping Users</a></h3>
+<h3 id="grouping-users"><a class="link" href="#grouping-users">3.14. Grouping Users</a></h3>
 <div class="paragraph">
 <p>Assigns tags to the people in the contact list to group them together to aid in finding specific groups of people</p>
 </div>
@@ -534,14 +450,14 @@ in the contacts list</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.17. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.18. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -600,12 +516,12 @@ There is no need to save manually.</p>
 e.g. <code>goto claims</code></p>
 </li>
 <li>
-<p><strong>Add person</strong> <code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add contact</strong> <code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]&#8230;&#8203;</code><br>
+e.g. <code>add_contact n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
-<p><strong>Edit person</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]</code><br>
-e.g. <code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code><br></p>
+<p><strong>Edit contact</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]</code><br>
+e.g. <code>edit_contact 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code><br></p>
 </li>
 <li>
 <p><strong>Add claim</strong> <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
@@ -642,10 +558,6 @@ e.g.</p>
 e.g. <code>delete 3</code></p>
 </li>
 <li>
-<p><strong>Filter</strong> : <code>filter w/KEYWORD</code><br>
-e.g. <code>filter Orientation Camp</code></p>
-</li>
-<li>
 <p><strong>See Budget</strong> <code>budget</code></p>
 </li>
 <li>
@@ -679,4 +591,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-21 09:34:14 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-21 12:46:43 UTC</div></div></div></body></html>
