@@ -22,10 +22,11 @@
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#claim-feature">2.1. Claim feature</a></li>
-<li><a href="#income-feature">2.2. Income feature</a></li>
-<li><a href="#budget-feature">2.3. Budget feature</a></li>
-<li><a href="#Implementation-Configuration">2.4. Goto feature</a></li>
-<li><a href="#check-feature">2.5. Check feature</a></li>
+<li><a href="#claim-feature-2">2.2. Claim feature</a></li>
+<li><a href="#income-feature">2.3. Income feature</a></li>
+<li><a href="#budget-feature">2.4. Budget feature</a></li>
+<li><a href="#Implementation-Configuration">2.5. Goto feature</a></li>
+<li><a href="#check-feature">2.6. Check feature</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -517,7 +518,153 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="income-feature"><a class="link" href="#income-feature">2.2. Income feature</a></h3>
+<h3 id="claim-feature-2"><a class="link" href="#claim-feature-2">2.2. Claim feature</a></h3>
+<div class="paragraph">
+<p>The <code>add_claim</code> command allows for admins to register Claims into FinSec.</p>
+</div>
+<div class="paragraph">
+<p>The format for the <code>add_claim</code> command is as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add_claim d/&lt;DESCRIPTION&gt; c/&lt;CASH AMOUNT&gt; date/&lt;DATE&gt; n/&lt;NAME&gt; p/&lt;PHONE NUMBER&gt;</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-a-claim"><a class="link" href="#adding-a-claim">2.2.1. Adding a Claim</a></h4>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The add claim <code>add_claim</code> mechanism is facilitated by <code>AddClaimCommand</code> and <code>AddClaimCommandParser</code>, taking in the
+following input from the user:`Description`, <code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Phone</code>, which will construct <code>Claim</code> objects.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddClaimSequenceDiagram.png" alt="AddClaimSequenceDiagram">
+</div>
+<div class="title">Figure 9. Add Claim Command Sequence Diagram</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddClaimSequenceDiagram_Model.png" alt="AddClaimSequenceDiagram Model">
+</div>
+<div class="title">Figure 10. Add Claim Command Sequence Diagram (extension)</div>
+</div>
+<div class="paragraph">
+<p>The <code>AddClaimCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddClaimCommandParser#parse()</code> - This operation will take in a String input from the user that will create <code>Claim</code>
+objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 'p/'. The String value after the individual prefixes will
+create the respective object: d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and p/<code>phone</code>. A regex validation
+check will be imposed upon the creation of each argument. Any checks that fails the validation would prompt the user on
+the failed component.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>date</code> would use <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY.</p>
+</li>
+<li>
+<p><code>amount</code> would use <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of
+2 decimal places.</p>
+</li>
+<li>
+<p><code>phone</code> would use <code>ParserUtil#parsePhone()</code> to ensure that the phone number entered would only contain numbers that
+are at least 3 numbers long.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>After validation checks are completed with no errors, a <code>Claim</code> object will be constructed with <code>Id</code>, <code>Description</code>,
+<code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Phone</code> as the parameters.</p>
+</li>
+<li>
+<p><code>AddClaimCommandParser</code> would then return an <code>AddClaimCommand</code> object with <code>Claim</code> as its attribute.</p>
+</li>
+<li>
+<p><code>AddClaimCommand#execute</code> checks against all existing contacts against the inputs <code>name</code> and <code>phone</code> to make sure
+the contact exists.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how <code>add_claim</code> mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user executes:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add_claim d/Logistics for Sports Day c/150.60 date/21-12-2019 n/Melissa p/99875432`</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This adds a <code>Claim</code> of $150.60 for Logistics for Sports Day by Melissa, with a phone identity of 99875432.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>LogicManager</code> would use <code>FinSecParser#parse()</code> to parse input from the user.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>FinSecParser</code> would determine which command is being used and creates the respective parser. In this case,
+<code>AddClaimCommandParser</code> is being created and the user&#8217;s input would be passed in as a parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>AddClaimCommandParser</code> would do a validation check on the user&#8217;s input before creating and returning a
+<code>AddClaimCommand</code> object with <code>Claim</code> as its attribute.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>LogicManager</code> would execute <code>AddClaimCommand#execute()</code>, checking whether there is an existing Claim and also
+whether there is an existing contact for the claim, then adding the <code>PendingClaim</code> into the <code>Model</code> which is handled by the
+<code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> <code>AddClaimCommand</code> would return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to
+the user.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="approving-a-claim"><a class="link" href="#approving-a-claim">2.2.2. Approving a Claim</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to approve a <code>PendingClaim</code> from the <code>UniqueClaimList</code> through its index.</p>
+</div>
+<div class="paragraph">
+<p>The approve claim feature is facilitated by the <code>ApproveClaimCommandParser</code> and the <code>ApproveClaimCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>ApproveClaimCommand</code> is part of the logic component of our application. It interacts with the model and storage
+components of our application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="rejecting-a-claim"><a class="link" href="#rejecting-a-claim">2.2.3. Rejecting a Claim</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to reject a <code>PendingClaim</code> from the <code>UniqueClaimList</code> through its index.</p>
+</div>
+<div class="paragraph">
+<p>The approve claim feature is facilitated by the <code>RejectClaimCommandParser</code> and the <code>RejectClaimCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>RejectClaimCommand</code> is part of the logic component of our application. It interacts with the model and storage
+components of our application.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="income-feature"><a class="link" href="#income-feature">2.3. Income feature</a></h3>
 <div class="paragraph">
 <p>The <code>add_income</code> command allows for users to register new <code>Income</code> objects into FinSec.</p>
 </div>
@@ -528,7 +675,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <p><code>add_income d/&lt;description&gt; c/&lt;cash amount&gt; date/&lt;date&gt; n/&lt;name&gt; p/&lt;phone number&gt;</code></p>
 </div>
 <div class="sect3">
-<h4 id="adding-an-income"><a class="link" href="#adding-an-income">2.2.1. Adding an Income</a></h4>
+<h4 id="adding-an-income"><a class="link" href="#adding-an-income">2.3.1. Adding an Income</a></h4>
 <div class="paragraph">
 <p><strong>Overview</strong></p>
 </div>
@@ -593,7 +740,7 @@ For example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">2.2.2. Deleting an Income</a></h4>
+<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">2.3.2. Deleting an Income</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to delete an income entry from the Unique Incomes List through its index.</p>
 </div>
@@ -605,7 +752,7 @@ For example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-an-income"><a class="link" href="#editing-an-income">2.2.3. Editing an Income</a></h4>
+<h4 id="editing-an-income"><a class="link" href="#editing-an-income">2.3.3. Editing an Income</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to edit any attribute of the income entries. There are a total of five attributes for each entry, the description of the income, the amount of money received, the date it was received, the name of the person / organisation the user
 received the money from and the contact number. The user can edit at least one and up to all attributes.</p>
@@ -619,14 +766,14 @@ received the money from and the contact number. The user can edit at least one a
 </div>
 </div>
 <div class="sect2">
-<h3 id="budget-feature"><a class="link" href="#budget-feature">2.3. Budget feature</a></h3>
+<h3 id="budget-feature"><a class="link" href="#budget-feature">2.4. Budget feature</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.4, &#8220;Goto feature&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.5, &#8220;Goto feature&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -657,14 +804,14 @@ received the money from and the contact number. The user can edit at least one a
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.4. Goto feature</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.5. Goto feature</a></h3>
 <div class="paragraph">
 <p>This section describes the different Views that Goto can bring a user to. This is also an overview of the goto details and how users can interact
 with goto based on commands implemented with the revamp of the original list feature.
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">2.4.1. Overview</a></h4>
+<h4 id="overview"><a class="link" href="#overview">2.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>In the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACTS</code>, <code>MESSAGE_SUCCESS_CLAIMS</code>, <code>MESSAGE_SUCCESS_INCOMES</code>, <code>MESSAGE FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the changing of View is successful. The attribute <code>View</code> is also stored as an attribute
@@ -672,7 +819,7 @@ of the command. It is taken in as the parameter and the index of this View deter
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">2.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Figure 4.3.1.1 is a sequence of steps that illustrates the interaction between various classes when the <code>goto</code> command is entered.
 <code>goto claims</code></p>
@@ -804,7 +951,7 @@ which is <code>LogicManager::execute</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.4.3. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.5.3. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>Our application allows for adding of claims and incomes, which are the extra features in comparison to the original AddressBook. Therefore, instead
 of placing all of them into the same list</p>
@@ -826,18 +973,18 @@ is successful.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.4.4. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.5.4. Alternatives Considered</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-feature"><a class="link" href="#check-feature">2.5. Check feature</a></h3>
+<h3 id="check-feature"><a class="link" href="#check-feature">2.6. Check feature</a></h3>
 <div class="paragraph">
 <p>This feature is an extended feature of the goto feature because this feature can only be run when
 the user is in the claims or contacts page. This command is called when the user wants to check each contact or claim individually.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">2.5.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">2.6.1. Overview</a></h4>
 <div class="paragraph">
 <p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing.
@@ -845,11 +992,11 @@ the user is in the claims or contacts page. This command is called when the user
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.5.2. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.6.2. Why was it implemented this way?</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.5.3. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.6.3. Alternatives Considered</a></h4>
 
 </div>
 </div>
@@ -2047,4 +2194,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 12:02:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 12:59:29 UTC</div></div></div></body></html>
