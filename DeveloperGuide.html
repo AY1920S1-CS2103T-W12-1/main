@@ -562,39 +562,49 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="sect2">
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.4. Goto feature</a></h3>
-<div class="sect3">
-<h4 id="introduction"><a class="link" href="#introduction">2.4.1. Introduction</a></h4>
 <div class="paragraph">
 <p>This section describes the different Views that Goto can bring a user to. This is also an overview of the goto details and how users can interact
 with goto based on commands implemented with the revamp of the original list feature.
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">2.4.1. Overview</a></h4>
+<div class="paragraph">
+<p>In the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACTS</code>, <code>MESSAGE_SUCCESS_CLAIMS</code>, <code>MESSAGE_SUCCESS_INCOMES</code>, <code>MESSAGE FAILURE</code>,
+<code>MESSAGE_USAGE</code> that informs the user if the changing of View is successful. The attribute <code>View</code> is also stored as an attribute
+of the command. It is taken in as the parameter and the index of this View determines the list that will be shown in the MainWindow.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.2. Current Implementation</a></h4>
+<h4 id="current-usage"><a class="link" href="#current-usage">2.4.2. Current Usage</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">2.4.3. Design Consideration</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.3. Current Implementation</a></h4>
+
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">2.4.4. Design Consideration</a></h4>
 
 </div>
 </div>
 <div class="sect2">
 <h3 id="check-feature"><a class="link" href="#check-feature">2.5. Check feature</a></h3>
-<div class="sect3">
-<h4 id="introduction-2"><a class="link" href="#introduction-2">2.5.1. Introduction</a></h4>
 <div class="paragraph">
 <p>This section is an overview of the check feature, an extended feature of the Goto feature. This feature can only be used
 after going to contacts or claims page. It is used to examine each contact or claim individually.
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">2.5.1. Overview</a></h4>
+<div class="paragraph">
+<p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
+<code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing.
+==== Current Implementation</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">2.5.2. Current Implementation</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">2.5.3. Design Consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">2.5.2. Design Consideration</a></h4>
 
 </div>
 </div>
@@ -1792,4 +1802,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 06:40:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 06:44:40 UTC</div></div></div></body></html>
