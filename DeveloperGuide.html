@@ -519,7 +519,103 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="sect2">
 <h3 id="income-feature"><a class="link" href="#income-feature">2.2. Income feature</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>The <code>add_income</code> command allows for users to register new <code>Income</code> objects into FinSec.</p>
+</div>
+<div class="paragraph">
+<p>The format for the <code>add_income</code> command is as follows:</p>
+</div>
+<div class="paragraph">
+<p><code>add_income d/&lt;description&gt; c/&lt;cash amount&gt; date/&lt;date&gt; n/&lt;name&gt; p/&lt;phone number&gt;</code></p>
+</div>
+<div class="sect3">
+<h4 id="adding-an-income"><a class="link" href="#adding-an-income">2.2.1. Adding an Income</a></h4>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The add income <code>add_income</code> mechanism is facilitated by <code>AddIncomeCommand</code> and <code>AddIncomeCommandParser</code>. It takes in the following input from the user:
+<code>description</code>, <code>cash amount</code>, <code>name</code> and <code>phone number</code>, which will construct individual objects that construct an <code>Income</code> object.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddIncomeCommandParser#parse()</code> - This operation will take in a <code>String</code> input from the user that will create individual objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 'p/'. The <code>String</code> value after the individual prefixes will create
+the respective object: d/ <code>description</code>, c/ <code>cash amount</code>, date/<code>date</code>,  n/ <code>name</code> and p/ <code>phone</code>. A validation check will be imposed upon the creation of each object. Any checks that fails the validation would prompt the user on the failed component.
+For example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cash amount</code> would use <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of 2 decimal places.</p>
+</li>
+<li>
+<p><code>phone</code> would use <code>ParserUtil#parsePhone()</code> to ensure that the phone number entered would only contain numbers that are at least 3 numbers long.</p>
+</li>
+<li>
+<p><code>date</code> would use <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>After validation checks are completed with no errors, an <code>Income</code> object is then constructed with <code>description</code>, <code>cash</code>, <code>date</code>, <code>name</code> and <code>phone</code> as the parameters.</p>
+</li>
+<li>
+<p><code>AddIncomeCommandParser</code> would then return a <code>AddIncomeCommand</code> object with <code>Income</code> as the parameter.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how <code>add_income</code> mechanisam behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user executes <code>add_income d/shirt sales c/100.05 date/11-11-2019 n/John Doe p/91111111</code> to add an income of $100.05 of shirt sales received from John Doe who is contactable at 91111111.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>LogicManager</code> would use <code>FinSecParser#parse()</code> to parse input from the user.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>FinSecParser</code> would determine which command is being used and creates the respective parser. In this case, <code>AddIncomeCommandParser</code> is being created and the user&#8217;s input would be passed in as a parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>AddIncomeCommandParser</code> would do a validation check on the user&#8217;s input before creating and returning a <code>AddIncomeCommand</code> object with <code>Income</code> as the parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>LogicManager</code> would use <code>AddIncomeCommand#execute()</code> to add the <code>Income</code> into the <code>Model</code> which is handled by the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> <code>AddIncomeCommand</code> would return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to the user.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">2.2.2. Deleting an Income</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to delete an income entry from the Unique Incomes List through its index.</p>
+</div>
+<div class="paragraph">
+<p>The delete income feature is facilitated by the <code>DeleteIncomeCommandParser</code> and the <code>DeleteIncomeCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The delete income command is part of the logic component of our application. It interacts with the model and storage components of our application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-income"><a class="link" href="#editing-an-income">2.2.3. Editing an Income</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to edit any attribute of the income entries. There are a total of five attributes for each entry, the description of the income, the amount of money received, the date it was received, the name of the person / organisation the user
+received the money from and the contact number. The user can edit at least one and up to all attributes.</p>
+</div>
+<div class="paragraph">
+<p>The edit income feature is facilitated by the <code>EditIncomeCommandParser</code> and the <code>EditIncomeCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The edit command is part of the logic component of our application. It interacts with the model component of our software architecture.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1951,4 +2047,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 11:16:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 11:46:53 UTC</div></div></div></body></html>
