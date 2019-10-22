@@ -576,19 +576,161 @@ of the command. It is taken in as the parameter and the index of this View deter
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-usage"><a class="link" href="#current-usage">2.4.2. Current Usage</a></h4>
-
+<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.2. Current Implementation</a></h4>
+<div class="paragraph">
+<p>Figure 4.3.1.1 is a sequence of steps that illustrates the interaction between various classes when the <code>goto</code> command is entered.
+<code>goto claims</code></p>
+</div>
+<div class="paragraph">
+<p><a href="#addSeqDiagram">Figure 2.4.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>goto contacts</code>
+command is entered.</p>
+</div>
+<div id="addSeqDiagram" class="imageblock">
+<div class="content">
+<img src="images/GotoSequenceDiagram.png" alt="GotoSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2.4.2.1: Execution sequence of the <code>goto contacts</code> command</div>
+</div>
+<div class="paragraph">
+<p>1) The only parameter after the goto command in the user input is passed into the LogicManager::execute method of the LogicManager instance.<br></p>
+</div>
+<div class="paragraph">
+<p>2) The LogicManager::execute method calls FinSecParser::parseCommand which receives the user input as a parameter.<br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>This user input which is in <code>String</code> format is then formatted, the first word before the space is taken as the command word
+and the rest of the String is grouped together as the argument that will be used later by the GotoCommandParser.</p>
+</li>
+<li>
+<p>With the command word determined, the FinSecParser instance identifies the command as a <code>goto</code> command and constructs an
+instance of the GotoCommandParser.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>3) FinSecParser calls the GotoCommandParser::parse method. This instance of GotoCommandParser then takes in the rest of the string,
+in this case: <code>claims</code><br></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>View</code> instance is then created when the ParserUtil:parseView method is called. This method takes in the argument from the GotoCommandPaser::parse method parameter
+and returns a GotoCommand with the View instance. This View forms the gotoView attribute of this specific GotoCommand instance.</p>
+</li>
+<li>
+<p>When the argument for the GotoCommandParser::parse method is not recognised or present, a <code>ParseException</code> will be thrown with an error
+message that asks for the proper usage of the goto Command.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>4) This newly created GotoCommand object is returned to the LogicManager instance through the GotoCommandParser and FinSecParser objects.</p>
+</div>
+<div class="paragraph">
+<p>5) In the LogicManager object, it then calls the <code>GotoCommand::execute</code> method</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The method takes in a <code>Model</code> object to access the application’s data context, the general storage of data for the application</p>
+</li>
+<li>
+<p>The code snippet below shows the <code>GotoCommand::execute</code> method<br></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
+    requireNonNull(model);
+    <span class="keyword">if</span> (gotoView.getIndex() == <span class="integer">1</span>) { <span class="comment">//case of contacts</span>
+        model.updateFilteredContactList(PREDICATE_SHOW_ALL_PERSONS);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_CONTACTS);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (gotoView.getIndex() == <span class="integer">2</span>) { <span class="comment">//case of claims</span>
+        model.updateFilteredClaimList(PREDICATE_SHOW_ALL_CLAIMS);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_CLAIMS);
+    } <span class="keyword">else</span> <span class="keyword">if</span> (gotoView.getIndex() == <span class="integer">3</span>) { <span class="comment">//case of income</span>
+        model.updateFilteredIncomeList(PREDICATE_SHOW_ALL_INCOMES);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_INCOMES);
+    } <span class="keyword">else</span> {
+        <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_FAILURE);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A check to ensure that the model passed into the <code>GotoCommand::execute</code> method is not null is made before the rest of the method continues.</p>
+</li>
+<li>
+<p>The <code>View::getIndex</code> method is then called to determine the gotoView for this current <code>GotoCommand</code> instance. There are 3 alternatives for
+this command. They are <code>1, 2, 3</code>. These indexes refer to <code>contacts</code>, <code>claims</code> and <code>incomes</code> respectively.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>6) Depending on which alternative is chosen based on the index of the gotoView, the <code>model</code> instance will then be updated with the correct list
+of items.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the user wants to go to contacts, the <code>Model::updateFilteredContactList</code> method is called with a true predicate as the argument</p>
+</li>
+<li>
+<p>If the user wants to go to claims, the <code>Model::updateFilteredClaimList</code> method is called with a true predicate as the argument</p>
+</li>
+<li>
+<p>If the user wants to go to incomes, the <code>Model::updateFilteredIncomeList</code> method is called with a true predicate as the argument</p>
+</li>
+<li>
+<p>If the index that was retrieved through the <code>Model::getIndex</code> method is invalid or not within these 3 numbers, then a <code>CommandException</code> will
+be thrown with the <code>MESSAGE_FAILURE</code> static attribute.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>7) This <code>GotoCommand::execute</code> method completes by returning a new <code>CommandResult</code> with the specific success message to its calling method
+which is <code>LogicManager::execute</code>.</p>
+</div>
+<div class="paragraph">
+<p>8) <code>LogicManager::execute</code> method returns a <code>CommandResult</code> to the calling method which is <code>MainWindow::executeCommand</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The specific feedback is then retrieved through <code>CommandResult::getFeedbackToUser</code> and set in the result display of the MainWindow.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.3. Current Implementation</a></h4>
-
+<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.4.3. Why was it implemented this way?</a></h4>
+<div class="paragraph">
+<p>Our application allows for adding of claims and incomes, which are the extra features in comparison to the original AddressBook. Therefore, instead
+of placing all of them into the same list</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We found the need to split them into 3 separate lists instead of placing them in the same window where a user sees 3 lists cluttered together.</p>
+</li>
+<li>
+<p>We want the user to have a clear command to know that he/she is no longer on the contacts list and has moved on to another list.</p>
+</li>
+<li>
+<p>In addition, with these new Views created, upon successful invocation of the <code>add_contacts</code>, <code>add_claim</code> or <code>add_income</code> methods by the user, the UI will
+change automatically to either the contact, claims or incomes page. This gives the user a clear indication if the specific entry he/she has added
+is successful.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.4.4. Why was it implemented this way?</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.4.5. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.4.4. Alternatives Considered</a></h4>
 
 </div>
 </div>
@@ -1809,4 +1951,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 08:23:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 10:10:55 UTC</div></div></div></body></html>
