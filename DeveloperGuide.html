@@ -22,11 +22,10 @@
 <li><a href="#implementation">2. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#claim-feature">2.1. Claim feature</a></li>
-<li><a href="#claim-feature-2">2.2. Claim feature</a></li>
-<li><a href="#income-feature">2.3. Income feature</a></li>
-<li><a href="#budget-feature">2.4. Budget feature</a></li>
-<li><a href="#Implementation-Configuration">2.5. Goto feature</a></li>
-<li><a href="#check-feature">2.6. Check feature</a></li>
+<li><a href="#income-feature">2.2. Income feature</a></li>
+<li><a href="#budget-feature">2.3. Budget feature</a></li>
+<li><a href="#Implementation-Configuration">2.4. Goto feature</a></li>
+<li><a href="#check-feature">2.5. Check feature</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -309,217 +308,6 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="claim-feature"><a class="link" href="#claim-feature">2.1. Claim feature</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedAddressBook</code>.
-It extends <code>AddressBook</code> with an undo/redo history, stored internally as an <code>addressBookStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedAddressBook#commit()</code>&#8201;&#8212;&#8201;Saves the current address book state in its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#undo()</code>&#8201;&#8212;&#8201;Restores the previous address book state from its history.</p>
-</li>
-<li>
-<p><code>VersionedAddressBook#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone address book state from its history.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> and <code>Model#redoAddressBook()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedAddressBook</code> will be initialized with the initial address book state, and the <code>currentStatePointer</code> pointing to that single address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th person in the address book. The <code>delete</code> command calls <code>Model#commitAddressBook()</code>, causing the modified state of the address book after the <code>delete 5</code> command executes to be saved in the <code>addressBookStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted address book state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#commitAddressBook()</code>, causing another modified address book state to be saved into the <code>addressBookStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitAddressBook()</code>, so the address book state will not be saved into the <code>addressBookStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the person was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoAddressBook()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous address book state, and restores the address book to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial address book state, then there are no previous address book states to restore. The <code>undo</code> command uses <code>Model#canUndoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoAddressBook()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the address book to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>addressBookStateList.size() - 1</code>, pointing to the latest address book state, then there are no undone address book states to restore. The <code>redo</code> command uses <code>Model#canRedoAddressBook()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the address book, such as <code>list</code>, will usually not call <code>Model#commitAddressBook()</code>, <code>Model#undoAddressBook()</code> or <code>Model#redoAddressBook()</code>. Thus, the <code>addressBookStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitAddressBook()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>addressBookStateList</code>, all address book states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">2.1.1. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire address book.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the person being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of address book states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedAddressBook</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="claim-feature-2"><a class="link" href="#claim-feature-2">2.2. Claim feature</a></h3>
-<div class="paragraph">
 <p>The <code>add_claim</code> command allows for admins to register Claims into FinSec.</p>
 </div>
 <div class="paragraph">
@@ -531,7 +319,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect3">
-<h4 id="adding-a-claim"><a class="link" href="#adding-a-claim">2.2.1. Adding a Claim</a></h4>
+<h4 id="adding-a-claim"><a class="link" href="#adding-a-claim">2.1.1. Adding a Claim</a></h4>
 <div class="paragraph">
 <p><strong>Overview</strong></p>
 </div>
@@ -637,7 +425,7 @@ the user.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="approving-a-claim"><a class="link" href="#approving-a-claim">2.2.2. Approving a Claim</a></h4>
+<h4 id="approving-a-claim"><a class="link" href="#approving-a-claim">2.1.2. Approving a Claim</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to approve a <code>PendingClaim</code> from the <code>UniqueClaimList</code> through its index.</p>
 </div>
@@ -650,7 +438,7 @@ components of our application.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="rejecting-a-claim"><a class="link" href="#rejecting-a-claim">2.2.3. Rejecting a Claim</a></h4>
+<h4 id="rejecting-a-claim"><a class="link" href="#rejecting-a-claim">2.1.3. Rejecting a Claim</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to reject a <code>PendingClaim</code> from the <code>UniqueClaimList</code> through its index.</p>
 </div>
@@ -664,7 +452,7 @@ components of our application.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="income-feature"><a class="link" href="#income-feature">2.3. Income feature</a></h3>
+<h3 id="income-feature"><a class="link" href="#income-feature">2.2. Income feature</a></h3>
 <div class="paragraph">
 <p>The <code>add_income</code> command allows for users to register new <code>Income</code> objects into FinSec.</p>
 </div>
@@ -675,7 +463,7 @@ components of our application.</p>
 <p><code>add_income d/&lt;description&gt; c/&lt;cash amount&gt; date/&lt;date&gt; n/&lt;name&gt; p/&lt;phone number&gt;</code></p>
 </div>
 <div class="sect3">
-<h4 id="adding-an-income"><a class="link" href="#adding-an-income">2.3.1. Adding an Income</a></h4>
+<h4 id="adding-an-income"><a class="link" href="#adding-an-income">2.2.1. Adding an Income</a></h4>
 <div class="paragraph">
 <p><strong>Overview</strong></p>
 </div>
@@ -740,7 +528,7 @@ For example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">2.3.2. Deleting an Income</a></h4>
+<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">2.2.2. Deleting an Income</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to delete an income entry from the Unique Incomes List through its index.</p>
 </div>
@@ -752,7 +540,7 @@ For example:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-an-income"><a class="link" href="#editing-an-income">2.3.3. Editing an Income</a></h4>
+<h4 id="editing-an-income"><a class="link" href="#editing-an-income">2.2.3. Editing an Income</a></h4>
 <div class="paragraph">
 <p>This feature allows the user to edit any attribute of the income entries. There are a total of five attributes for each entry, the description of the income, the amount of money received, the date it was received, the name of the person / organisation the user
 received the money from and the contact number. The user can edit at least one and up to all attributes.</p>
@@ -766,14 +554,14 @@ received the money from and the contact number. The user can edit at least one a
 </div>
 </div>
 <div class="sect2">
-<h3 id="budget-feature"><a class="link" href="#budget-feature">2.4. Budget feature</a></h3>
+<h3 id="budget-feature"><a class="link" href="#budget-feature">2.3. Budget feature</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.5, &#8220;Goto feature&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 2.4, &#8220;Goto feature&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -804,14 +592,14 @@ received the money from and the contact number. The user can edit at least one a
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.5. Goto feature</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">2.4. Goto feature</a></h3>
 <div class="paragraph">
 <p>This section describes the different Views that Goto can bring a user to. This is also an overview of the goto details and how users can interact
 with goto based on commands implemented with the revamp of the original list feature.
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">2.5.1. Overview</a></h4>
+<h4 id="overview"><a class="link" href="#overview">2.4.1. Overview</a></h4>
 <div class="paragraph">
 <p>In the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACTS</code>, <code>MESSAGE_SUCCESS_CLAIMS</code>, <code>MESSAGE_SUCCESS_INCOMES</code>, <code>MESSAGE FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the changing of View is successful. The attribute <code>View</code> is also stored as an attribute
@@ -819,7 +607,7 @@ of the command. It is taken in as the parameter and the index of this View deter
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">2.5.2. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Figure 4.3.1.1 is a sequence of steps that illustrates the interaction between various classes when the <code>goto</code> command is entered.
 <code>goto claims</code></p>
@@ -951,7 +739,7 @@ which is <code>LogicManager::execute</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.5.3. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.4.3. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>Our application allows for adding of claims and incomes, which are the extra features in comparison to the original AddressBook. Therefore, instead
 of placing all of them into the same list</p>
@@ -973,18 +761,18 @@ is successful.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.5.4. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.4.4. Alternatives Considered</a></h4>
 
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-feature"><a class="link" href="#check-feature">2.6. Check feature</a></h3>
+<h3 id="check-feature"><a class="link" href="#check-feature">2.5. Check feature</a></h3>
 <div class="paragraph">
 <p>This feature is an extended feature of the goto feature because this feature can only be run when
 the user is in the claims or contacts page. This command is called when the user wants to check each contact or claim individually.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">2.6.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">2.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing.
@@ -992,11 +780,11 @@ the user is in the claims or contacts page. This command is called when the user
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.6.2. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.5.2. Why was it implemented this way?</a></h4>
 
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.6.3. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.5.3. Alternatives Considered</a></h4>
 
 </div>
 </div>
@@ -2194,4 +1982,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 12:59:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 13:07:36 UTC</div></div></div></body></html>
