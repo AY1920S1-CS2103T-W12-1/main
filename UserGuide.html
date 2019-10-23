@@ -23,7 +23,7 @@
 <li><a href="#editing-an-income">3.8. Editing an income</a></li>
 <li><a href="#checking-a-person-or-claim">3.9. Checking a Person or Claim</a></li>
 <li><a href="#deleting-a-person">3.10. Deleting a Person</a></li>
-<li><a href="#see-budget-pop-up">3.11. See budget (Pop-up)</a></li>
+<li><a href="#viewing-budget-code-budget-code">3.11. Viewing budget : <code>budget</code></a></li>
 <li><a href="#resolving-claims">3.12. Resolving claims</a></li>
 <li><a href="#attaching-pictures-to-claims">3.13. Attaching Pictures to Claims</a></li>
 <li><a href="#grouping-users">3.14. Grouping Users</a></li>
@@ -131,7 +131,29 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Provides 3 different types of help for all commands.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>Format:
+<code>help cmd/COMMAND type/TYPE</code></p>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="#command-summary">Section 6, &#8220;Command Summary&#8221;</a> for all available commands</p>
+</div>
+<div class="paragraph">
+<p>Types include:<br>
+<code>brief</code> (gives a brief description)<br>
+		<code>guide</code> (opens a web browser and bring you to our user guide)<br>
+		<code>api</code> (for advanced users who want to know the inner workings of the command)<br></p>
+</div>
+<div class="paragraph">
+<p>Examples:<br>
+<code>help cmd/add_income type/brief</code><br>
+<code>help cmd/goto type/guide</code><br>
+<code>help cmd/help type/api</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -351,7 +373,11 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="see-budget-pop-up"><a class="link" href="#see-budget-pop-up">3.11. See budget (Pop-up)</a></h3>
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.11. Viewing budget : <code>budget</code></a></h3>
+<div class="paragraph">
+<p>Calculates the projected budget based on all income and approved claim values.<br>
+Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
+</div>
 <div class="paragraph">
 <p>Format: <code>budget</code></p>
 </div>
@@ -509,7 +535,8 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Help</strong> : <code>help cmd/COMMAND type/TYPE</code><br>
+e.g. <code>help cmd/add_income type/brief</code></p>
 </li>
 <li>
 <p><strong>Changing of Views</strong> <code>goto (parameter)</code>
@@ -591,4 +618,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-22 15:51:28 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:11:38 UTC</div></div></div></body></html>
