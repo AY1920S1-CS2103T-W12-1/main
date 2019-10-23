@@ -714,10 +714,10 @@ of the command. It is taken in as the parameter and the index of this View deter
 <code>goto claims</code></p>
 </div>
 <div class="paragraph">
-<p><a href="#addSeqDiagram">Figure 2.4.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>goto contacts</code>
+<p><a href="#gotoSeqDiagram">Figure 2.4.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>goto contacts</code>
 command is entered.</p>
 </div>
-<div id="addSeqDiagram" class="imageblock">
+<div id="gotoSeqDiagram" class="imageblock">
 <div class="content">
 <img src="images/GotoSequenceDiagram.png" alt="GotoSequenceDiagram" width="800">
 </div>
@@ -769,28 +769,18 @@ message that asks for the proper usage of the goto Command.</p>
 <p>The method takes in a <code>Model</code> object to access the application’s data context, the general storage of data for the application</p>
 </li>
 <li>
-<p>The code snippet below shows the <code>GotoCommand::execute</code> method<br></p>
+<p>The activity diagram below shows the <code>GotoCommand::execute</code> method<br></p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
-    requireNonNull(model);
-    <span class="keyword">if</span> (gotoView.getIndex() == <span class="integer">1</span>) { <span class="comment">//case of contacts</span>
-        model.updateFilteredContactList(PREDICATE_SHOW_ALL_PERSONS);
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_CONTACTS);
-    } <span class="keyword">else</span> <span class="keyword">if</span> (gotoView.getIndex() == <span class="integer">2</span>) { <span class="comment">//case of claims</span>
-        model.updateFilteredClaimList(PREDICATE_SHOW_ALL_CLAIMS);
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_CLAIMS);
-    } <span class="keyword">else</span> <span class="keyword">if</span> (gotoView.getIndex() == <span class="integer">3</span>) { <span class="comment">//case of income</span>
-        model.updateFilteredIncomeList(PREDICATE_SHOW_ALL_INCOMES);
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_INCOMES);
-    } <span class="keyword">else</span> {
-        <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_FAILURE);
-    }
-}</code></pre>
+<div class="paragraph">
+<p><a href="#gotoActDiagram">Figure 2.5.2.2</a> is the activity diagram of the goto command</p>
 </div>
+<div id="gotoActDiagram" class="imageblock">
+<div class="content">
+<img src="images/GotoActivityDiagram.png" alt="GotoActivityDiagram" width="800">
+</div>
+<div class="title">Figure 2.5.2.2: ActivityDiagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -890,10 +880,10 @@ individual claim or contact. It comes in the form of a pop-up that shows the mos
 <p>Figure 2.5.2.1 is a sequence of steps that illustrates the interaction between various classes when the <code>check</code> command is entered.</p>
 </div>
 <div class="paragraph">
-<p><a href="#addSeqDiagram">Figure 2.4.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>check 1</code>
+<p><a href="#checkSeqDiagram">Figure 2.5.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>check 1</code>
 command is entered.</p>
 </div>
-<div id="addSeqDiagram" class="imageblock">
+<div id="checkSeqDiagram" class="imageblock">
 <div class="content">
 <img src="images/CheckSequenceDiagram.png" alt="CheckSequenceDiagram" width="800">
 </div>
@@ -945,36 +935,21 @@ message that asks for the proper usage of the check Command.</p>
 <p>The method takes in a <code>Model</code> object to access the application’s data context, the general storage of data for the application</p>
 </li>
 <li>
-<p>The code snippet below shows the <code>CheckCommand::execute</code> method<br></p>
+<p>The Activity Diagram below shows the <code>CheckCommand::execute</code> method<br></p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
-    requireNonNull(model);
-    <span class="comment">//if the current state is not claims or contacts, the check command will be invalid</span>
-    <span class="keyword">if</span> (UiManager.getState().equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">claims</span><span class="delimiter">&quot;</span></span>)) {
-        <span class="predefined-type">List</span>&lt;Claim&gt; lastShownList = model.getFilteredClaimList();
-        <span class="comment">//throw error if index not valid</span>
-        <span class="keyword">if</span> (index.getZeroBased() &gt;= lastShownList.size()) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(Messages.MESSAGE_INVALID_CLAIM_DISPLAYED_INDEX);
-        }
-        Claim claimToShow = lastShownList.get(index.getZeroBased());
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_CLAIM, <span class="predefined-constant">false</span>, <span class="predefined-constant">false</span>, <span class="predefined-constant">true</span>, claimToShow);
-    } <span class="keyword">else</span> <span class="keyword">if</span> (UiManager.getState().equals(<span class="string"><span class="delimiter">&quot;</span><span class="content">contacts</span><span class="delimiter">&quot;</span></span>)) {
-        <span class="predefined-type">List</span>&lt;Contact&gt; contactList = model.getFilteredContactList();
-        <span class="comment">//throw error if index not valid</span>
-        <span class="keyword">if</span> (index.getZeroBased() &gt;= contactList.size()) {
-            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
-        }
-        Contact contactToShow = contactList.get(index.getZeroBased());
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS_CONTACT, <span class="predefined-constant">false</span>, <span class="predefined-constant">false</span>, <span class="predefined-constant">false</span>, <span class="predefined-constant">true</span>, contactToShow);
-    } <span class="keyword">else</span> {
-        <span class="keyword">return</span> <span class="keyword">new</span> CommandException(MESSAGE_FAILURE);
-    }
-}</code></pre>
+<div class="paragraph">
+<p>Figure 2.5.2.2 is the activity diagram of the check command</p>
 </div>
+<div class="paragraph">
+<p><a href="#checkActDiagram">Figure 2.5.2.2</a> is the activity diagram of the check command</p>
+</div>
+<div id="checkActDiagram" class="imageblock">
+<div class="content">
+<img src="images/CheckActivityDiagram.png" alt="CheckActivityDiagram" width="800">
+</div>
+<div class="title">Figure 2.5.2.2: ActivityDiagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -2259,4 +2234,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 14:11:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 16:00:07 UTC</div></div></div></body></html>
