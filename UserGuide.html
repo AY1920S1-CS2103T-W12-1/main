@@ -18,17 +18,18 @@
 <li><a href="#adding-a-person-code-add_contact-code">3.3. Adding a person <code>add_contact</code></a></li>
 <li><a href="#editing-a-contact-code-edit_person-code">3.4. Editing a contact : <code>edit_person</code></a></li>
 <li><a href="#adding-a-claim-code-add_claim-code">3.5. Adding a claim : <code>add_claim</code></a></li>
-<li><a href="#editing-a-claim-code-edit_claim-code">3.6. Editing a claim : <code>edit_claim</code></a></li>
-<li><a href="#adding-an-income">3.7. Adding an income</a></li>
-<li><a href="#editing-an-income">3.8. Editing an income</a></li>
-<li><a href="#checking-a-person-or-claim">3.9. Checking a Person or Claim</a></li>
-<li><a href="#deleting-a-person">3.10. Deleting a Person</a></li>
-<li><a href="#viewing-budget-code-budget-code">3.11. Viewing budget : <code>budget</code></a></li>
-<li><a href="#resolving-claims">3.12. Resolving claims</a></li>
-<li><a href="#attaching-pictures-to-claims">3.13. Attaching Pictures to Claims</a></li>
-<li><a href="#grouping-users">3.14. Grouping Users</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.16. Saving the data</a></li>
+<li><a href="#approving-a-claim-code-approve-code">3.6. Approving a claim : <code>approve</code></a></li>
+<li><a href="#rejecting-a-claim-code-reject-code">3.7. Rejecting a claim : <code>reject</code></a></li>
+<li><a href="#adding-an-income">3.8. Adding an income</a></li>
+<li><a href="#editing-an-income">3.9. Editing an income</a></li>
+<li><a href="#checking-a-person-or-claim">3.10. Checking a Person or Claim</a></li>
+<li><a href="#deleting-a-person">3.11. Deleting a Person</a></li>
+<li><a href="#viewing-budget-code-budget-code">3.12. Viewing budget : <code>budget</code></a></li>
+<li><a href="#resolving-claims">3.13. Resolving claims</a></li>
+<li><a href="#attaching-pictures-to-claims">3.14. Attaching Pictures to Claims</a></li>
+<li><a href="#grouping-users">3.15. Grouping Users</a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.17. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#upcoming-features">4. Upcoming Features</a>
@@ -62,7 +63,7 @@ The app focuses on the tracking of claims that will help the While FinSec has a 
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/releases">here</a>.</p>
+<p>Download the latest <code>finsec.jar</code> <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -84,7 +85,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com : adds a contact named `John Doe</code> to the Address Book.</p>
+<p><strong><code>add_contact</code></strong><code>n/John Doe p/98765432</code> : adds a contact named John Doe to FinSec.</p>
 </li>
 <li>
 <p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
@@ -243,15 +244,15 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-claim-code-edit_claim-code"><a class="link" href="#editing-a-claim-code-edit_claim-code">3.6. Editing a claim : <code>edit_claim</code></a></h3>
+<h3 id="approving-a-claim-code-approve-code"><a class="link" href="#approving-a-claim-code-approve-code">3.6. Approving a claim : <code>approve</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing claim<br></p>
+<p>Approves an existing pending claim<br></p>
 </div>
 <div class="paragraph">
-<p>Keyword: <code>edit_claim</code></p>
+<p>Keyword: <code>approve</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit_claim INDEX d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+<p>Format: <code>approve INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -259,13 +260,81 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
+<p><code>approve 1</code> (approves the first claim in the claim list)</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Approves the claim at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The displayed list must be the claim list.</p>
+</li>
+<li>
+<p>Claim at the specified <code>INDEX</code> must be a pending claim.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed claim list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+</div>
 <div class="sect2">
-<h3 id="adding-an-income"><a class="link" href="#adding-an-income">3.7. Adding an income</a></h3>
+<h3 id="rejecting-a-claim-code-reject-code"><a class="link" href="#rejecting-a-claim-code-reject-code">3.7. Rejecting a claim : <code>reject</code></a></h3>
+<div class="paragraph">
+<p>Rejects an existing pending claim<br></p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>reject</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>reject INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>reject 1</code> (approves the first claim in the claim list)</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Rejects the claim at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The displayed list must be the claim list.</p>
+</li>
+<li>
+<p>Claim at the specified <code>INDEX</code> must be a pending claim.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed claim list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-income"><a class="link" href="#adding-an-income">3.8. Adding an income</a></h3>
 <div class="paragraph">
 <p>Adds an income to the income list<br></p>
 </div>
@@ -287,7 +356,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-income"><a class="link" href="#editing-an-income">3.8. Editing an income</a></h3>
+<h3 id="editing-an-income"><a class="link" href="#editing-an-income">3.9. Editing an income</a></h3>
 <div class="paragraph">
 <p>Edits an income on the income list<br></p>
 </div>
@@ -309,7 +378,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-a-person-or-claim"><a class="link" href="#checking-a-person-or-claim">3.9. Checking a Person or Claim</a></h3>
+<h3 id="checking-a-person-or-claim"><a class="link" href="#checking-a-person-or-claim">3.10. Checking a Person or Claim</a></h3>
 <div class="paragraph">
 <p>Displays the details of the Person or Claim</p>
 </div>
@@ -334,7 +403,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">3.10. Deleting a Person</a></h3>
+<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">3.11. Deleting a Person</a></h3>
 <div class="paragraph">
 <p>Deletes a Person from the contact list</p>
 </div>
@@ -373,7 +442,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.11. Viewing budget : <code>budget</code></a></h3>
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.12. Viewing budget : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Calculates the projected budget based on all income and approved claim values.<br>
 Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
@@ -383,7 +452,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="resolving-claims"><a class="link" href="#resolving-claims">3.12. Resolving claims</a></h3>
+<h3 id="resolving-claims"><a class="link" href="#resolving-claims">3.13. Resolving claims</a></h3>
 <div class="paragraph">
 <p>Resolves claims</p>
 </div>
@@ -408,7 +477,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="attaching-pictures-to-claims"><a class="link" href="#attaching-pictures-to-claims">3.13. Attaching Pictures to Claims</a></h3>
+<h3 id="attaching-pictures-to-claims"><a class="link" href="#attaching-pictures-to-claims">3.14. Attaching Pictures to Claims</a></h3>
 <div class="paragraph">
 <p>Attaches a picture of the claim in the 'docs/claims/images' folder (directory is subject to change) to a claim.</p>
 </div>
@@ -442,7 +511,7 @@ specified index from the user input</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="grouping-users"><a class="link" href="#grouping-users">3.14. Grouping Users</a></h3>
+<h3 id="grouping-users"><a class="link" href="#grouping-users">3.15. Grouping Users</a></h3>
 <div class="paragraph">
 <p>Assigns tags to the people in the contact list to group them together to aid in finding specific groups of people</p>
 </div>
@@ -476,14 +545,14 @@ in the contacts list</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -559,6 +628,14 @@ e.g. <code>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sport
 e.g. <code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
 </li>
 <li>
+<p><strong>Approves claim</strong> <code>approve INDEX</code><br>
+e.g. <code>approve 1</code></p>
+</li>
+<li>
+<p><strong>Rejects claim</strong> <code>reject INDEX</code><br>
+e.g. <code>reject 1</code></p>
+</li>
+<li>
 <p><strong>Adding income</strong> <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
 e.g. <code>add_income d/Shirt Sales a/307.5 n/Lee Wei Gen p/96777777 t/Marketing</code></p>
 </li>
@@ -618,4 +695,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 16:00:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 19:18:38 UTC</div></div></div></body></html>
