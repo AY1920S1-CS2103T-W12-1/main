@@ -547,6 +547,59 @@ For example:</p>
 <div class="paragraph">
 <p>The delete income command is part of the logic component of our application. It interacts with the model and storage components of our application.</p>
 </div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteIncomeCommandParser#parse()</code> - This operation will take in a <code>int</code> input from the user which will delete the income entry at the index which has entered.
+Any invalid format of the command will be prompted by the command parser.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Current Implementation</strong></p>
+</div>
+<div class="paragraph">
+<p>The delete income feature is executed by the <code>DeleteIncomeCommand</code>. Currently, the deletion of any income entry is done based on the <code>INDEX</code> of the income entry.</p>
+</div>
+<div class="paragraph">
+<p>During the design of our delete function, we considered between two alternatives.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Delete function alternatives</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Design Consideration</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Income description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive for users to delete an income through the description of the income.
+                                        <strong>Cons</strong> : Incomes of different entries can have similar description. The user would eventually still have to look through the income list.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Index (Current Choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Since each income has a unique index, any deletion by the index is less prone to bugs and easier to implement.</p>
+<p class="tableblock">                                        <strong>Cons</strong> : User will have to scroll the income list for the income entry and look for its index which can be inconvenient.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We have decided to opt for the first option primarily because it reduces the number of potential bugs and the complexities involved when taking into account the different cases and scenarios upon using deletion by income description.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="editing-an-income"><a class="link" href="#editing-an-income">2.2.3. Editing an Income</a></h4>
@@ -559,6 +612,39 @@ received the money from and the contact number. The user can edit at least one a
 </div>
 <div class="paragraph">
 <p>The edit command is part of the logic component of our application. It interacts with the model component of our software architecture.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The <code>EditIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EditIncomeCommandParser#parse()</code> - This operation will take in an <code>int</code> input and one to five <code>String</code> input(s) from the user that will alter the attributes of current income entries based on the prefixes 'd/', 'c/', 'date/', 'n/', 'p'. The <code>String</code>
+value after the individual prefixes will alter the respective attribute it corresponds to: 'd/' for <code>Description</code>, 'c/' for <code>Amount</code>, 'date/' for <code>Date</code>, 'n/' for <code>Name</code> and 'p/' for <code>Phone</code>. A validation check will be imposed upon editing of each object. Any checks that fails
+the validation would prompt the user on the failed component.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Current Implementation</strong></p>
+</div>
+<div class="paragraph">
+<p>Here is an example of a step-by-step process on how the edit command alters an attribute of the homework entry. For each step, you may follow the activity diagram at the end of this section to better understand the flow of events within FinSec when an edit_income command is entered.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1 :</strong> The user launches the application and nagivates to the income page. There is a list of existing income entries in FinSec.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2 :</strong> The user then wishes to alter the income description of the second entry in the income list to "Fundraising". He then types <code>edit_income 2 d/Fundraising</code> into the Command Line Interface(CLI) and executes it.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3 :</strong> The FinSecParser (refer to logic) then reads in these attributes that have been entered and proceeds to alter the attributes of the income entry in the given index. Each attribute will be validated.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4 :</strong> The FinSecParser then creates a new EditIncomeCommand based on the input of the user. When the EditIncomeCommand is executed, it interacts with the Model architecture by calling the setIncome method. The setIncome method replaces the current income entry with the new income entry containing all the desired attributes. The income entry is now updated.</p>
 </div>
 </div>
 </div>
@@ -2241,4 +2327,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 20:41:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 21:57:07 UTC</div></div></div></body></html>
