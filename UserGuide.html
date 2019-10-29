@@ -16,32 +16,35 @@
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#changing-views-code-goto-code">3.2. Changing Views : <code>goto</code></a></li>
 <li><a href="#adding-a-person-code-add_contact-code">3.3. Adding a person <code>add_contact</code></a></li>
-<li><a href="#editing-a-contact-code-edit_person-code">3.4. Editing a contact : <code>edit_person</code></a></li>
+<li><a href="#editing-a-contact-code-edit_contact-code">3.4. Editing a contact : <code>edit_contact</code></a></li>
 <li><a href="#adding-a-claim-code-add_claim-code">3.5. Adding a claim : <code>add_claim</code></a></li>
 <li><a href="#approving-a-claim-code-approve-code">3.6. Approving a claim : <code>approve</code></a></li>
 <li><a href="#rejecting-a-claim-code-reject-code">3.7. Rejecting a claim : <code>reject</code></a></li>
-<li><a href="#adding-an-income">3.8. Adding an income</a></li>
-<li><a href="#editing-an-income">3.9. Editing an income</a></li>
-<li><a href="#checking-a-person-or-claim">3.10. Checking a Person or Claim</a></li>
-<li><a href="#deleting-a-person">3.11. Deleting a Person</a></li>
-<li><a href="#viewing-budget-code-budget-code">3.12. Viewing budget : <code>budget</code></a></li>
-<li><a href="#resolving-claims">3.13. Resolving claims</a></li>
-<li><a href="#attaching-pictures-to-claims">3.14. Attaching Pictures to Claims</a></li>
-<li><a href="#grouping-users">3.15. Grouping Users</a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.17. Saving the data</a></li>
+<li><a href="#adding-an-income-code-add_income-code">3.8. Adding an income : <code>add_income</code></a></li>
+<li><a href="#editing-an-income-code-edit_income-code">3.9. Editing an income : <code>edit_income</code></a></li>
+<li><a href="#checking-a-person-or-claim-code-check-code">3.10. Checking a Person or Claim : <code>check</code></a></li>
+<li><a href="#deleting-a-contact-code-delete_contact-code">3.11. Deleting a Contact : <code>delete_contact</code></a></li>
+<li><a href="#deleting-an-income-code-delete_income-code">3.12. Deleting an Income : <code>delete_income</code></a></li>
+<li><a href="#viewing-budget-code-budget-code">3.13. Viewing budget : <code>budget</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.14. Clearing all data : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.16. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#upcoming-features">4. Upcoming Features</a>
+<li><a href="#non-command-features">4. Non-command Features</a>
 <ul class="sectlevel2">
-<li><a href="#keeping-a-transaction-history">4.1. Keeping a Transaction History</a></li>
-<li><a href="#detecting-duplicates">4.2. Detecting duplicates</a></li>
-<li><a href="#budgeting-and-limiting">4.3. Budgeting and limiting</a></li>
-<li><a href="#typing-guide">4.4. Typing Guide</a></li>
+<li><a href="#detecting-duplicates">4.1. Detecting duplicates</a></li>
+<li><a href="#typing-guide">4.2. Typing Guide</a></li>
 </ul>
 </li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#upcoming-features">5. Upcoming Features</a>
+<ul class="sectlevel2">
+<li><a href="#attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0">5.1. Attaching Pictures to Claims : <code>attach</code> (To be implemented in v2.0)</a></li>
+<li><a href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.2. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></li>
+</ul>
+</li>
+<li><a href="#faq">6. FAQ</a></li>
+<li><a href="#command-summary">7. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -142,7 +145,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <code>help cmd/COMMAND type/TYPE</code></p>
 </div>
 <div class="paragraph">
-<p>Refer to <a href="#command-summary">Section 6, &#8220;Command Summary&#8221;</a> for all available commands</p>
+<p>Refer to <a href="#command-summary">Section 7, &#8220;Command Summary&#8221;</a> for all available commands</p>
 </div>
 <div class="paragraph">
 <p>Types include:<br>
@@ -152,10 +155,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 <div class="paragraph">
 <p>Examples:<br>
-<code>help cmd/add_contact type/brief</code> would show you a brief description of what the
-<code>add_contact</code> command does and how to use it+
-<code>help cmd/goto type/api</code> opens up a page in your browser
-and displays our API for the <code>goto</code> command+
+<code>help cmd/add_contact type/brief</code> would show you a brief description of what the <code>add_contact</code> command does and how to use it<br>
+<code>help cmd/goto type/api</code> opens up a page in your browser and displays our API for the <code>goto</code> command<br>
 <code>help cmd/help type/guide</code> opens up a page in your browser and brings you right here! :smiley:</p>
 </div>
 <div class="paragraph">
@@ -210,7 +211,7 @@ and displays our API for the <code>goto</code> command+
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-contact-code-edit_person-code"><a class="link" href="#editing-a-contact-code-edit_person-code">3.4. Editing a contact : <code>edit_person</code></a></h3>
+<h3 id="editing-a-contact-code-edit_contact-code"><a class="link" href="#editing-a-contact-code-edit_contact-code">3.4. Editing a contact : <code>edit_contact</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing contact<br></p>
 </div>
@@ -345,7 +346,7 @@ and displays our API for the <code>goto</code> command+
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-income"><a class="link" href="#adding-an-income">3.8. Adding an income</a></h3>
+<h3 id="adding-an-income-code-add_income-code"><a class="link" href="#adding-an-income-code-add_income-code">3.8. Adding an income : <code>add_income</code></a></h3>
 <div class="paragraph">
 <p>Adds an income to the income list<br></p>
 </div>
@@ -367,7 +368,7 @@ and displays our API for the <code>goto</code> command+
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-income"><a class="link" href="#editing-an-income">3.9. Editing an income</a></h3>
+<h3 id="editing-an-income-code-edit_income-code"><a class="link" href="#editing-an-income-code-edit_income-code">3.9. Editing an income : <code>edit_income</code></a></h3>
 <div class="paragraph">
 <p>Edits an income on the income list<br></p>
 </div>
@@ -389,7 +390,7 @@ and displays our API for the <code>goto</code> command+
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-a-person-or-claim"><a class="link" href="#checking-a-person-or-claim">3.10. Checking a Person or Claim</a></h3>
+<h3 id="checking-a-person-or-claim-code-check-code"><a class="link" href="#checking-a-person-or-claim-code-check-code">3.10. Checking a Person or Claim : <code>check</code></a></h3>
 <div class="paragraph">
 <p>Displays the details of the Person or Claim</p>
 </div>
@@ -414,15 +415,15 @@ and displays our API for the <code>goto</code> command+
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">3.11. Deleting a Person</a></h3>
+<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.11. Deleting a Contact : <code>delete_contact</code></a></h3>
 <div class="paragraph">
 <p>Deletes a Person from the contact list</p>
 </div>
 <div class="paragraph">
-<p>Keyword: <code>delete</code></p>
+<p>Keyword: <code>delete_contact</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>delete INDEX</code></p>
+<p>Format: <code>delete_contact INDEX</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -430,7 +431,7 @@ and displays our API for the <code>goto</code> command+
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code> (removes first person in the contact list)</p>
+<p><code>delete_contact 1</code> (removes first person in the contact list)</p>
 </li>
 </ul>
 </div>
@@ -453,7 +454,46 @@ and displays our API for the <code>goto</code> command+
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.12. Viewing budget : <code>budget</code></a></h3>
+<h3 id="deleting-an-income-code-delete_income-code"><a class="link" href="#deleting-an-income-code-delete_income-code">3.12. Deleting an Income : <code>delete_income</code></a></h3>
+<div class="paragraph">
+<p>Deletes an Income from the income list</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>delete_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete_income INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete_income 1</code> (removes first income in the income list)</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the income at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed income list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.13. Viewing budget : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Calculates the projected budget based on all income and approved claim values.<br>
 Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
@@ -462,42 +502,77 @@ Also displays a graph detailing total income, claim and budget values for every 
 <p>Format: <code>budget</code></p>
 </div>
 <div class="paragraph">
-<p><a href="#UG-BudgetExample">Figure 3.12.1</a> shows what you can expect to see when typing in the <code>budget</code> command.</p>
+<p><a href="#UG-BudgetExample">Figure 3.13.1</a> shows what you can expect to see when typing in the <code>budget</code> command.</p>
 </div>
 <div id="UG-BudgetExample" class="imageblock">
 <div class="content">
 <img src="images/UG-BudgetExample.PNG" alt="UG BudgetExample" width="800">
 </div>
-<div class="title">Figure 3.12.1: FinSec calculates your budget from the income and claim totals on the left while simultaneously displaying a graph of the income, claim and budget values for the current month on the right</div>
+<div class="title">Figure 3.13.1: FinSec calculates your budget from the income and claim totals on the left while simultaneously displaying a graph of the income, claim and budget values for the current month on the right</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="resolving-claims"><a class="link" href="#resolving-claims">3.13. Resolving claims</a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.14. Clearing all data : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Resolves claims</p>
+<p>Wipes all data from FinSec to allow you to start over or to safely dispose of data.</p>
 </div>
 <div class="paragraph">
-<p>Keyword: <code>resolve</code></p>
+<p>Format: <code>clear</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>resolve INDEX s/STATUS</code></p>
+<p><a href="#UG-ClearExample1">Figure 3.14.1</a> and <a href="#UG-ClearExample2">Figure 3.14.2</a> shows what you can expect to see when typing in the <code>clear</code> command.</p>
 </div>
-<div class="paragraph">
-<p>Examples:</p>
+<div id="UG-ClearExample1" class="imageblock">
+<div class="content">
+<img src="images/UG-ClearExample1.PNG" alt="UG ClearExample1" width="800">
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>resolve 1 s/approved (in claims page, approve a claim)</code></p>
-</li>
-<li>
-<p><code>resolve 2 s/rejected (in claims page, reject a claim)</code></p>
-</li>
-</ul>
+<div class="title">Figure 3.14.1: Before the <code>clear</code> command is used (data is present)</div>
+</div>
+<div id="UG-ClearExample2" class="imageblock">
+<div class="content">
+<img src="images/UG-ClearExample2.PNG" alt="UG ClearExample2" width="800">
+</div>
+<div class="title">Figure 3.14.2: After the <code>clear</code> command is used (all the data has been cleared)</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="attaching-pictures-to-claims"><a class="link" href="#attaching-pictures-to-claims">3.14. Attaching Pictures to Claims</a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.15. Exiting the program : <code>exit</code></a></h3>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.16. Saving the data</a></h3>
+<div class="paragraph">
+<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
+There is no need to save manually.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="non-command-features"><a class="link" href="#non-command-features">4. Non-command Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="detecting-duplicates"><a class="link" href="#detecting-duplicates">4.1. Detecting duplicates</a></h3>
+<div class="paragraph">
+<p>FinSec can automatically detect duplicate names of contacts, claims or incomes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="typing-guide"><a class="link" href="#typing-guide">4.2. Typing Guide</a></h3>
+<div class="paragraph">
+<p>Automatically detects command and comes up with suggestions as a pop-up on what syntax comes next.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="upcoming-features"><a class="link" href="#upcoming-features">5. Upcoming Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0"><a class="link" href="#attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0">5.1. Attaching Pictures to Claims : <code>attach</code> (To be implemented in v2.0)</a></h3>
 <div class="paragraph">
 <p>Attaches a picture of the claim in the 'docs/claims/images' folder (directory is subject to change) to a claim.</p>
 </div>
@@ -531,7 +606,7 @@ specified index from the user input</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="grouping-users"><a class="link" href="#grouping-users">3.15. Grouping Users</a></h3>
+<h3 id="grouping-users-code-tag-code-to-be-implemented-in-v2-0"><a class="link" href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.2. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></h3>
 <div class="paragraph">
 <p>Assigns tags to the people in the contact list to group them together to aid in finding specific groups of people</p>
 </div>
@@ -564,53 +639,10 @@ in the contacts list</p>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
-<div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.17. Saving the data</a></h3>
-<div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="upcoming-features"><a class="link" href="#upcoming-features">4. Upcoming Features</a></h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="keeping-a-transaction-history"><a class="link" href="#keeping-a-transaction-history">4.1. Keeping a Transaction History</a></h3>
-<div class="paragraph">
-<p>Keeps a list of past records</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="detecting-duplicates"><a class="link" href="#detecting-duplicates">4.2. Detecting duplicates</a></h3>
-<div class="paragraph">
-<p>Automatically detect duplicate names of contacts or claims</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="budgeting-and-limiting"><a class="link" href="#budgeting-and-limiting">4.3. Budgeting and limiting</a></h3>
-<div class="paragraph">
-<p>Adds a separate limit to warn the user if the person’s claims exceeded the budget or if resolving the claim puts the cash-on-hand below budget.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="typing-guide"><a class="link" href="#typing-guide">4.4. Typing Guide</a></h3>
-<div class="paragraph">
-<p>Automatically detects command and comes up with suggestions as a pop-up on what syntax comes next</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -619,7 +651,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -715,4 +747,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-28 23:58:50 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 04:18:52 UTC</div></div></div></body></html>
