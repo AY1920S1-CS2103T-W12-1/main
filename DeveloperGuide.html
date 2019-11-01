@@ -509,7 +509,7 @@ For example:</p>
 <p><strong>Example</strong></p>
 </div>
 <div class="paragraph">
-<p>Given below is an example usage scenario of how <code>add_income</code> mechanisam behaves at each step.</p>
+<p>Given below is an example usage scenario of how <code>add_income</code> mechanism behaves at each step.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 1:</strong> The user executes <code>add_income d/shirt sales c/100.05 date/11-11-2019 n/John Doe p/91111111</code> to add an income of $100.05 of shirt sales received from John Doe who is contactable at 91111111.</p>
@@ -650,7 +650,53 @@ the validation would prompt the user on the failed component.</p>
 </div>
 <div class="sect2">
 <h3 id="shortcut-feature"><a class="link" href="#shortcut-feature">2.3. Shortcut feature</a></h3>
-
+<div class="paragraph">
+<p>This feature gives the user an option to create a shortcut when an unknown command is entered into FinSec.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>To enable an easy implementation of this feature, we have created a TreeMap to store the default commands and shortcuts in the <code>FinSecParser</code>. Each command and shortcut have their Command Word stored as they key value (so as to ensure there are no duplicates) and Command task as the values.</p>
+</div>
+<div class="paragraph">
+<p>All default commands and shortcuts are also initialised as <code>CommandItem</code> objects which would be handled by the <code>Model Manager</code> class whenever we add or delete a shortcut. Command classes such as <code>ShortCutRequestCommand</code>, <code>CreateShortcutCommand</code> and <code>NoShortCutCommand</code> are created to facilitate the
+implementation of the shortcut feature.</p>
+</div>
+<div class="paragraph">
+<p>When a user enters a command, <code>FinSecParser</code> would parse the input and check if the first word of the input is in the TreeMap key set. If the command word is not in the key set, FinSec would create a <code>ShortCutRequestCommand</code> and return the <code>ShortCutRequestCommand</code> object with <code>CommandWord</code> as the parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the shortcut feature mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1 :</strong> The user launches FinSec for the first time. The <code>FinSecParser</code> will be initialised. All the default commands will be added to the TreeMap using <code>FinSecParser#initialiseDefaultCommands()</code>. Previously created shortcuts would be added to the TreeMap from the constructor of the <code>FinSecParser</code>, where the ObservableList&lt;CommandItem&gt; will be the parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2 :</strong> The user enters an unknown command that is not recognised by FinSec. FinSec then returns a <code>ShortCutRequestCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3 :</strong> <code>ShortCutRequestCommand</code> is executed in <code>LogicManager</code> and LogicManager would save the command word in a Stack. A <code>CommandResult</code> with a new Boolean value of "createShortCut" is then returned to <code>MainWindow</code> to display the result of the entry. The <code>CommandResult#isCreateShortCut()</code> sets the <code>MainWindow#unknownEntry</code> to true.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4 :</strong> Since now the boolean value of <code>MainWindow#unknownEntry</code> is true, the next input would use a different execute command. Instead of the usual method <code>LogicManager#execute(String command)</code>, the next input would be executed by <code>LogicManager#executeUnknownInput(String command)</code>. Hence, if the subsequent input by the user is <code>n</code>, a <code>NoShortCutCommand</code> would be executed
+and it would return a <code>CommandResult</code> with a false value of <code>createShortCut</code> which would reinstate back the normal state of FinSec.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5 :</strong> If the user enters a value other than <code>n</code>, the <code>LogicManager#executeUnknownInput(String command)</code> would call <code>FinSecParser#checkCommand(String currentInput, String prevInput)</code> to check if the command is existing or not. If the command is existing, it would return another <code>ShortCutRequestCommand</code> object with the same input. However, if a valid defaul command is entered, a new <code>CreateShortCutCommand</code> object is returned.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6 :</strong> When a <code>CreateShortCutCommand</code> object is returned, it is executed in <code>LogicManager</code> and <code>LogicManager</code> would use <code>CreateShortCutCommand#execute()</code> to add the <code>CommandItem</code> into the <code>Model</code> which is handled by the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7 :</strong> <code>CreateShortCutCommmand</code> would then return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to the user.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises what happens when a user executes an unknown command:</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="budget-feature"><a class="link" href="#budget-feature">2.4. Budget feature</a></h3>
@@ -2327,4 +2373,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 20:13:26 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 22:16:22 UTC</div></div></div></body></html>
