@@ -22,18 +22,19 @@
 <li><a href="#rejecting-a-claim-code-reject-code">3.7. Rejecting a claim : <code>reject</code></a></li>
 <li><a href="#adding-an-income-code-add_income-code">3.8. Adding an income : <code>add_income</code></a></li>
 <li><a href="#editing-an-income-code-edit_income-code">3.9. Editing an income : <code>edit_income</code></a></li>
-<li><a href="#checking-a-person-or-claim-code-check-code">3.10. Checking a Person or Claim : <code>check</code></a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.11. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-by-date">3.12. Sorting the Contacts/Claims/Incomes list by Date</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.13. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.14. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></li>
-<li><a href="#deleting-a-contact-code-delete_contact-code">3.15. Deleting a Contact : <code>delete_contact</code></a></li>
-<li><a href="#deleting-an-income-code-delete_income-code">3.16. Deleting an Income : <code>delete_income</code></a></li>
-<li><a href="#viewing-budget-code-budget-code">3.17. Viewing budget : <code>budget</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">3.18. Clearing all data : <code>clear</code></a></li>
-<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.19. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.21. Saving the data</a></li>
+<li><a href="#deleting-an-income-code-delete_income-code">3.10. Deleting an Income : <code>delete_income</code></a></li>
+<li><a href="#creating-a-shortcut">3.11. Creating a shortcut</a></li>
+<li><a href="#checking-a-person-or-claim-code-check-code">3.12. Checking a Person or Claim : <code>check</code></a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.13. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-by-date">3.14. Sorting the Contacts/Claims/Incomes list by Date</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.15. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.16. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></li>
+<li><a href="#deleting-a-contact-code-delete_contact-code">3.17. Deleting a Contact : <code>delete_contact</code></a></li>
+<li><a href="#viewing-budget-code-budget-code">3.18. Viewing budget : <code>budget</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.19. Clearing all data : <code>clear</code></a></li>
+<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.20. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.22. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#non-command-features">4. Non-command Features</a>
@@ -356,27 +357,49 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="adding-an-income-code-add_income-code"><a class="link" href="#adding-an-income-code-add_income-code">3.8. Adding an income : <code>add_income</code></a></h3>
 <div class="paragraph">
-<p>Adds an income to the income list<br></p>
+<p>You can add an income to the incomes list by using the add income command by entering the keyword <code>add_income</code> followed by the required fields of an income.</p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>add_income</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+<p>Format: <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT date/DATE n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add_income d/Shirt Sales a/307.5 n/Lee Wei Gen p/96777777 t/Marketing</pre>
+<pre>add_income d/Shirt Sales c/307.5 date/11-11-2019 n/Lee Wei Gen p/96777777 t/Marketing</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>This command will then add an income to the incomes list.</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-AddIncomeExample">Figure 3.8.1</a> and <a href="#UG-AddIncomeResult">Figure 3.8.2</a> shows what you can expect to see after typing in the example: <code>add_income d/Shirt Sales c/307.5 date/11-11-2019 n/Lee Wei Gen p/96777777 t/Marketing</code>.</p>
+</div>
+<div id="UG-AddIncomeExample" class="imageblock">
+<div class="content">
+<img src="images/UG-Add_income1.png" alt="UG Add income1" width="800">
+</div>
+<div class="title">Figure 3.8.1: Type in the add_income command in an empty incomes list.</div>
+</div>
+<div id="UG-AddIncomeResult" class="imageblock">
+<div class="content">
+<img src="images/UG-Add_income2.png" alt="UG Add income2" width="800">
+</div>
+<div class="title">Figure 3.8.2: The result after entering the command</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="editing-an-income-code-edit_income-code"><a class="link" href="#editing-an-income-code-edit_income-code">3.9. Editing an income : <code>edit_income</code></a></h3>
 <div class="paragraph">
-<p>Edits an income on the income list<br></p>
+<p>If you accidentally entered the wrong details of the income or you want to make changes to a entered income, you can edit an income by using the edit income command by entering the keyword <code>edit_income</code>
+followed by the position of the income in the incomes list, and the fields that you want to change.</p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>edit_income</code></p>
@@ -385,16 +408,142 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Format: <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>edit_income 2 d/Camp Fees a/1150.50 n/Lee Wei Gen p/96777777 t/FOP</pre>
+<pre>edit_income 1 c/1150.50 p/96777495</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>This command will edit the description and amount fields in the second income in the list to the newly specified description and amount.</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-AddIncomeExample">Figure 3.8.1</a> and <a href="#UG-AddIncomeResult">Figure 3.8.2</a> shows what you can expect to see after typing in the example: <code>edit_income 1 c/1150.50 p/96777495</code>.</p>
+</div>
+<div id="UG-EditIncomeExample" class="imageblock">
+<div class="content">
+<img src="images/UG-Edit_income1.png" alt="UG Edit income1" width="800">
+</div>
+<div class="title">Figure 3.9.1: Type in the edit_income command.</div>
+</div>
+<div id="UG-AddIncomeResult" class="imageblock">
+<div class="content">
+<img src="images/UG-Edit_income2.png" alt="UG Edit income2" width="800">
+</div>
+<div class="title">Figure 3.9.2: The result after entering the command. The first income is now edited to the newly specified fields.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-income-code-delete_income-code"><a class="link" href="#deleting-an-income-code-delete_income-code">3.10. Deleting an Income : <code>delete_income</code></a></h3>
+<div class="paragraph">
+<p>You can delete an income off the incomes list by using the delete income command by entering the keyword <code>delete_income</code> followed by the position of the income in the incomes list.
+The specified index will be then deleted.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>delete_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete_income INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delete_income 2 (removes second income in the income list)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the income at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the displayed income list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><a href="#UG-DeleteIncomeExample">Figure 3.10.1</a> and <a href="#UG-DeleteIncomeResult">Figure 3.10.2</a> shows what you can expect to see after typing in the example: <code>delete_income 2</code>.</p>
+</div>
+<div id="UG-DeleteIncomeExample" class="imageblock">
+<div class="content">
+<img src="images/UG-Delete_income1.png" alt="UG Delete income1" width="800">
+</div>
+<div class="title">Figure 3.10.1: Type in the delete_income command.</div>
+</div>
+<div id="UG-DeleteIncomeResult" class="imageblock">
+<div class="content">
+<img src="images/UG-Delete_income2.png" alt="UG Delete income2" width="800">
+</div>
+<div class="title">Figure 3.10.2: The result after entering the command. The second income is now deleted off the incomes list.</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-shortcut"><a class="link" href="#creating-a-shortcut">3.11. Creating a shortcut</a></h3>
+<div class="paragraph">
+<p>Accidentally typed a command that is not in FinSec? Don&#8217;t worry! FinSec will recognise that it is an unknown command and is smart enough to make that unknown entry into a shortcut!</p>
+</div>
+<div class="paragraph">
+<p>Upon entering an unknown command, FinSec will prompt you as to whether you would like that as a new short cut or if it was just a mistake.</p>
+</div>
+<div class="paragraph">
+<p><strong>Choice 1 :</strong> You can enter the keyword <code>n</code> to continue as per usual.</p>
+</div>
+<div class="paragraph">
+<p><strong>Choice 2 :</strong> You can enter any <code>existing commands</code> to map your previous entry to it!</p>
+</div>
+<div class="paragraph">
+<p>If you have chosen <strong>Choice 2</strong>, you can use the newly created shortcut as a substitute to the command.</p>
+</div>
+<div class="paragraph">
+<p>Example of <strong>Choice 1</strong> :</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>User : add_conagtact</p>
+</div>
+<div class="paragraph">
+<p>FinSec: Create shortcut? To which command?</p>
+</div>
+<div class="paragraph">
+<p>User : n</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>No shortcut is created. Continue using FinSec as per normal!</p>
+</div>
+<div class="paragraph">
+<p>Example of <strong>Choice 2</strong> :</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>User : ai</p>
+</div>
+<div class="paragraph">
+<p>FinSec: Create shortcut? To which command?</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-a-person-or-claim-code-check-code"><a class="link" href="#checking-a-person-or-claim-code-check-code">3.10. Checking a Person or Claim : <code>check</code></a></h3>
+<h3 id="checking-a-person-or-claim-code-check-code"><a class="link" href="#checking-a-person-or-claim-code-check-code">3.12. Checking a Person or Claim : <code>check</code></a></h3>
 <div class="paragraph">
 <p>Displays the details of the Person or Claim</p>
 </div>
@@ -423,7 +572,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-by-contact-s-name"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.11. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-by-contact-s-name"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.13. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the contact&#8217;s name in lexicographical order. The command
 is the same in all 3 lists and the objects are sorted based on the contact&#8217;s name. In claims, it
@@ -441,7 +590,7 @@ is the person who made the claim. In income, it is the entity who provided the i
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-date">3.12. Sorting the Contacts/Claims/Incomes list by Date</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-date">3.14. Sorting the Contacts/Claims/Incomes list by Date</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the date from the oldest to newest entry.</p>
 </div>
@@ -457,7 +606,7 @@ is the person who made the claim. In income, it is the entity who provided the i
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.13. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.15. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the contact&#8217;s name in reverse lexicographical order. This command
 is not applicable in the contacts page.</p>
@@ -480,7 +629,7 @@ is not applicable in the contacts page.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.14. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.16. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the date from the newest to oldest entry. This command is not
 applicable in the contacts' page</p>
@@ -503,7 +652,7 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.15. Deleting a Contact : <code>delete_contact</code></a></h3>
+<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.17. Deleting a Contact : <code>delete_contact</code></a></h3>
 <div class="paragraph">
 <p>Deletes a Person from the contact list</p>
 </div>
@@ -536,43 +685,7 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-income-code-delete_income-code"><a class="link" href="#deleting-an-income-code-delete_income-code">3.16. Deleting an Income : <code>delete_income</code></a></h3>
-<div class="paragraph">
-<p>Deletes an Income from the income list</p>
-</div>
-<div class="paragraph">
-<p>Keyword: <code>delete_income</code></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete_income INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>delete_income 1 (removes first income in the income list)</pre>
-</div>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Deletes the income at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>Deletes the income at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed income list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.17. Viewing budget : <code>budget</code></a></h3>
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.18. Viewing budget : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Calculates the projected budget based on all income and approved claim values.<br>
 Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
@@ -591,7 +704,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.18. Clearing all data : <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.19. Clearing all data : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Wipes all data from FinSec to allow you to start over or to safely dispose of data.</p>
 </div>
@@ -615,7 +728,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.19. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
+<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.20. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
 <div class="paragraph">
 <p>Prompts user on whether he or she would want to create a shortcut as FinSec does not recognise the command.</p>
 </div>
@@ -659,14 +772,14 @@ commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.20. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.21. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -867,4 +980,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 13:45:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 18:50:34 UTC</div></div></div></body></html>
