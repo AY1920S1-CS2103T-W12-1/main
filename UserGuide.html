@@ -24,17 +24,18 @@
 <li><a href="#editing-an-income-code-edit_income-code">3.9. Editing an income : <code>edit_income</code></a></li>
 <li><a href="#deleting-an-income-code-delete_income-code">3.10. Deleting an Income : <code>delete_income</code></a></li>
 <li><a href="#creating-a-shortcut">3.11. Creating a shortcut</a></li>
-<li><a href="#checking-a-person-or-claim-code-check-code">3.12. Checking a Person or Claim : <code>check</code></a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.13. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-by-date">3.14. Sorting the Contacts/Claims/Incomes list by Date</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.15. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.16. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></li>
-<li><a href="#deleting-a-contact-code-delete_contact-code">3.17. Deleting a Contact : <code>delete_contact</code></a></li>
-<li><a href="#viewing-budget-code-budget-code">3.18. Viewing budget : <code>budget</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">3.19. Clearing all data : <code>clear</code></a></li>
-<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.20. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.22. Saving the data</a></li>
+<li><a href="#deleting-a-shortcut-code-delete_shortcut-code">3.12. Deleting a shortcut : <code>delete_shortcut</code></a></li>
+<li><a href="#checking-a-person-or-claim-code-check-code">3.13. Checking a Person or Claim : <code>check</code></a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.14. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-by-date">3.15. Sorting the Contacts/Claims/Incomes list by Date</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.16. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.17. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></li>
+<li><a href="#deleting-a-contact-code-delete_contact-code">3.18. Deleting a Contact : <code>delete_contact</code></a></li>
+<li><a href="#viewing-budget-code-budget-code">3.19. Viewing budget : <code>budget</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.20. Clearing all data : <code>clear</code></a></li>
+<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.21. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.23. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#non-command-features">4. Non-command Features</a>
@@ -495,7 +496,7 @@ The specified index will be then deleted.</p>
 <p>Accidentally typed a command that is not in FinSec? Don&#8217;t worry! FinSec will recognise that it is an unknown command and is smart enough to make that unknown entry into a shortcut!</p>
 </div>
 <div class="paragraph">
-<p>Upon entering an unknown command, FinSec will prompt you as to whether you would like that as a new short cut or if it was just a mistake.</p>
+<p>Upon entering an unknown command, FinSec will prompt you as to whether you would like that as a new shortcut or if it was just a mistake.</p>
 </div>
 <div class="paragraph">
 <p><strong>Choice 1 :</strong> You can enter the keyword <code>n</code> to continue as per usual.</p>
@@ -506,16 +507,15 @@ The specified index will be then deleted.</p>
 <div class="paragraph">
 <p>If you have chosen <strong>Choice 2</strong>, you can use the newly created shortcut as a substitute to the command.</p>
 </div>
-<div class="paragraph">
-<p>Example of <strong>Choice 1</strong> :</p>
-</div>
+<div class="sect3">
+<h4 id="example-of-strong-choice-1-strong"><a class="link" href="#example-of-strong-choice-1-strong">3.11.1. Example of <strong>Choice 1</strong> :</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <p>User : add_conagtact</p>
 </div>
 <div class="paragraph">
-<p>FinSec: Create shortcut? To which command?</p>
+<p>FinSec: Create shortcut? To which command? If no, type "n"</p>
 </div>
 <div class="paragraph">
 <p>User : n</p>
@@ -529,21 +529,118 @@ The specified index will be then deleted.</p>
 <p>No shortcut is created. Continue using FinSec as per normal!</p>
 </div>
 <div class="paragraph">
-<p>Example of <strong>Choice 2</strong> :</p>
+<p><a href="#UG-NoShortcutexample">Figure 3.11.1.1</a>, <a href="#UG-NoShortcutResult">Figure 3.11.1.2</a> shows what you can expect to see after typing in the example: <code>add_conagtact</code>.</p>
 </div>
+<div id="UG-NoShortcutexample" class="imageblock">
+<div class="content">
+<img src="images/UG-NoShortcut1.png" alt="UG NoShortcut1" width="800">
+</div>
+<div class="title">Figure 3.11.1.1: When a user enters an accidental typo</div>
+</div>
+<div id="UG-NoShortcutResult" class="imageblock">
+<div class="content">
+<img src="images/UG-NoShortcut2.png" alt="UG NoShortcut2" width="800">
+</div>
+<div class="title">Figure 3.11.1.2: The result after entering the typo. FinSec will ask you if you want to create a shortcut.</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UG-NoShortcut3.png" alt="UG NoShortcut3" width="800">
+</div>
+<div class="title">Figure 3.11.3: Since it is a genuine typo, entering 'n' will allow you to continue.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-of-strong-choice-2-strong"><a class="link" href="#example-of-strong-choice-2-strong">3.11.2. Example of <strong>Choice 2</strong> :</a></h4>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <p>User : ai</p>
 </div>
 <div class="paragraph">
-<p>FinSec: Create shortcut? To which command?</p>
+<p>FinSec: Create shortcut? To which command? If no, type "n"</p>
 </div>
+<div class="paragraph">
+<p>User: add_income</p>
+</div>
+<div class="paragraph">
+<p>FinSec: New shortcut created! ai to add_income</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>A new shortcut is created for you! From now on, <code>ai</code> can be used as a substitute for <code>add_income</code>!</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-createShortcutexample1">Figure 3.11.2.1</a>, <a href="#UG-createShortcutExample2">Figure 3.11.2.2</a> and <a href="#UG-createShortcutResult">Figure 3.11.2.3</a> shows what you can expect to see when you want to create a shortcut <code>ai</code> as shown in the example.</p>
+</div>
+<div id="UG-createShortcutexample1" class="imageblock">
+<div class="content">
+<img src="images/UG-createShortcut1.png" alt="UG createShortcut1" width="800">
+</div>
+<div class="title">Figure 3.11.2.1: When a user enters a shortcut he/she wishes to create.</div>
+</div>
+<div id="UG-createShortcutExample2" class="imageblock">
+<div class="content">
+<img src="images/UG-createShortcut2.png" alt="UG createShortcut2" width="800">
+</div>
+<div class="title">Figure 3.11.2.2: User will enter the existing command that he wishes to map the shortcut to.</div>
+</div>
+<div id="UG-createShortcutResult" class="imageblock">
+<div class="content">
+<img src="images/UG-createShortcut3.png" alt="UG createShortcut3" width="800">
+</div>
+<div class="title">Figure 3.11.2.3: After creating the shortcut.</div>
+</div>
+<div class="paragraph">
+<p><a href="#UG-shortcutExample">Figure 3.11.2.4</a>, <a href="#UG-shortcutResult">Figure 3.11.2.5</a> shows what you can expect after creating a shortcut of your own!</p>
+</div>
+<div id="UG-shortcutExample" class="imageblock">
+<div class="content">
+<img src="images/UG-createShortcut4.png" alt="UG createShortcut4" width="800">
+</div>
+<div class="title">Figure 3.11.2.4: User can now use the command 'ai' for adding an income!</div>
+</div>
+<div id="UG-shortcutResult" class="imageblock">
+<div class="content">
+<img src="images/UG-createShortcut5.png" alt="UG createShortcut5" width="800">
+</div>
+<div class="title">Figure 3.11.2.5: The newly created shortcut 'ai' creating an income.</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-a-person-or-claim-code-check-code"><a class="link" href="#checking-a-person-or-claim-code-check-code">3.12. Checking a Person or Claim : <code>check</code></a></h3>
+<h3 id="deleting-a-shortcut-code-delete_shortcut-code"><a class="link" href="#deleting-a-shortcut-code-delete_shortcut-code">3.12. Deleting a shortcut : <code>delete_shortcut</code></a></h3>
+<div class="paragraph">
+<p>You can delete a shortcut that you have created by using the delete income command by entering the keyword <code>delete_shortcut</code> followed by shortcut name.
+The specified shortcut will be then deleted.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>delete_shortcut</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete_shortcut SHORTCUT</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delete_shortcut ai (removes shortcut 'ai' )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>The shortcut is now no longer available for use.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="checking-a-person-or-claim-code-check-code"><a class="link" href="#checking-a-person-or-claim-code-check-code">3.13. Checking a Person or Claim : <code>check</code></a></h3>
 <div class="paragraph">
 <p>Displays the details of the Person or Claim</p>
 </div>
@@ -572,7 +669,7 @@ The specified index will be then deleted.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-by-contact-s-name"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.13. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-by-contact-s-name"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.14. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the contact&#8217;s name in lexicographical order. The command
 is the same in all 3 lists and the objects are sorted based on the contact&#8217;s name. In claims, it
@@ -590,7 +687,7 @@ is the person who made the claim. In income, it is the entity who provided the i
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-date">3.14. Sorting the Contacts/Claims/Incomes list by Date</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-date">3.15. Sorting the Contacts/Claims/Incomes list by Date</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the date from the oldest to newest entry.</p>
 </div>
@@ -606,7 +703,7 @@ is the person who made the claim. In income, it is the entity who provided the i
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.15. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.16. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the contact&#8217;s name in reverse lexicographical order. This command
 is not applicable in the contacts page.</p>
@@ -629,7 +726,7 @@ is not applicable in the contacts page.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.16. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.17. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></h3>
 <div class="paragraph">
 <p>Sorts the various lists according to the date from the newest to oldest entry. This command is not
 applicable in the contacts' page</p>
@@ -652,7 +749,7 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.17. Deleting a Contact : <code>delete_contact</code></a></h3>
+<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.18. Deleting a Contact : <code>delete_contact</code></a></h3>
 <div class="paragraph">
 <p>Deletes a Person from the contact list</p>
 </div>
@@ -685,7 +782,7 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.18. Viewing budget : <code>budget</code></a></h3>
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.19. Viewing budget : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Calculates the projected budget based on all income and approved claim values.<br>
 Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
@@ -704,7 +801,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.19. Clearing all data : <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.20. Clearing all data : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Wipes all data from FinSec to allow you to start over or to safely dispose of data.</p>
 </div>
@@ -728,7 +825,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.20. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
+<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.21. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
 <div class="paragraph">
 <p>Prompts user on whether he or she would want to create a shortcut as FinSec does not recognise the command.</p>
 </div>
@@ -772,14 +869,14 @@ commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.21. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.22. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -980,4 +1077,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 18:50:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-01 20:13:26 UTC</div></div></div></body></html>
