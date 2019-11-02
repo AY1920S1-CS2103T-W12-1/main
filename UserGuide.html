@@ -27,15 +27,12 @@
 <li><a href="#deleting-a-shortcut-code-delete_shortcut-code">3.12. Deleting a shortcut : <code>delete_shortcut</code></a></li>
 <li><a href="#checking-a-person-or-claim-code-check-code">3.13. Checking a Person or Claim : <code>check</code></a></li>
 <li><a href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.14. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-by-date">3.15. Sorting the Contacts/Claims/Incomes list by Date</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.16. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.17. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></li>
-<li><a href="#deleting-a-contact-code-delete_contact-code">3.18. Deleting a Contact : <code>delete_contact</code></a></li>
-<li><a href="#viewing-budget-code-budget-code">3.19. Viewing budget : <code>budget</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">3.20. Clearing all data : <code>clear</code></a></li>
-<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.21. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.23. Saving the data</a></li>
+<li><a href="#deleting-a-contact-code-delete_contact-code">3.15. Deleting a Contact : <code>delete_contact</code></a></li>
+<li><a href="#viewing-budget-code-budget-code">3.16. Viewing budget : <code>budget</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.17. Clearing all data : <code>clear</code></a></li>
+<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.18. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.20. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#non-command-features">4. Non-command Features</a>
@@ -95,10 +92,10 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>add_contact</code></strong><code>n/John Doe p/98765432</code> : adds a contact named John Doe to FinSec.</p>
+<p><strong><code>add_contact</code></strong><code>n/John Doe p/98765432 e/john@example.com</code> : adds a contact named John Doe to FinSec.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
+<p><strong><code>delete_contact</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app</p>
@@ -200,13 +197,25 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sect2">
 <h3 id="changing-views-code-goto-code"><a class="link" href="#changing-views-code-goto-code">3.2. Changing Views : <code>goto</code></a></h3>
 <div class="paragraph">
-<p>Changes the displayed list to show Contacts, Claims or Income<br></p>
+<p>This command changes the displayed list to show Contacts, Claims or Incomes. Such a command allows users to switch
+between the 3 lists easily. This feature has also been enhanced with the addition of tabs below the Command Result panel.
+These tabs give the same functionality as this goto feature so users can choose to type or click on the tabs.<br></p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-GotoExample">Figure 3.2.1</a> shows the command result panel after the <code>goto contacts</code> command has been entered
+as well as the tabs that are below this panel.</p>
+</div>
+<div id="UG-GotoExample" class="imageblock">
+<div class="content">
+<img src="images/UG-GotoExample.png" alt="UG GotoExample" width="800">
+</div>
+<div class="title">Figure 3.2.1: FinSec giving a brief description of the <code>goto</code> command</div>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>goto</code><br></p>
 </div>
 <div class="paragraph">
-<p>Additional Parameters: claims, contacts, income<br></p>
+<p>Additional Parameters: claims, contacts, incomes<br></p>
 </div>
 <div class="paragraph">
 <p>Format: <code>goto (parameter)</code></p>
@@ -215,7 +224,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Example:
 <code>goto contacts</code>
 <code>goto claims</code>
-<code>goto income</code></p>
+<code>goto incomes</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -671,9 +680,9 @@ The specified shortcut will be then deleted.</p>
 <div class="sect2">
 <h3 id="sorting-the-contacts-claims-incomes-list-by-contact-s-name"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.14. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></h3>
 <div class="paragraph">
-<p>Sorts the various lists according to the contact&#8217;s name in lexicographical order. The command
-is the same in all 3 lists and the objects are sorted based on the contact&#8217;s name. In claims, it
-is the person who made the claim. In income, it is the entity who provided the income.</p>
+<p>This feature sorts the various lists according to the contact&#8217;s name in lexicographical order. The command
+is the same in all 3 lists and the objects are sorted based on the contact&#8217;s name. In Claims, it
+is the description of the claim. In Incomes, it is the entity who provided the income.</p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>sort name</code></p>
@@ -683,13 +692,11 @@ is the person who made the claim. In income, it is the entity who provided the i
 </div>
 <div class="paragraph">
 <p>Examples:
-* <code>sort name</code></p>
+* <code>sort name</code>
+=== Sorting the Contacts/Claims/Incomes list by Date</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-date">3.15. Sorting the Contacts/Claims/Incomes list by Date</a></h3>
 <div class="paragraph">
-<p>Sorts the various lists according to the date from the oldest to newest entry.</p>
+<p>This feature sorts the various lists according to the date from the oldest to newest entry.</p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>sort date</code></p>
@@ -699,13 +706,11 @@ is the person who made the claim. In income, it is the entity who provided the i
 </div>
 <div class="paragraph">
 <p>Examples:
-* <code>sort date</code></p>
+* <code>sort date</code>
+=== Sorting the Contacts/Claims/Incomes list in reverse order</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.16. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
 <div class="paragraph">
-<p>Sorts the various lists according to the contact&#8217;s name in reverse lexicographical order. This command
+<p>This feature sorts the various lists according to the contact&#8217;s name in reverse lexicographical order. This command
 is not applicable in the contacts page.</p>
 </div>
 <div class="paragraph">
@@ -720,15 +725,13 @@ is not applicable in the contacts page.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>reverse date</code></p>
+<p><code>reverse date</code>
+=== Sorting the Contacts/Claims/Incomes list in reverse order by Date</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order-by-date">3.17. Sorting the Contacts/Claims/Incomes list in reverse order by Date</a></h3>
 <div class="paragraph">
-<p>Sorts the various lists according to the date from the newest to oldest entry. This command is not
+<p>This feature sorts the various lists according to the date from the newest to oldest entry. This command is not
 applicable in the contacts' page</p>
 </div>
 <div class="paragraph">
@@ -749,9 +752,9 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.18. Deleting a Contact : <code>delete_contact</code></a></h3>
+<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.15. Deleting a Contact : <code>delete_contact</code></a></h3>
 <div class="paragraph">
-<p>Deletes a Person from the contact list</p>
+<p>Deletes a Contact from the contact list</p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>delete_contact</code></p>
@@ -782,7 +785,7 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.19. Viewing budget : <code>budget</code></a></h3>
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.16. Viewing budget : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Calculates the projected budget based on all income and approved claim values.<br>
 Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
@@ -801,7 +804,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.20. Clearing all data : <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.17. Clearing all data : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Wipes all data from FinSec to allow you to start over or to safely dispose of data.</p>
 </div>
@@ -825,7 +828,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.21. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
+<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.18. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
 <div class="paragraph">
 <p>Prompts user on whether he or she would want to create a shortcut as FinSec does not recognise the command.</p>
 </div>
@@ -869,14 +872,14 @@ commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.22. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.19. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.23. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.20. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1077,4 +1080,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 12:07:04 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 18:04:55 UTC</div></div></div></body></html>
