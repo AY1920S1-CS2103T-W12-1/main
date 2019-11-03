@@ -128,12 +128,24 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Command Format</strong>
-* Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add_claim n/NAME d/DESCRIPTION c/CASH AMOUNT date/DATE(dd-MM-yyyy) p/PHONE NUMBER</code>,
- <code>NAME</code>, <code>DESCRIPTION</code>, <code>CASH AMOUNT</code>, <code>DATE</code>, <code>PHONE NUMBER</code> are parameters that the user has to type in.
-* Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.
-* Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.
-* Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p><strong>Command Format</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add_claim n/NAME d/DESCRIPTION c/CASH AMOUNT date/DATE(dd-MM-yyyy)</code>,
+<code>NAME</code>, <code>DESCRIPTION</code>, <code>CASH AMOUNT</code>, <code>DATE</code>, <code>PHONE NUMBER</code> are parameters that the user has to type in.</p>
+</li>
+<li>
+<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+</li>
+<li>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+</li>
+<li>
+<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -245,6 +257,35 @@ as well as the tabs that are below this panel.</p>
 <pre>add_contact n/John Doe p/98765432 e/johnd@example.com</pre>
 </div>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There should not be duplicate <code>NAMES</code>.<br></p>
+</li>
+<li>
+<p>Only valid Singapore <code>PHONE</code> numbers (8 digits) are allowed.</p>
+</li>
+<li>
+<p>Only valid <code>EMAIL</code> addresses are accepted.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="editing-a-contact-code-edit_contact-code"><a class="link" href="#editing-a-contact-code-edit_contact-code">3.4. Editing a contact : <code>edit_contact</code></a></h3>
@@ -266,6 +307,29 @@ as well as the tabs that are below this panel.</p>
 <pre>edit_contact 2 n/john lim p/92222223 e/johnlim@gmail.com</pre>
 </div>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Parameter warnings as per add_claim above.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-claim-code-add_claim-code"><a class="link" href="#adding-a-claim-code-add_claim-code">3.5. Adding a claim : <code>add_claim</code></a></h3>
@@ -276,14 +340,43 @@ as well as the tabs that are below this panel.</p>
 <p>Keyword: <code>add_claim</code></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+<p>Format: <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/NAME [t/TAG]</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</pre>
+<pre>add_claim d/Sports Equipment a/115.2 date/29-12-2019 n/Lee Wei Gen t/Sports</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AMOUNT</code> should be up to 2 decimal places only.<br></p>
+</li>
+<li>
+<p><code>DATE</code> should be a valid date (eg. 29-02-2019 not valid).<br></p>
+</li>
+<li>
+<p>A contact must already exist with the inputted <code>NAME</code>.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -304,6 +397,29 @@ as well as the tabs that are below this panel.</p>
 <div class="literalblock">
 <div class="content">
 <pre>approve 1 (approves the first claim in the claim list)</pre>
+</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can only approve a pending claim (ie. Approved and rejected claims cannot be approved).</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="ulist">
@@ -364,6 +480,29 @@ as well as the tabs that are below this panel.</p>
 </li>
 </ul>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Can only reject a pending claim (ie. Approved and rejected claims cannot be rejected).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-an-income-code-add_income-code"><a class="link" href="#adding-an-income-code-add_income-code">3.8. Adding an income : <code>add_income</code></a></h3>
@@ -404,6 +543,29 @@ as well as the tabs that are below this panel.</p>
 <img src="images/UG-Add_income2.png" alt="UG Add income2" width="800">
 </div>
 <div class="title">Figure 3.8.2: The result after entering the command</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_income</code> parameter warnings as per <code>add_claim</code>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -446,6 +608,29 @@ followed by the position of the income in the incomes list, and the fields that 
 <img src="images/UG-Edit_income2.png" alt="UG Edit income2" width="800">
 </div>
 <div class="title">Figure 3.9.2: The result after entering the command. The first income is now edited to the newly specified fields.</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_income</code> parameter warnings as per <code>add_claim</code>.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1009,8 +1194,8 @@ e.g. <code>add_contact n/James Ho p/22224444 e/jamesho@example.com a/123, Clemen
 e.g. <code>edit_contact 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code><br></p>
 </li>
 <li>
-<p><strong>Add claim</strong> <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
-e.g. <code>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
+<p><strong>Add claim</strong> <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME [t/TAG]</code><br>
+e.g. <code>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen t/Sports</code></p>
 </li>
 <li>
 <p><strong>Edit claim</strong> <code>edit_claim INDEX d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
@@ -1081,4 +1266,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-02 19:25:34 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 08:15:15 UTC</div></div></div></body></html>
