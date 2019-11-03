@@ -24,11 +24,12 @@
 <li><a href="#claim-feature">2.1. Claim feature</a></li>
 <li><a href="#income-feature">2.2. Income feature</a></li>
 <li><a href="#shortcut-feature">2.3. Shortcut feature</a></li>
-<li><a href="#budget-feature">2.4. Budget feature</a></li>
-<li><a href="#goto-feature">2.5. Goto feature</a></li>
-<li><a href="#check-feature">2.6. Check feature</a></li>
-<li><a href="#sort-feature">2.7. Sort Feature</a></li>
-<li><a href="#reverse-feature">2.8. Reverse feature</a></li>
+<li><a href="#autocorrect-feature">2.4. Autocorrect feature</a></li>
+<li><a href="#budget-feature">2.5. Budget feature</a></li>
+<li><a href="#goto-feature">2.6. Goto feature</a></li>
+<li><a href="#check-feature">2.7. Check feature</a></li>
+<li><a href="#sort-feature">2.8. Sort Feature</a></li>
+<li><a href="#reverse-feature">2.9. Reverse feature</a></li>
 </ul>
 </li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
@@ -587,8 +588,8 @@ Any invalid format of the command will be prompted by the command parser.</p>
 <tfoot>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Income description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive for users to delete an income through the description of the income.
-                                        <strong>Cons</strong> : Incomes of different entries can have similar description. The user would eventually still have to look through the income list.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive for users to delete an income through the description of the income.</p>
+<p class="tableblock">                                        <strong>Cons</strong> : Incomes of different entries can have similar description. The user would eventually still have to look through the income list.</p></td>
 </tr>
 </tfoot>
 <tbody>
@@ -688,7 +689,26 @@ implementation of the shortcut feature.</p>
 and it would return a <code>CommandResult</code> with a false value of <code>createShortCut</code> which would reinstate back the normal state of FinSec.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5 :</strong> If the user enters a value other than <code>n</code>, the <code>LogicManager#executeUnknownInput(String command)</code> would call <code>FinSecParser#checkCommand(String currentInput, String prevInput)</code> to check if the command is existing or not. If the command is existing, it would return another <code>ShortCutRequestCommand</code> object with the same input. However, if a valid defaul command is entered, a new <code>CreateShortCutCommand</code> object is returned.</p>
+<p><strong>Step 5 :</strong> If the user enters a value other than <code>n</code>, the <code>LogicManager#executeUnknownInput(String command)</code> would call <code>FinSecParser#checkCommand(String currentInput, String prevInput)</code> to check if the command is existing or not. If the command is existing, it would return another <code>ShortCutRequestCommand</code> object with the same input. However, if a valid default command is entered, a new <code>CreateShortCutCommand</code> object is returned (go back to <strong>Step 3</strong>).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The code snippet below shows the <code>FinSecParser#checkCommand(String currentInput, String prevInput)</code> method<br></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">XYSeries <span class="directive">public</span> Command checkCommand(<span class="predefined-type">String</span> currentInput, <span class="predefined-type">String</span> prevInput) {
+        <span class="keyword">if</span> (FinSecParser.commandList.containsValue(currentInput)) {
+            FinSecParser.commandList.put(prevInput, FinSecParser.commandList.get(currentInput));
+            <span class="keyword">return</span> <span class="keyword">new</span> CreateShortCutCommand(FinSecParser.commandList.get(currentInput), prevInput);
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> <span class="keyword">new</span> ShortCutRequestCommand(currentInput);
+        }
+    }</code></pre>
+</div>
 </div>
 <div class="paragraph">
 <p><strong>Step 6 :</strong> When a <code>CreateShortCutCommand</code> object is returned, it is executed in <code>LogicManager</code> and <code>LogicManager</code> would use <code>CreateShortCutCommand#execute()</code> to add the <code>CommandItem</code> into the <code>Model</code> which is handled by the <code>ModelManager</code>.</p>
@@ -699,14 +719,131 @@ and it would return a <code>CommandResult</code> with a false value of <code>cre
 <div class="paragraph">
 <p>The following activity diagram summarises what happens when a user executes an unknown command:</p>
 </div>
+<div class="paragraph">
+<p><a href="#ShortcutDiagram">Figure 2.3.2.2</a> is the activity diagram when a user inputs an unkown command</p>
+</div>
+<div id="ShortcutDiagram" class="imageblock">
+<div class="content">
+<img src="images/ShortcutActivityDiagram.png" alt="ShortcutActivityDiagram" width="800">
+</div>
+<div class="title">Figure 2.3.2.2: ActivityDiagram</div>
+</div>
+<div class="sect3">
+<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.3.1. Why was it implemented this way?</a></h4>
+<div class="paragraph">
+<p>In order for us to create new Command Words that gives the same functionality of a default command, it was imperative for us to create a CommandItem class that creates an object for every command with the String attributes of <code>CommandWord</code> and <code>CommandTask</code>. This way, it was possible to
+create more commands as the user uses the application.</p>
+</div>
+<div class="paragraph">
+<p>Now with creation of new commands being made possible, we have to decide how we were going to store the list of commands for frequent reference to ensure a bug-free implementation of this feature.</p>
+</div>
+<div class="paragraph">
+<p>We considered between two alternatives.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Data structure to store commandWord and commandTask alternatives</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Structure Consideration</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ArrayList</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive to implement an ArrayList.</p>
+<p class="tableblock"><strong>Cons</strong> : Since we have to look up the list of commands frequently, the use of an ArrayList would significantly lower the performance of FinSec. This might negatively affect user experience.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TreeMap (Current Choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Since each commandWord has 2 attributes, <code>commandWord</code> and <code>commandTask</code>, this data structure was perfect for storing commands and newly created shortcuts.
+                                        Furthermore, since we have to look up this TreeMap frequently, a TreeMap would improve the performance of the application since the retrieval speed of a TreeMap is extremely fast.</p>
+<p class="tableblock">                                        <strong>Cons</strong> : A TreeMap is not as intuitive to implement compared to an ArrayList or List.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We have decided to opt for the first option primarily because it significantly improves the performance of the application.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="budget-feature"><a class="link" href="#budget-feature">2.4. Budget feature</a></h3>
+<h3 id="autocorrect-feature"><a class="link" href="#autocorrect-feature">2.4. Autocorrect feature</a></h3>
+<div class="paragraph">
+<p>This feature gives the user a dropdown list of suggestions when he is typing his entry.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>In order for an easy implementation of this feature, we have created a new class <code>AutocorrectTextField</code> that extends <code>TextField</code> that would be loaded into the MainWindow when the user starts the application.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AutocorrectTextField</code> has 2 attributes, <code>suggestionCommands</code> and <code>addSuggestions</code> which are Sets of String values to be displayed to the user upon entering their commands. <code>suggestionCommands</code> would give the list of suggestions and <code>addSuggestions</code> would give the list of additional suggestions such as <code>n/John Doe</code> for ease of use for the users.</p>
+</div>
+<div class="paragraph">
+<p>The list of commands can be easily retrieved using the method <code>FinSecParser#getCommandList().keySet()</code> while the list of additional suggestions can be retrieved from <code>SuggestionsStorage#getSuggestions()</code>.</p>
+</div>
+<div class="paragraph">
+<p>Currently, when the user adds a <code>Contact</code>, a new <code>AutocorrectSuggestion</code> would be created and added to the <code>Model</code> by the <code>ModelManager</code>. The <code>AutocorrectSuggestion</code> that would be created will be in the <code>String</code> "add_claim n/&lt;Contact.fullname()&gt;". This would ease the addition of claims into FinSec since that a user is not able to add a claim if the contact does not exist.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the AutoCorrect feature mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1 :</strong> The user starts typing add_contact into FinSec. Since that add_contact is a default command, it would already be in the Set of Strings in <code>AutocorrectTextField#suggestionCommands</code> and it would trigger the method <code>AutocorrectTextField#changed()</code> and the suggestions would be loaded into the UI in the <code>MainWindow</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2 :</strong> The user adds a contact into FinSec and the method <code>AddContactCommand#execute()</code> is executed.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The code snippet below shows the <code>AddContactCommand#execute()</code> method<br></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">XYSeries  <span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
+        requireNonNull(model);
+        <span class="keyword">if</span> (model.hasContact(toAdd)) {
+            <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+        model.addContact(toAdd);
+        <span class="comment">//adding the contact's name into the suggestion list.</span>
+        AutocorrectSuggestion addName = <span class="keyword">new</span> AutocorrectSuggestion(<span class="string"><span class="delimiter">&quot;</span><span class="content">add_claim n/</span><span class="delimiter">&quot;</span></span> + toAdd.getName().fullName);
+        model.addAutocorrectSuggestion(addName);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, toAdd));
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 3 :</strong> An <code>AutocorrectSuggestion</code> object is created with the parameter "add_claim n/contact.getName().fullName".</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4 :</strong> The newly created <code>AutocorrectSuggestion</code> object is added into <code>Model</code> and handled by the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5 :</strong> As the <code>AutocorrectTextField</code> is refreshed, the newly updated list of suggestions would be loaded and ready to display for the next user input.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="budget-feature"><a class="link" href="#budget-feature">2.5. Budget feature</a></h3>
 <div class="paragraph">
 <p>The <code>budget</code> command allows for users to Generate a <code>Budget</code> object in FinSec. It also creates <code>Budget Graph</code> object and displays it via the User Interface.</p>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="link" href="#overview">2.4.1. Overview</a></h4>
+<h4 id="overview"><a class="link" href="#overview">2.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>The <code>Budget</code> feature relies primarily on the <code>Claim</code> and <code>Income</code> features, and serves as an extension to calculate their difference.
 The <code>Budget</code> object calculates the cash <code>amount</code> values all existing <code>Income</code> objects and all cash <code>amount</code> values of <code>Claims</code> that have a <code>status</code> of <code>approved</code>.
@@ -714,7 +851,7 @@ It then returns the difference in values as the <code>budget</code> value and cr
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation"><a class="link" href="#current-implementation">2.4.2. Current Implementation</a></h4>
+<h4 id="current-implementation"><a class="link" href="#current-implementation">2.5.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p><a href="#budgetSeqDiagram">Figure 2.3.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>budget</code>
 command is entered.</p>
@@ -807,7 +944,7 @@ command is entered.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">2.4.3. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.5.3. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>With so many claims and incomes, all having differing dates, it can be hard to keep track of how much money one should have on hand at any one time.</p>
 </div>
@@ -823,7 +960,7 @@ command is entered.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.4.4. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered"><a class="link" href="#alternatives-considered">2.5.4. Alternatives Considered</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -834,14 +971,14 @@ command is entered.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="goto-feature"><a class="link" href="#goto-feature">2.5. Goto feature</a></h3>
+<h3 id="goto-feature"><a class="link" href="#goto-feature">2.6. Goto feature</a></h3>
 <div class="paragraph">
 <p>This section describes the different Views that Goto can bring a user to. It includes an overview of the goto details and how users can interact
 with goto based on commands implemented with the revamp of the original list feature.
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">2.5.1. Overview</a></h4>
+<h4 id="overview-2"><a class="link" href="#overview-2">2.6.1. Overview</a></h4>
 <div class="paragraph">
 <p>There are various message attributes in goto command: <code>MESSAGE_SUCCESS_CONTACTS</code>, <code>MESSAGE_SUCCESS_CLAIMS</code>, <code>MESSAGE_SUCCESS_INCOMES</code>, <code>MESSAGE FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the changing of View is successful. The attribute <code>View</code> is also stored as an attribute
@@ -849,7 +986,7 @@ of the command. It is taken in as the parameter and the index of this View deter
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">2.5.2. Current Implementation</a></h4>
+<h4 id="current-implementation-2"><a class="link" href="#current-implementation-2">2.6.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>Figure 2.4.2.1 is a sequence of steps that illustrates the interaction between various classes when the <code>goto</code> command is entered.
 <code>goto claims</code></p>
@@ -971,7 +1108,7 @@ which is <code>LogicManager::execute</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.5.3. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-3"><a class="link" href="#why-was-it-implemented-this-way-3">2.6.3. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>Our application allows for adding of claims and incomes, which are the extra features in comparison to the original AddressBook. Therefore, instead
 of placing all of them into the same list</p>
@@ -993,7 +1130,7 @@ is successful.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.5.4. Alternatives Considered</a></h4>
+<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.6.4. Alternatives Considered</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1008,13 +1145,13 @@ help to tell the user that he is currently working on something different.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="check-feature"><a class="link" href="#check-feature">2.6. Check feature</a></h3>
+<h3 id="check-feature"><a class="link" href="#check-feature">2.7. Check feature</a></h3>
 <div class="paragraph">
 <p>This feature is an extended feature of the goto feature because this feature can only be run when
 the user is in the claims or contacts page. This command is called when the user wants to check each contact or claim individually.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">2.6.1. Overview</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">2.7.1. Overview</a></h4>
 <div class="paragraph">
 <p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing. The 2 lists
@@ -1023,7 +1160,7 @@ individual claim or contact. It comes in the form of a pop-up that shows the mos
 </div>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">2.6.2. Current Implementation</a></h4>
+<h4 id="current-implementation-3"><a class="link" href="#current-implementation-3">2.7.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The check command takes in a single parameter that is the <code>Index</code>.</p>
 </div>
@@ -1179,7 +1316,7 @@ will then be passed as parameter to the <code>ModelManager::handleClaim</code> o
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way-3"><a class="link" href="#why-was-it-implemented-this-way-3">2.6.3. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-4"><a class="link" href="#why-was-it-implemented-this-way-4">2.7.3. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>The pop-up method seems to be the best way to attract the attention of the user and make sure that the user can see clearly what he wants to
 check at that point in time. A pop-up is also easy because it allows the user to return immediately to the lists of claims or contacts and he/she
@@ -1187,7 +1324,7 @@ can continue to work on his tasks immediately.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternative-considered"><a class="link" href="#alternative-considered">2.6.4. Alternative Considered</a></h4>
+<h4 id="alternative-considered"><a class="link" href="#alternative-considered">2.7.4. Alternative Considered</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1199,7 +1336,7 @@ or contact needed, but we realised that might not catch the attention of the use
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">2.7. Sort Feature</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">2.8. Sort Feature</a></h3>
 <div class="paragraph">
 <p>This section describes the ways that a user can sort the various lists. An overview is also included on how these sorts
 work.
@@ -1209,7 +1346,7 @@ There are 2 ways that a user can sort the lists by. It gives the user flexibilit
 addition, after sorting, the user can then employ the check method once again to see each individual object.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">2.7.1. Current Implementation</a></h4>
+<h4 id="current-implementation-4"><a class="link" href="#current-implementation-4">2.8.1. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort command takes in a 1 parameter that is the <code>Filter</code>. This <code>Filter</code> can either be <code>name</code> or <code>date</code>.
 <code>name</code> filter works in all 3 lists. However, in contacts and incomes list, the <code>name</code> filter refers to the name of
@@ -1321,7 +1458,7 @@ The code snippet below illustrates the comparator.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way-4"><a class="link" href="#why-was-it-implemented-this-way-4">2.7.2. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-5"><a class="link" href="#why-was-it-implemented-this-way-5">2.8.2. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>The major implementation difference for claims list sorted by <code>name</code>, it is sorted based on the description of each
 claim. This was implemented like this because of the check feature. The check feature in the contacts list allows
@@ -1336,7 +1473,7 @@ object he/she is finding.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternative-considered-2"><a class="link" href="#alternative-considered-2">2.7.3. Alternative Considered</a></h4>
+<h4 id="alternative-considered-2"><a class="link" href="#alternative-considered-2">2.8.3. Alternative Considered</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -1347,7 +1484,7 @@ object he/she is finding.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="reverse-feature"><a class="link" href="#reverse-feature">2.8. Reverse feature</a></h3>
+<h3 id="reverse-feature"><a class="link" href="#reverse-feature">2.9. Reverse feature</a></h3>
 <div class="paragraph">
 <p>This feature is exactly identical in the implementation as compared to the above sort feature. This feature sorts the various
 lists based on the same filters in the reverse of natural ordering. It shows the lists in reverse lexicographical order if
@@ -2548,4 +2685,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 13:45:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-03 19:57:37 UTC</div></div></div></body></html>
