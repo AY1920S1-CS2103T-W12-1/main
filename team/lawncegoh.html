@@ -10,7 +10,8 @@
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>FinSec is a Financial Planner that helps the finance secretaries of any department in NUS, preferably from the School of Computing so that they would be more likely to like the idea of having a CLI app.</p>
+<p>FinSec is a Financial Planner that helps the finance secretaries of any department in NUS, preferably from the School of
+Computing so that they would be more likely to like the idea of having a CLI app.</p>
 </div>
 </div>
 </div>
@@ -20,29 +21,90 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Major enhancement</strong>: added <strong>the ability to undo/redo previous commands</strong></p>
+<p><strong>Major enhancement 1</strong> I added <strong>ability to <code>goto</code> a different view, through the different lists</strong></p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to undo all previous commands one at a time. Preceding undo commands can be reversed by using the redo command.</p>
+<p><strong>What it does</strong>: this <code>goto</code> feature allows the user to get to the different lists, namely: contacts,
+claims and incomes, changing the state at which the
+user is currently at</p>
 </li>
 <li>
-<p>Justification: This feature improves the product significantly because a user can make mistakes in commands and the app should provide a convenient way to rectify them.</p>
+<p><strong>Justification</strong>: This feature is the backbone of my next 2 features because the changing of state is the underlying flag or checker
+that ensures that these 3 features will work correctly in the 3 different lists.</p>
 </li>
 <li>
-<p>Highlights: This enhancement affects existing commands and commands to be added in future. It required an in-depth analysis of design alternatives. The implementation too was challenging as it required changes to existing commands.</p>
-</li>
-<li>
-<p>Credits: <em>{mention here if you reused any code/ideas from elsewhere or if a third-party library is heavily used in the feature so that a reader can make a more accurate judgement of how much effort went into the feature}</em></p>
+<p><strong>Highlights</strong>: This enhancement works well with the current UI design as I created 3 tabs to fit with the current
+File and Help tabs. These tabs are added functions to allow the user to click to <code>goto</code> other lists if he/she wants to.
+The tabs become an extra option for the user to do the same thing. The implementation was also challenging because AB3
+only recognised 1 list and that was contacts list. Therefore I not only needed to ensure that the app runs with more than 1 list, but also to
+ensure that this list is able to update to another list when the correct command is entered.
+Also, after implementing the changing of lists, I had to also implement a state in each of these lists to make sure that the state
+changes when a certain view is input as parameter into this <code>goto</code> feature.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: added a history command that allows the user to navigate to previous commands using up/down keys.</p>
+<p><strong>Major enhancement 2</strong> I added *ability to <code>sort</code> and <code>reverse</code> the 3 various lists.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:The user is able to sort the lists according to name, date and status.
+<code>reverse</code> on the other hand sorts the lists in the reverse order. This is where the states of the various lists will allow this sort feature to work
+differently. An example will be in the state of claims. Only the <code>sort status</code> and <code>reverse status</code> will work as status belongs only to claim.</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>Justification</strong>: The user can now sort the claims based on the most critical ones which are the pending claims. The <code>reverse</code>
+feature also gives the user the flexibility to see the claims based on what he already approved. As for the <code>date</code> and <code>name</code>
+parameters, they help the user filter through the specific date or name that he/she wants to find.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This enhancement is extremely useful in comparison to the usual paper-filed version of claims or incomes
+stored in a physical file for a Financial Secretary. The user can now search through the lists for his pending, approved or rejected
+claims with much more ease now they are filed automatically with just 1 command. He can even find the oldest claim or income inflow
+that he had with just another command. The implementation was also challenging because I had to come up with different comparators for the
+different parameters as well as for <code>reverse</code> too which sorts the list in the reverse order of whatever parameter is typed. I had to consider
+what was most important for the user. An example is that I chose to sort the claims list by the description of the claims when the user inputs
+<code>sort name</code>. A Financial Secretary would be more likely to need the description of the claims when he wants to check through his claims.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement 3</strong>: I added <strong>the ability to <code>check</code> each individual claim or contact</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: in contacts page, the <code>check</code> feature allows the user to see the claims and details that are linked to the this current contact. In the
+claims page, the check feature allows the user to view a single claim with the most important details on this
+card. Both are shown through a pop-up to show the individual contact or claim. This feature once again makes use of the change of state in the goto
+feature to ensure that the check works differently in both contacts or claims list.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: Once you have gone to the list of your choice and sorted it, this feature will retrieve the exact claim or contact
+that is of interest to the user in a pop-up that cancels out all interference from the other items. The check in the contacts list will allow the
+user to see the specific claims that are linked to this contact and see the details that tag along with it.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This feature works extremely well with the above 2 features as well as for future implementations. Further implementations can include
+directly going to the specific from the list of claims that pops up during the checking of contact in the contacts' list. Another implementation can be
+the ability to pop up the claims that are of a certain date or status. If the sorting system in the feature is not enough for the user. This example of
+<code>check November/2019</code> or <code>check Pending</code> in the claims list will give a user-friendly pop up of the filtered claims and display it clearly to the user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement 1</strong>: I tweaked the <code>clear</code> feature in the existing AB3 to ensure that before the user is able to clear the list, the application prompts the
+user one more time to ensure that the command was not by accident.</p>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/" class="bare">https://nus-cs2103-ay1920s1.github.io/tp-dashboard/</a>
+#search=lawncegoh&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=
+commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;
+tabType=authorship&amp;tabAuthor=lawncegoh&amp;tabRepo=AY1920S1-CS2103T-W12-1%2Fmain%5Bmaster%5D
+[Code]]<em>{give links to collated code files}</em></p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
@@ -53,7 +115,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Added Travis functionality into the project</p>
+<p>There were a total of 5 releases, from version 1.0 to 1.4. I managed releases versions 1.0 and 1.2</p>
 </li>
 </ul>
 </div>
@@ -67,6 +129,9 @@
 </li>
 <li>
 <p>Wrote additional tests for existing features to increase coverage from 88% to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
+</li>
+<li>
+<p>Updated the UI of the whole application to suit our general theme of a more pastel-coloured application to allow the user to feel comfortable using it</p>
 </li>
 </ul>
 </div>
@@ -161,4 +226,4 @@
 <p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 18:20:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 16:38:19 UTC</div></div></div></body></html>
