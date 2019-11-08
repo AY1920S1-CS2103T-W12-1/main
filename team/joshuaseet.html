@@ -1,0 +1,888 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Joshua Seet - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FinSec</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Joshua Seet - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="introduction"><a class="link" href="#introduction">Introduction</a></h2>
+<div class="sectionbody">
+<div class="imageblock" style="text-align: left">
+<div class="content">
+<img src="../images/joshuaseetss.png" alt="joshuaseetss" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p>[<a href="https://github.com/joshuaseetss">github</a>]</p>
+</div>
+<div class="paragraph">
+<p>Hi! My name is Joshua.</p>
+</div>
+<div class="paragraph">
+<p>I&#8217;m currently a second year SoC (School of Computing) student in NUS majoring in Computer Science.</p>
+</div>
+<div class="paragraph">
+<p>This portfolio page aims to document the contributions I have made in the development of FinSec, which is a project that my team and I completed for the module CS2103T. This project has definitely been greatly beneficial to my own learning and self-development in becoming a more competent software engineer.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-finsec"><a class="link" href="#project-finsec">PROJECT: FinSec</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FinSec is a useful application that was created with the end goal of aiding Financial Secretaries of any organisation. It is a Command Line Interface (CLI) based tool to cater to computing professionals who are highly adept at typing but also provides a Graphical User Interface (GUI) interface for users to easily view interact with FinSec.</p>
+</div>
+<div class="paragraph">
+<p>FinSec boasts relevant and useful features which have been carefully selected and scrutinised to fit the needs of our target audience. All of FinSec&#8217;s features and implementations are well documented in guides for users and developers respectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="602">
+</div>
+<div class="title">Figure 1. A view of FinSec</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="role"><a class="link" href="#role">Role</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My main role was to prototype and develop the Shortcut feature and the Income feature.
+The shortcut feature required handling unknown command words that are not recognized by FinSec. Instead of throwing an error when the user inputs an invalid command, FinSec is able give the user an option if he wanted to use that wrongly input command as an existing command, thereby creating an alias for the default commands for increased user experience..
+I created the base classes to facilitate these features, then linked it to the Model and Storage components since the shortcuts created and income entries have to be saved for future use. I also wrote rigorous tests for quality assurance of our product and to ensure that any possible bugs are kept to a minimal.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section shows a summary of my coding, documentation, and other contributions I made to the project.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement</strong>: Added the <strong>Shortcut Feature</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The <code>shortcut feature</code> gives FinSec the ability to learn new shortcuts to existing commands. Whenever the user inputs a value that is not recognised by FinSec, FinSec would be able to take that unknown command and turn it into a shortcut, making that value a valid command in the future.</p>
+</li>
+<li>
+<p>Justification: This feature greatly improves the usability of FinSec since that it allows users to create their own manual shortcuts for commands. This will especially be useful for our target audience, Financial Secretaries, since data entry is majority of what they will be doing. With the ability to create shortcuts, users would not have to type in the whole command, such as "add_claim", every time they want to add a claim. Instead, they can create an alias "ac" for the command "add_claim". This would greatly improve the user interface of FinSec.</p>
+</li>
+<li>
+<p>Implementation: This enhancement alters the flow of command execution in FinSec. Executing an unknown command that FinSec does not recognize changes the command execution pathway and creates a new command that FinSec will recognise. This is facilitated by the use of a TreeMap in the parser which stores a list of all available commands and their actions as key-value pairs.</p>
+</li>
+<li>
+<p>Highlights: This feature enhances the entire software model to be more Object Oriented since through this implementation, commands are created as objects. This is different from the previous implementation of commands in the Address Book 3 (AB3). With a higher level of abstraction, future features would be easier for implementation. However, the implementation of this feature is challenging because it requires key changes to the flow of command execution of FinSec. After implementing this feature, without proper communication, my team members would have difficulty with the sudden change in the flow of the program. This was easily overcome with proper communication with my team members and more specific documentation in the java docs.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added the <strong>Income feature</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature allows users, who are mainly Financial Secretaries, to enter Income transactions into the FinSec application and track their income entries.</p>
+</li>
+<li>
+<p>Justification: The <code>income feature</code> is a vital feature to the FinSec application since that the majority of organisations and clubs have incomes to keep track of. It allows Financial Secretaries to keep proper records of the organisation and to keep track of its financial status.</p>
+</li>
+<li>
+<p>Implementation: The Person class in Address Book 3 (AB3) is remodelled to resemble an income entry (with additional attributes of Description, Amount, Date).</p>
+</li>
+<li>
+<p>Highlights: The implementation of this feature is fairly manageable since that it is an adaptation of the Person class.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Minor enhancement</strong>: Added the <strong>Autocorrect Suggestions feature</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: This feature gives users suggestions in a drop-down list as they are typing their commands into FinSec. The suggestions given corresponds with what the user is currently typing. Currently, the possible suggestions are the default commands available for the user to use. Whenever the user adds a shortcut (from the <code>shortcut feature</code>) or a contact, it will add on (in real-time) to the suggestions list that could be displayed to the user (depending on what the user types).</p>
+</li>
+<li>
+<p>Justification: The drop-down list that this feature provides greatly enhances the user experience when using the application. With this feature, the user does not have to perpetually refer to the User Guide for the list of available commands. This is especially useful for FinSec, an application with 20 commands.</p>
+</li>
+<li>
+<p>Implementation: An additional class AutocorrectTextField is created to cater for the add-ons to the Text Field class. By loading the updated Set of Strings in that class, the new dictionary of suggestions is available to be displayed to the user when he types.</p>
+</li>
+<li>
+<p>Highlights: The implementation of this feature is slightly difficult since that it deals with majority of UI which I am not very familiar with. However, tutorials online help me to learn more about the different components such as Listeners. I also made minor enhancements to this feature by adding attributes (such as Name) into the claim suggestions for better usability for the user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/AY1920S1-CS2103T-W12-1/main/commits?author=joshuaseetss">All commits</a>] [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=zoom">Project Code Dashboard</a>]</p>
+</li>
+<li>
+<p><strong>Other contributions</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management</p>
+</li>
+<li>
+<p>Enhancements to existing features</p>
+</li>
+<li>
+<p>Documentation</p>
+</li>
+<li>
+<p>Community</p>
+</li>
+<li>
+<p>Tools</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="adding-an-income-code-add_income-code"><a class="link" href="#adding-an-income-code-add_income-code">Adding an income : <code>add_income</code></a></h3>
+<div class="paragraph">
+<p>You can add an income to the incomes list by using the add income command by entering the keyword <code>add_income</code> followed by the required fields of an income.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>add_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT date/DATE n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add_income d/Shirt Sales c/307.5 date/11-11-2019 n/Lee Wei Gen p/96777777 t/Marketing</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>This command will then add an income to the incomes list.</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-AddIncomeExample">Figure 3.8.1</a> and <a href="#UG-AddIncomeResult">Figure 3.8.2</a> shows what you can expect to see after typing in the example: <code>add_income d/Shirt Sales c/307.5 date/11-11-2019 n/Lee Wei Gen p/96777777 t/Marketing</code>.</p>
+</div>
+<div id="UG-AddIncomeExample" class="imageblock">
+<div class="content">
+<img src="../images/UG-Add_income1.png" alt="UG Add income1" width="800">
+</div>
+<div class="title">Figure 3.8.1: Type in the add_income command in an empty incomes list.</div>
+</div>
+<div id="UG-AddIncomeResult" class="imageblock">
+<div class="content">
+<img src="../images/UG-Add_income2.png" alt="UG Add income2" width="800">
+</div>
+<div class="title">Figure 3.8.2: The result after entering the command</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_income</code> parameter warnings as per <code>add_claim</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-income-code-edit_income-code"><a class="link" href="#editing-an-income-code-edit_income-code">Editing an income : <code>edit_income</code></a></h3>
+<div class="paragraph">
+<p>If you accidentally entered the wrong details of the income or you want to make changes to a entered income, you can edit an income by using the edit income command by entering the keyword <code>edit_income</code>
+followed by the position of the income in the incomes list, and the fields that you want to change.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>edit_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>edit_income 1 c/1150.50 p/96777495</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>This command will edit the description and amount fields in the second income in the list to the newly specified description and amount.</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-AddIncomeExample">Figure 3.8.1</a> and <a href="#UG-AddIncomeResult">Figure 3.8.2</a> shows what you can expect to see after typing in the example: <code>edit_income 1 c/1150.50 p/96777495</code>.</p>
+</div>
+<div id="UG-EditIncomeExample" class="imageblock">
+<div class="content">
+<img src="../images/UG-Edit_income1.png" alt="UG Edit income1" width="800">
+</div>
+<div class="title">Figure 3.9.1: Type in the edit_income command.</div>
+</div>
+<div id="UG-AddIncomeResult" class="imageblock">
+<div class="content">
+<img src="../images/UG-Edit_income2.png" alt="UG Edit income2" width="800">
+</div>
+<div class="title">Figure 3.9.2: The result after entering the command. The first income is now edited to the newly specified fields.</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add_income</code> parameter warnings as per <code>add_claim</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-an-income-code-delete_income-code"><a class="link" href="#deleting-an-income-code-delete_income-code">Deleting an Income : <code>delete_income</code></a></h3>
+<div class="paragraph">
+<p>You can delete an income off the incomes list by using the delete income command by entering the keyword <code>delete_income</code> followed by the position of the income in the incomes list.
+The specified index will be then deleted.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>delete_income</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete_income INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delete_income 2 (removes second income in the income list)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>Deletes the income at the specified <code>INDEX</code>.</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-DeleteIncomeExample">Figure 3.10.1</a> and <a href="#UG-DeleteIncomeResult">Figure 3.10.2</a> shows what you can expect to see after typing in the example: <code>delete_income 2</code>.</p>
+</div>
+<div id="UG-DeleteIncomeExample" class="imageblock">
+<div class="content">
+<img src="../images/UG-Delete_income1.png" alt="UG Delete income1" width="800">
+</div>
+<div class="title">Figure 3.10.1: Type in the delete_income command.</div>
+</div>
+<div id="UG-DeleteIncomeResult" class="imageblock">
+<div class="content">
+<img src="../images/UG-Delete_income2.png" alt="UG Delete income2" width="800">
+</div>
+<div class="title">Figure 3.10.2: The result after entering the command. The second income is now deleted off the incomes list.</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the displayed income list.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="creating-a-shortcut"><a class="link" href="#creating-a-shortcut">Creating a shortcut</a></h3>
+<div class="paragraph">
+<p>Accidentally typed a command that is not in FinSec? Don&#8217;t worry! FinSec will recognise that it is an unknown command and is smart enough to make that unknown entry into a shortcut!</p>
+</div>
+<div class="paragraph">
+<p>Upon entering an unknown command, FinSec will prompt you as to whether you would like that as a new shortcut or if it was just a mistake.</p>
+</div>
+<div class="paragraph">
+<p><strong>Choice 1 :</strong> You can enter the keyword <code>n</code> to continue as per usual.</p>
+</div>
+<div class="paragraph">
+<p><strong>Choice 2 :</strong> You can enter any <code>existing commands</code> to map your previous entry to it!</p>
+</div>
+<div class="paragraph">
+<p>If you have chosen <strong>Choice 2</strong>, you can use the newly created shortcut as a substitute to the command.</p>
+</div>
+<div class="sect3">
+<h4 id="example-of-strong-choice-1-strong"><a class="link" href="#example-of-strong-choice-1-strong">Example of <strong>Choice 1</strong> :</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>User : add_conagtact</p>
+</div>
+<div class="paragraph">
+<p>FinSec: Create shortcut? To which command? If no, type "n"</p>
+</div>
+<div class="paragraph">
+<p>User : n</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>No shortcut is created. Continue using FinSec as per normal!</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-NoShortcutexample1">Figure 3.11.1.1</a>, <a href="#UG-NoShortcutExample2">Figure 3.11.1.2</a> and <a href="#UG-NoShortcutResult">Figure 3.11.1.3</a> shows what you can expect to see after typing in the example: <code>add_conagtact</code>.</p>
+</div>
+<div id="UG-NoShortcutexample1" class="imageblock">
+<div class="content">
+<img src="../images/UG-NoShortcut1.png" alt="UG NoShortcut1" width="800">
+</div>
+<div class="title">Figure 3.11.1.1: When a user enters an accidental typo</div>
+</div>
+<div id="UG-NoShortcutExample2" class="imageblock">
+<div class="content">
+<img src="../images/UG-NoShortcut2.png" alt="UG NoShortcut2" width="800">
+</div>
+<div class="title">Figure 3.11.1.2: The result after entering the typo. FinSec will ask you if you want to create a shortcut.</div>
+</div>
+<div id="UG-NoShortcutResult" class="imageblock">
+<div class="content">
+<img src="../images/UG-NoShortcut3.png" alt="UG NoShortcut3" width="800">
+</div>
+<div class="title">Figure 3.11.1.3: Since it is a genuine typo, entering 'n' will allow you to continue.</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-of-strong-choice-2-strong"><a class="link" href="#example-of-strong-choice-2-strong">Example of <strong>Choice 2</strong> :</a></h4>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>User : ai</p>
+</div>
+<div class="paragraph">
+<p>FinSec: Create shortcut? To which command? If no, type "n"</p>
+</div>
+<div class="paragraph">
+<p>User: add_income</p>
+</div>
+<div class="paragraph">
+<p>FinSec: New shortcut created! ai to add_income</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>A new shortcut is created for you! From now on, <code>ai</code> can be used as a substitute for <code>add_income</code>!</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-createShortcutexample1">Figure 3.11.2.1</a>, <a href="#UG-createShortcutExample2">Figure 3.11.2.2</a> and <a href="#UG-createShortcutResult">Figure 3.11.2.3</a> shows what you can expect to see when you want to create a shortcut <code>ai</code> as shown in the example.</p>
+</div>
+<div id="UG-createShortcutexample1" class="imageblock">
+<div class="content">
+<img src="../images/UG-createShortcut1.png" alt="UG createShortcut1" width="800">
+</div>
+<div class="title">Figure 3.11.2.1: When a user enters a shortcut he/she wishes to create.</div>
+</div>
+<div id="UG-createShortcutExample2" class="imageblock">
+<div class="content">
+<img src="../images/UG-createShortcut2.png" alt="UG createShortcut2" width="800">
+</div>
+<div class="title">Figure 3.11.2.2: User will enter the existing command that he wishes to map the shortcut to.</div>
+</div>
+<div id="UG-createShortcutResult" class="imageblock">
+<div class="content">
+<img src="../images/UG-createShortcut3.png" alt="UG createShortcut3" width="800">
+</div>
+<div class="title">Figure 3.11.2.3: After creating the shortcut.</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The shortcut you want to add has to be to a default FinSec command.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="#UG-shortcutExample">Figure 3.11.2.4</a>, <a href="#UG-shortcutResult">Figure 3.11.2.5</a> shows what you can expect after creating a shortcut of your own!</p>
+</div>
+<div id="UG-shortcutExample" class="imageblock">
+<div class="content">
+<img src="../images/UG-createShortcut4.png" alt="UG createShortcut4" width="800">
+</div>
+<div class="title">Figure 3.11.2.4: User can now use the command 'ai' for adding an income!</div>
+</div>
+<div id="UG-shortcutResult" class="imageblock">
+<div class="content">
+<img src="../images/UG-createShortcut5.png" alt="UG createShortcut5" width="800">
+</div>
+<div class="title">Figure 3.11.2.5: The newly created shortcut 'ai' creating an income.</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-shortcut-code-delete_shortcut-code"><a class="link" href="#deleting-a-shortcut-code-delete_shortcut-code">Deleting a shortcut : <code>delete_shortcut</code></a></h3>
+<div class="paragraph">
+<p>You can delete a shortcut that you have created by using the delete shortcut command by entering the keyword <code>delete_shortcut</code> followed by shortcut name.
+The specified shortcut will be then deleted.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>delete_shortcut</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete_shortcut SHORTCUT</code></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>delete_shortcut ai (removes shortcut 'ai' )</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Result:</p>
+</div>
+<div class="paragraph">
+<p>The shortcut is now no longer available for use.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/warning.png" alt="warning" width="20">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The shortcut you want to delete has to be an existing shortcut.</p>
+</li>
+<li>
+<p>This will not work for default commands.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="income-feature"><a class="link" href="#income-feature">Income feature</a></h3>
+<div class="paragraph">
+<p>The <code>add_income</code> command allows for users to register new <code>Income</code> objects into FinSec.</p>
+</div>
+<div class="paragraph">
+<p>The format for the <code>add_income</code> command is as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>`add_income d/&lt;description&gt; c/&lt;cash amount&gt; date/&lt;date&gt; n/&lt;name&gt; p/&lt;phone number&gt;`</pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-an-income"><a class="link" href="#adding-an-income">Adding an Income</a></h4>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The add income <code>add_income</code> mechanism is facilitated by <code>AddIncomeCommand</code> and <code>AddIncomeCommandParser</code>. It takes in the following input from the user:
+<code>description</code>, <code>cash amount</code>, <code>name</code> and <code>phone number</code>, which will construct individual objects that construct an <code>Income</code> object.</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>AddIncomeCommandParser#parse()</code> - This operation will take in a <code>String</code> input from the user that will create individual objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 'p/'. The <code>String</code> value after the individual prefixes will create
+the respective object: d/ <code>description</code>, c/ <code>cash amount</code>, date/<code>date</code>,  n/ <code>name</code> and p/ <code>phone</code>. A validation check will be imposed upon the creation of each object. Any checks that fails the validation would prompt the user on the failed component.
+For example:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>cash amount</code> would use <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of 2 decimal places.</p>
+</li>
+<li>
+<p><code>phone</code> would use <code>ParserUtil#parsePhone()</code> to ensure that the phone number entered would only contain numbers that are at least 3 numbers long.</p>
+</li>
+<li>
+<p><code>date</code> would use <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>After validation checks are completed with no errors, an <code>Income</code> object is then constructed with <code>description</code>, <code>cash</code>, <code>date</code>, <code>name</code> and <code>phone</code> as the parameters.</p>
+</li>
+<li>
+<p><code>AddIncomeCommandParser</code> would then return a <code>AddIncomeCommand</code> object with <code>Income</code> as the parameter.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how <code>add_income</code> mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user executes <code>add_income d/shirt sales c/100.05 date/11-11-2019 n/John Doe p/91111111</code> to add an income of $100.05 of shirt sales received from John Doe who is contactable at 91111111.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> <code>LogicManager</code> would use <code>FinSecParser#parse()</code> to parse input from the user.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> <code>FinSecParser</code> would determine which command is being used and creates the respective parser. In this case, <code>AddIncomeCommandParser</code> is being created and the user&#8217;s input would be passed in as a parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> <code>AddIncomeCommandParser</code> would do a validation check on the user&#8217;s input before creating and returning a <code>AddIncomeCommand</code> object with <code>Income</code> as the parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>LogicManager</code> would use <code>AddIncomeCommand#execute()</code> to add the <code>Income</code> into the <code>Model</code> which is handled by the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> <code>AddIncomeCommand</code> would return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddIncomeSequenceDiagram.png" alt="AddIncomeSequenceDiagram">
+</div>
+<div class="title">Figure 2. Add Income Command Sequence Diagram</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">Deleting an Income</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to delete an income entry from the Unique Incomes List through its index.</p>
+</div>
+<div class="paragraph">
+<p>The delete income feature is facilitated by the <code>DeleteIncomeCommandParser</code> and the <code>DeleteIncomeCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The delete income command is part of the logic component of our application. It interacts with the model and storage components of our application.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The <code>DeleteIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>DeleteIncomeCommandParser#parse()</code> - This operation will take in a <code>int</code> input from the user which will delete the income entry at the index which has entered.
+Any invalid format of the command will be prompted by the command parser.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Current Implementation</strong></p>
+</div>
+<div class="paragraph">
+<p>The delete income feature is executed by the <code>DeleteIncomeCommand</code>. Currently, the deletion of any income entry is done based on the <code>INDEX</code> of the income entry.</p>
+</div>
+<div class="paragraph">
+<p>During the design of our delete function, we considered between two alternatives.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Delete function alternatives</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Design Consideration</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Income description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive for users to delete an income through the description of the income.</p>
+<p class="tableblock">                                        <strong>Cons</strong> : Incomes of different entries can have similar description. The user would eventually still have to look through the income list.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Index (Current Choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Since each income has a unique index, any deletion by the index is less prone to bugs and easier to implement.</p>
+<p class="tableblock">                                        <strong>Cons</strong> : User will have to scroll the income list for the income entry and look for its index which can be inconvenient.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We have decided to opt for the first option primarily because it reduces the number of potential bugs and the complexities involved when taking into account the different cases and scenarios upon using deletion by income description.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-income"><a class="link" href="#editing-an-income">Editing an Income</a></h4>
+<div class="paragraph">
+<p>This feature allows the user to edit any attribute of the income entries. There are a total of five attributes for each entry, the description of the income, the amount of money received, the date it was received, the name of the person / organisation the user
+received the money from and the contact number. The user can edit at least one and up to all attributes.</p>
+</div>
+<div class="paragraph">
+<p>The edit income feature is facilitated by the <code>EditIncomeCommandParser</code> and the <code>EditIncomeCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The edit command is part of the logic component of our application. It interacts with the model component of our software architecture.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>The <code>EditIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>EditIncomeCommandParser#parse()</code> - This operation will take in an <code>int</code> input and one to five <code>String</code> input(s) from the user that will alter the attributes of current income entries based on the prefixes 'd/', 'c/', 'date/', 'n/', 'p'. The <code>String</code>
+value after the individual prefixes will alter the respective attribute it corresponds to: 'd/' for <code>Description</code>, 'c/' for <code>Amount</code>, 'date/' for <code>Date</code>, 'n/' for <code>Name</code> and 'p/' for <code>Phone</code>. A validation check will be imposed upon editing of each object. Any checks that fails
+the validation would prompt the user on the failed component.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Current Implementation</strong></p>
+</div>
+<div class="paragraph">
+<p>Here is an example of a step-by-step process on how the edit command alters an attribute of the homework entry. For each step, you may follow the activity diagram at the end of this section to better understand the flow of events within FinSec when an edit_income command is entered.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1 :</strong> The user launches the application and nagivates to the income page. There is a list of existing income entries in FinSec.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2 :</strong> The user then wishes to alter the income description of the second entry in the income list to "Fundraising". He then types <code>edit_income 2 d/Fundraising</code> into the Command Line Interface(CLI) and executes it.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3 :</strong> The FinSecParser (refer to logic) then reads in these attributes that have been entered and proceeds to alter the attributes of the income entry in the given index. Each attribute will be validated.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4 :</strong> The FinSecParser then creates a new EditIncomeCommand based on the input of the user. When the EditIncomeCommand is executed, it interacts with the Model architecture by calling the setIncome method. The setIncome method replaces the current income entry with the new income entry containing all the desired attributes. The income entry is now updated.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="shortcut-feature"><a class="link" href="#shortcut-feature">Shortcut feature</a></h3>
+<div class="paragraph">
+<p>This feature gives the user an option to create a shortcut when an unknown command is entered into FinSec.</p>
+</div>
+<div class="paragraph">
+<p><strong>Overview</strong></p>
+</div>
+<div class="paragraph">
+<p>To enable an easy implementation of this feature, we have created a TreeMap to store the default commands and shortcuts in the <code>FinSecParser</code>. Each command and shortcut have their Command Word stored as they key value (so as to ensure there are no duplicates) and Command task as the values.</p>
+</div>
+<div class="paragraph">
+<p>All default commands and shortcuts are also initialised as <code>CommandItem</code> objects which would be handled by the <code>Model Manager</code> class whenever we add or delete a shortcut. Command classes such as <code>ShortCutRequestCommand</code>, <code>CreateShortcutCommand</code> and <code>NoShortCutCommand</code> are created to facilitate the
+implementation of the shortcut feature.</p>
+</div>
+<div class="paragraph">
+<p>When a user enters a command, <code>FinSecParser</code> would parse the input and check if the first word of the input is in the TreeMap key set. If the command word is not in the key set, FinSec would create a <code>ShortCutRequestCommand</code> and return the <code>ShortCutRequestCommand</code> object with <code>CommandWord</code> as the parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Example</strong></p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario of how the shortcut feature mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1 :</strong> The user launches FinSec for the first time. The <code>FinSecParser</code> will be initialised. All the default commands will be added to the TreeMap using <code>FinSecParser#initialiseDefaultCommands()</code>. Previously created shortcuts would be added to the TreeMap from the constructor of the <code>FinSecParser</code>, where the ObservableList&lt;CommandItem&gt; will be the parameter.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2 :</strong> The user enters an unknown command that is not recognised by FinSec. FinSec then returns a <code>ShortCutRequestCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3 :</strong> <code>ShortCutRequestCommand</code> is executed in <code>LogicManager</code> and LogicManager would save the command word in a Stack. A <code>CommandResult</code> with a new Boolean value of "createShortCut" is then returned to <code>MainWindow</code> to display the result of the entry. The <code>CommandResult#isCreateShortCut()</code> sets the <code>MainWindow#unknownEntry</code> to true.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4 :</strong> Since now the boolean value of <code>MainWindow#unknownEntry</code> is true, the next input would use a different execute command. Instead of the usual method <code>LogicManager#execute(String command)</code>, the next input would be executed by <code>LogicManager#executeUnknownInput(String command)</code>. Hence, if the subsequent input by the user is <code>n</code>, a <code>NoShortCutCommand</code> would be executed
+and it would return a <code>CommandResult</code> with a false value of <code>createShortCut</code> which would reinstate back the normal state of FinSec.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5 :</strong> If the user enters a value other than <code>n</code>, the <code>LogicManager#executeUnknownInput(String command)</code> would call <code>FinSecParser#checkCommand(String currentInput, String prevInput)</code> to check if the command is existing or not. If the command is existing, it would return another <code>ShortCutRequestCommand</code> object with the same input. However, if a valid default command is entered, a new <code>CreateShortCutCommand</code> object is returned (go back to <strong>Step 3</strong>).</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The code snippet below shows the <code>FinSecParser#checkCommand(String currentInput, String prevInput)</code> method<br></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">XYSeries <span class="directive">public</span> Command checkCommand(<span class="predefined-type">String</span> currentInput, <span class="predefined-type">String</span> prevInput) {
+        <span class="keyword">if</span> (FinSecParser.commandList.containsValue(currentInput)) {
+            FinSecParser.commandList.put(prevInput, FinSecParser.commandList.get(currentInput));
+            <span class="keyword">return</span> <span class="keyword">new</span> CreateShortCutCommand(FinSecParser.commandList.get(currentInput), prevInput);
+        } <span class="keyword">else</span> {
+            <span class="keyword">return</span> <span class="keyword">new</span> ShortCutRequestCommand(currentInput);
+        }
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 6 :</strong> When a <code>CreateShortCutCommand</code> object is returned, it is executed in <code>LogicManager</code> and <code>LogicManager</code> would use <code>CreateShortCutCommand#execute()</code> to add the <code>CommandItem</code> into the <code>Model</code> which is handled by the <code>ModelManager</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7 :</strong> <code>CreateShortCutCommmand</code> would then return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to the user.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarises what happens when a user executes an unknown command:</p>
+</div>
+<div class="paragraph">
+<p><a href="#ShortcutDiagram">Figure 2.4</a> is the activity diagram when a user inputs an unknown command</p>
+</div>
+<div id="ShortcutDiagram" class="imageblock">
+<div class="content">
+<img src="../images/ShortcutActivityDiagram.png" alt="ShortcutActivityDiagram" width="800">
+</div>
+<div class="title">Figure 2.4: ActivityDiagram when a user inputs an unknown command</div>
+</div>
+<div class="sect3">
+<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">Why was it implemented this way?</a></h4>
+<div class="paragraph">
+<p>In order for us to create new Command Words that gives the same functionality of a default command, it was imperative for us to create a CommandItem class that creates an object for every command with the String attributes of <code>CommandWord</code> and <code>CommandTask</code>. This way, it was possible to
+create more commands as the user uses the application.</p>
+</div>
+<div class="paragraph">
+<p>Now with creation of new commands being made possible, we have to decide how we were going to store the list of commands for frequent reference to ensure a bug-free implementation of this feature.</p>
+</div>
+<div class="paragraph">
+<p>We considered between two alternatives.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. Data structure to store commandWord and commandTask alternatives</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Data Structure Consideration</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ArrayList</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive to implement an ArrayList.</p>
+<p class="tableblock"><strong>Cons</strong> : Since we have to look up the list of commands frequently, the use of an ArrayList would significantly lower the performance of FinSec. This might negatively affect user experience.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TreeMap (Current Choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Since each commandWord has 2 attributes, <code>commandWord</code> and <code>commandTask</code>, this data structure was perfect for storing commands and newly created shortcuts.
+                                        Furthermore, since we have to look up this TreeMap frequently, a TreeMap would improve the performance of the application since the retrieval speed of a TreeMap is extremely fast.</p>
+<p class="tableblock">                                        <strong>Cons</strong> : A TreeMap is not as intuitive to implement compared to an ArrayList or List.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We have decided to opt for the first option primarily because it significantly improves the performance of the application.</p>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 21:25:25 UTC</div></div></div></body></html>

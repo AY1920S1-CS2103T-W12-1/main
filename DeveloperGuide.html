@@ -844,13 +844,13 @@ and it would return a <code>CommandResult</code> with a false value of <code>cre
 <p>The following activity diagram summarises what happens when a user executes an unknown command:</p>
 </div>
 <div class="paragraph">
-<p><a href="#ShortcutDiagram">Figure 2.3.2.2</a> is the activity diagram when a user inputs an unkown command</p>
+<p><a href="#ShortcutDiagram">Figure 2.4</a> is the activity diagram when a user inputs an unknown command</p>
 </div>
 <div id="ShortcutDiagram" class="imageblock">
 <div class="content">
 <img src="images/ShortcutActivityDiagram.png" alt="ShortcutActivityDiagram" width="800">
 </div>
-<div class="title">Figure 2.3.2.2: ActivityDiagram</div>
+<div class="title">Figure 2.4: ActivityDiagram when a user inputs an unknown command</div>
 </div>
 <div class="sect3">
 <h4 id="why-was-it-implemented-this-way-2"><a class="link" href="#why-was-it-implemented-this-way-2">2.4.1. Why was it implemented this way?</a></h4>
@@ -958,7 +958,7 @@ create more commands as the user uses the application.</p>
 <p><strong>Step 4 :</strong> The newly created <code>AutocorrectSuggestion</code> object is added into <code>Model</code> and handled by the <code>ModelManager</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5 :</strong> As the <code>AutocorrectTextField</code> is refreshed, the newly updated list of suggestions would be loaded and ready to display for the next user input.</p>
+<p><strong>Step 5 :</strong> As the <code>AutocorrectTextField</code> is refreshed, the newly updated list of suggestions would be loaded by the methods <code>FinSecParser#getCommandList().keySet()</code> and <code>SuggestionsStorage#getSuggestions()</code> and ready to display for the next user input.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2840,4 +2840,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 16:38:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-08 21:25:25 UTC</div></div></div></body></html>
