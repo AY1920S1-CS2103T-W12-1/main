@@ -27,16 +27,17 @@
 <li><a href="#changing-views-code-goto-code">3.12. Changing Views : <code>goto</code></a></li>
 <li><a href="#checking-a-contact-or-claim-code-check-code">3.13. Checking a Contact or Claim : <code>check</code></a></li>
 <li><a href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">3.14. Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></li>
-<li><a href="#sorting-the-claims-list-by-status">3.15. Sorting the Claims list by Status</a></li>
-<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.16. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
-<li><a href="#sorting-the-claims-incomes-list-in-reverse-order-by-date">3.17. Sorting the Claims/Incomes list in reverse order by Date</a></li>
-<li><a href="#sorting-the-claims-list-in-reverse-order-by-status">3.18. Sorting the Claims list in reverse order by Status</a></li>
-<li><a href="#deleting-a-contact-code-delete_contact-code">3.19. Deleting a Contact : <code>delete_contact</code></a></li>
-<li><a href="#viewing-budget-code-budget-code">3.20. Viewing budget : <code>budget</code></a></li>
-<li><a href="#clearing-all-data-code-clear-code">3.21. Clearing all data : <code>clear</code></a></li>
-<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.22. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.24. Saving the data</a></li>
+<li><a href="#sorting-the-claims-incomes-list-by-date">3.15. Sorting the Claims/Incomes list by Date</a></li>
+<li><a href="#sorting-the-claims-list-by-status">3.16. Sorting the Claims list by Status</a></li>
+<li><a href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.17. Sorting the Contacts/Claims/Incomes list in reverse order</a></li>
+<li><a href="#sorting-the-claims-incomes-list-in-reverse-order-by-date">3.18. Sorting the Claims/Incomes list in reverse order by Date</a></li>
+<li><a href="#sorting-the-claims-list-in-reverse-order-by-status">3.19. Sorting the Claims list in reverse order by Status</a></li>
+<li><a href="#deleting-a-contact-code-delete_contact-code">3.20. Deleting a Contact : <code>delete_contact</code></a></li>
+<li><a href="#viewing-budget-code-budget-code">3.21. Viewing budget : <code>budget</code></a></li>
+<li><a href="#clearing-all-data-code-clear-code">3.22. Clearing all data : <code>clear</code></a></li>
+<li><a href="#making-a-mistake-code-any-invalid-entry-code">3.23. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">3.25. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#non-command-features">4. Non-command Features</a>
@@ -48,7 +49,9 @@
 <li><a href="#upcoming-features">5. Upcoming Features</a>
 <ul class="sectlevel2">
 <li><a href="#attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0">5.1. Attaching Pictures to Claims : <code>attach</code> (To be implemented in v2.0)</a></li>
-<li><a href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.2. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></li>
+<li><a href="#checking-for-months-or-dates">5.2. Checking for months or dates</a></li>
+<li><a href="#display-statistics-of-the-application">5.3. Display statistics of the application</a></li>
+<li><a href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.4. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
@@ -1025,10 +1028,18 @@ is the description of the claim. In Incomes, it is the entity who provided the i
 <p>Format: <code>sort name</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:
-* <code>sort name</code>
-=== Sorting the Claims/Incomes list by Date</p>
+<p>Examples:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort name</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-the-claims-incomes-list-by-date"><a class="link" href="#sorting-the-claims-incomes-list-by-date">3.15. Sorting the Claims/Incomes list by Date</a></h3>
 <div class="paragraph">
 <p>This feature allows you to sort the various lists according to the date from the oldest to newest entry.</p>
 </div>
@@ -1053,7 +1064,7 @@ is the description of the claim. In Incomes, it is the entity who provided the i
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-claims-list-by-status"><a class="link" href="#sorting-the-claims-list-by-status">3.15. Sorting the Claims list by Status</a></h3>
+<h3 id="sorting-the-claims-list-by-status"><a class="link" href="#sorting-the-claims-list-by-status">3.16. Sorting the Claims list by Status</a></h3>
 <div class="paragraph">
 <p>This feature allows you to sort the claims list according to the 3 different <code>status</code>. They are mainly APPROVED, REJECTED
 and PENDING. Once you enter this command, the claims list will be sorted with PENDING at the top of the list, followed by
@@ -1084,7 +1095,7 @@ APPROVED and lastly REJECTED.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.16. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
+<h3 id="sorting-the-contacts-claims-incomes-list-in-reverse-order"><a class="link" href="#sorting-the-contacts-claims-incomes-list-in-reverse-order">3.17. Sorting the Contacts/Claims/Incomes list in reverse order</a></h3>
 <div class="paragraph">
 <p>This feature allows you to sort the various lists according to the contact&#8217;s name in reverse lexicographical order.</p>
 </div>
@@ -1100,7 +1111,7 @@ APPROVED and lastly REJECTED.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-claims-incomes-list-in-reverse-order-by-date">3.17. Sorting the Claims/Incomes list in reverse order by Date</a></h3>
+<h3 id="sorting-the-claims-incomes-list-in-reverse-order-by-date"><a class="link" href="#sorting-the-claims-incomes-list-in-reverse-order-by-date">3.18. Sorting the Claims/Incomes list in reverse order by Date</a></h3>
 <div class="paragraph">
 <p>This feature allows you to sort the various lists according to the date from the newest to oldest entry. This command is not
 applicable in the contacts' page</p>
@@ -1117,7 +1128,7 @@ applicable in the contacts' page</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-claims-list-in-reverse-order-by-status"><a class="link" href="#sorting-the-claims-list-in-reverse-order-by-status">3.18. Sorting the Claims list in reverse order by Status</a></h3>
+<h3 id="sorting-the-claims-list-in-reverse-order-by-status"><a class="link" href="#sorting-the-claims-list-in-reverse-order-by-status">3.19. Sorting the Claims list in reverse order by Status</a></h3>
 <div class="paragraph">
 <p>This feature allows you to sort the claims list according to the 3 different <code>status</code> in reverse order.
 Once you enter this command, the claims list will be sorted by the reverse of the sort command. The claims
@@ -1135,7 +1146,7 @@ will be sorted as REJECTED at the top, followed by APPROVED then PENDING.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.19. Deleting a Contact : <code>delete_contact</code></a></h3>
+<h3 id="deleting-a-contact-code-delete_contact-code"><a class="link" href="#deleting-a-contact-code-delete_contact-code">3.20. Deleting a Contact : <code>delete_contact</code></a></h3>
 <div class="paragraph">
 <p>Deletes a Contact from the contact list</p>
 </div>
@@ -1168,7 +1179,7 @@ will be sorted as REJECTED at the top, followed by APPROVED then PENDING.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.20. Viewing budget : <code>budget</code></a></h3>
+<h3 id="viewing-budget-code-budget-code"><a class="link" href="#viewing-budget-code-budget-code">3.21. Viewing budget : <code>budget</code></a></h3>
 <div class="paragraph">
 <p>Calculates the projected budget based on all income and approved claim values.<br>
 Also displays a graph detailing total income, claim and budget values for every day of the current month.<br></p>
@@ -1187,7 +1198,7 @@ Also displays a graph detailing total income, claim and budget values for every 
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.21. Clearing all data : <code>clear</code></a></h3>
+<h3 id="clearing-all-data-code-clear-code"><a class="link" href="#clearing-all-data-code-clear-code">3.22. Clearing all data : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>This command wipes all data from the FinSec and starts with a new FinSec. This feature is also updated from addressbook
 to includes a second prompt function. The application will prompt you with a warning upon entering of the <code>clear</code> command.
@@ -1214,7 +1225,7 @@ will abort the clear command. You can then continue with your tasks.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.22. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
+<h3 id="making-a-mistake-code-any-invalid-entry-code"><a class="link" href="#making-a-mistake-code-any-invalid-entry-code">3.23. Making a mistake : <code>&lt;any invalid entry&gt;</code></a></h3>
 <div class="paragraph">
 <p>Prompts user on whether he or she would want to create a shortcut as FinSec does not recognise the command.</p>
 </div>
@@ -1258,14 +1269,14 @@ commands.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.23. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.24. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.24. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.25. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -1328,7 +1339,73 @@ specified index from the user input</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="grouping-users-code-tag-code-to-be-implemented-in-v2-0"><a class="link" href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.2. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></h3>
+<h3 id="checking-for-months-or-dates"><a class="link" href="#checking-for-months-or-dates">5.2. Checking for months or dates</a></h3>
+<div class="paragraph">
+<p>Checks for the claims or incomes that matches the specific month or date that was typed as input.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>check</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>check FILTER</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>check november</code></p>
+</li>
+<li>
+<p><code>check 28/12/2019</code></p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>The list of claims or incomes based on the above check filter will be shown in a similar pop-up to the
+current check feature. This is an increment to that feature.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="display-statistics-of-the-application"><a class="link" href="#display-statistics-of-the-application">5.3. Display statistics of the application</a></h3>
+<div class="paragraph">
+<p>Displays the important statistics that a Finance Secretary need to know. Examples of statistics are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Number of claims in the month</p>
+</li>
+<li>
+<p>Total income received in a certain time period</p>
+</li>
+<li>
+<p>What was the most expensive claim</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>statistics</code></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>statistics</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>This statistics feature will be the 4th view that the application can bring you to. All the specific data
+and graphs will be shown on this 4th view.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="grouping-users-code-tag-code-to-be-implemented-in-v2-0"><a class="link" href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.4. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></h3>
 <div class="paragraph">
 <p>Assigns tags to the people in the contact list to group them together to aid in finding specific groups of people</p>
 </div>
@@ -1466,4 +1543,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:06:53 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 07:50:01 UTC</div></div></div></body></html>
