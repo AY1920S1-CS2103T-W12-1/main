@@ -123,15 +123,49 @@ I created the base classes to facilitate these features, then linked it to the M
 <ul>
 <li>
 <p>Project management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I ensured that testability of the code was not neglected and assigned team members to issues.</p>
+</li>
+<li>
+<p>I managed the release of version 1.4 of FinSec on GitHub.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Enhancements to existing features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I refactored and optimised some reusable code in AB3 to increase code quality and make the program more Object Oriented.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Documentation</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I helped with the refactoring of class names in AB3 to suit the context of FinSec.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Community</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I conducted reviews on other team&#8217;s PR to give suggestions and constructive comments.</p>
+</li>
+<li>
+<p>I also reported bugs and potential flaws in other teams' project to help prepare them for the demo.</p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p>Tools</p>
@@ -156,203 +190,6 @@ I created the base classes to facilitate these features, then linked it to the M
 </tr>
 </tbody>
 </table>
-<div class="sect2">
-<h3 id="adding-an-income-code-add_income-code"><a class="link" href="#adding-an-income-code-add_income-code">Adding an income : <code>add_income</code></a></h3>
-<div class="paragraph">
-<p>You can add an income to the incomes list by using the add income command by entering the keyword <code>add_income</code> followed by the required fields of an income.</p>
-</div>
-<div class="paragraph">
-<p>Keyword: <code>add_income</code></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT date/DATE n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>add_income d/Shirt Sales c/307.5 date/11-11-2019 n/Lee Wei Gen p/96777777 t/Marketing</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Result:</p>
-</div>
-<div class="paragraph">
-<p>This command will then add an income to the incomes list.</p>
-</div>
-<div class="paragraph">
-<p><a href="#UG-AddIncomeExample">Figure 3.8.1</a> and <a href="#UG-AddIncomeResult">Figure 3.8.2</a> shows what you can expect to see after typing in the example: <code>add_income d/Shirt Sales c/307.5 date/11-11-2019 n/Lee Wei Gen p/96777777 t/Marketing</code>.</p>
-</div>
-<div id="UG-AddIncomeExample" class="imageblock">
-<div class="content">
-<img src="../images/UG-Add_income1.png" alt="UG Add income1" width="800">
-</div>
-<div class="title">Figure 3.8.1: Type in the add_income command in an empty incomes list.</div>
-</div>
-<div id="UG-AddIncomeResult" class="imageblock">
-<div class="content">
-<img src="../images/UG-Add_income2.png" alt="UG Add income2" width="800">
-</div>
-<div class="title">Figure 3.8.2: The result after entering the command</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="openblock">
-<div class="content">
-<div class="imageblock" style="float: left">
-<div class="content">
-<img src="../images/warning.png" alt="warning" width="20">
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Warning</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_income</code> parameter warnings as per <code>add_claim</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="editing-an-income-code-edit_income-code"><a class="link" href="#editing-an-income-code-edit_income-code">Editing an income : <code>edit_income</code></a></h3>
-<div class="paragraph">
-<p>If you accidentally entered the wrong details of the income or you want to make changes to a entered income, you can edit an income by using the edit income command by entering the keyword <code>edit_income</code>
-followed by the position of the income in the incomes list, and the fields that you want to change.</p>
-</div>
-<div class="paragraph">
-<p>Keyword: <code>edit_income</code></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>edit_income 1 c/1150.50 p/96777495</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Result:</p>
-</div>
-<div class="paragraph">
-<p>This command will edit the description and amount fields in the second income in the list to the newly specified description and amount.</p>
-</div>
-<div class="paragraph">
-<p><a href="#UG-AddIncomeExample">Figure 3.8.1</a> and <a href="#UG-AddIncomeResult">Figure 3.8.2</a> shows what you can expect to see after typing in the example: <code>edit_income 1 c/1150.50 p/96777495</code>.</p>
-</div>
-<div id="UG-EditIncomeExample" class="imageblock">
-<div class="content">
-<img src="../images/UG-Edit_income1.png" alt="UG Edit income1" width="800">
-</div>
-<div class="title">Figure 3.9.1: Type in the edit_income command.</div>
-</div>
-<div id="UG-AddIncomeResult" class="imageblock">
-<div class="content">
-<img src="../images/UG-Edit_income2.png" alt="UG Edit income2" width="800">
-</div>
-<div class="title">Figure 3.9.2: The result after entering the command. The first income is now edited to the newly specified fields.</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="openblock">
-<div class="content">
-<div class="imageblock" style="float: left">
-<div class="content">
-<img src="../images/warning.png" alt="warning" width="20">
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Warning</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add_income</code> parameter warnings as per <code>add_claim</code>.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-an-income-code-delete_income-code"><a class="link" href="#deleting-an-income-code-delete_income-code">Deleting an Income : <code>delete_income</code></a></h3>
-<div class="paragraph">
-<p>You can delete an income off the incomes list by using the delete income command by entering the keyword <code>delete_income</code> followed by the position of the income in the incomes list.
-The specified index will be then deleted.</p>
-</div>
-<div class="paragraph">
-<p>Keyword: <code>delete_income</code></p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete_income INDEX</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>delete_income 2 (removes second income in the income list)</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Result:</p>
-</div>
-<div class="paragraph">
-<p>Deletes the income at the specified <code>INDEX</code>.</p>
-</div>
-<div class="paragraph">
-<p><a href="#UG-DeleteIncomeExample">Figure 3.10.1</a> and <a href="#UG-DeleteIncomeResult">Figure 3.10.2</a> shows what you can expect to see after typing in the example: <code>delete_income 2</code>.</p>
-</div>
-<div id="UG-DeleteIncomeExample" class="imageblock">
-<div class="content">
-<img src="../images/UG-Delete_income1.png" alt="UG Delete income1" width="800">
-</div>
-<div class="title">Figure 3.10.1: Type in the delete_income command.</div>
-</div>
-<div id="UG-DeleteIncomeResult" class="imageblock">
-<div class="content">
-<img src="../images/UG-Delete_income2.png" alt="UG Delete income2" width="800">
-</div>
-<div class="title">Figure 3.10.2: The result after entering the command. The second income is now deleted off the incomes list.</div>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="openblock">
-<div class="content">
-<div class="imageblock" style="float: left">
-<div class="content">
-<img src="../images/warning.png" alt="warning" width="20">
-</div>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>Warning</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The index refers to the index number shown in the displayed income list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <div class="sect2">
 <h3 id="creating-a-shortcut"><a class="link" href="#creating-a-shortcut">Creating a shortcut</a></h3>
 <div class="paragraph">
@@ -398,19 +235,19 @@ The specified index will be then deleted.</p>
 <div class="content">
 <img src="../images/UG-NoShortcut1.png" alt="UG NoShortcut1" width="800">
 </div>
-<div class="title">Figure 3.11.1.1: When a user enters an accidental typo</div>
+<div class="title">Figure 3.11.1.1: When you enter an accidental typo</div>
 </div>
 <div id="UG-NoShortcutExample2" class="imageblock">
 <div class="content">
 <img src="../images/UG-NoShortcut2.png" alt="UG NoShortcut2" width="800">
 </div>
-<div class="title">Figure 3.11.1.2: The result after entering the typo. FinSec will ask you if you want to create a shortcut.</div>
+<div class="title">Figure 3.11.1.2: FinSec will ask you if you want to create a shortcut (in blue). If you do not wish to create one, enter the command "n" as shown above.</div>
 </div>
 <div id="UG-NoShortcutResult" class="imageblock">
 <div class="content">
 <img src="../images/UG-NoShortcut3.png" alt="UG NoShortcut3" width="800">
 </div>
-<div class="title">Figure 3.11.1.3: Since it is a genuine typo, entering 'n' will allow you to continue.</div>
+<div class="title">Figure 3.11.1.3: Entering 'n' will allow you to continue.</div>
 </div>
 </div>
 <div class="sect3">
@@ -438,25 +275,25 @@ The specified index will be then deleted.</p>
 <p>A new shortcut is created for you! From now on, <code>ai</code> can be used as a substitute for <code>add_income</code>!</p>
 </div>
 <div class="paragraph">
-<p><a href="#UG-createShortcutexample1">Figure 3.11.2.1</a>, <a href="#UG-createShortcutExample2">Figure 3.11.2.2</a> and <a href="#UG-createShortcutResult">Figure 3.11.2.3</a> shows what you can expect to see when you want to create a shortcut <code>ai</code> as shown in the example.</p>
+<p><a href="#UG-createShortcutexample1">Figure 3.10.2.1</a>, <a href="#UG-createShortcutExample2">Figure 3.10.2.2</a> and <a href="#UG-createShortcutResult">Figure 3.10.2.3</a> shows what you can expect to see when you want to create a shortcut <code>ai</code> as shown in the example.</p>
 </div>
 <div id="UG-createShortcutexample1" class="imageblock">
 <div class="content">
 <img src="../images/UG-createShortcut1.png" alt="UG createShortcut1" width="800">
 </div>
-<div class="title">Figure 3.11.2.1: When a user enters a shortcut he/she wishes to create.</div>
+<div class="title">Figure 3.10.2.1: Enter the shortcut you wish to create.</div>
 </div>
 <div id="UG-createShortcutExample2" class="imageblock">
 <div class="content">
 <img src="../images/UG-createShortcut2.png" alt="UG createShortcut2" width="800">
 </div>
-<div class="title">Figure 3.11.2.2: User will enter the existing command that he wishes to map the shortcut to.</div>
+<div class="title">Figure 3.10.2.2: Enter the command you wish to have an alias to.</div>
 </div>
 <div id="UG-createShortcutResult" class="imageblock">
 <div class="content">
 <img src="../images/UG-createShortcut3.png" alt="UG createShortcut3" width="800">
 </div>
-<div class="title">Figure 3.11.2.3: After creating the shortcut.</div>
+<div class="title">Figure 3.10.2.3: Congratulations! You have just created a shortcut! Now the shortcut is able for use.</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -480,21 +317,6 @@ The specified index will be then deleted.</p>
 </ul>
 </div>
 </div>
-</div>
-<div class="paragraph">
-<p><a href="#UG-shortcutExample">Figure 3.11.2.4</a>, <a href="#UG-shortcutResult">Figure 3.11.2.5</a> shows what you can expect after creating a shortcut of your own!</p>
-</div>
-<div id="UG-shortcutExample" class="imageblock">
-<div class="content">
-<img src="../images/UG-createShortcut4.png" alt="UG createShortcut4" width="800">
-</div>
-<div class="title">Figure 3.11.2.4: User can now use the command 'ai' for adding an income!</div>
-</div>
-<div id="UG-shortcutResult" class="imageblock">
-<div class="content">
-<img src="../images/UG-createShortcut5.png" alt="UG createShortcut5" width="800">
-</div>
-<div class="title">Figure 3.11.2.5: The newly created shortcut 'ai' creating an income.</div>
 </div>
 </div>
 </div>
@@ -567,202 +389,6 @@ The specified shortcut will be then deleted.</p>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="income-feature"><a class="link" href="#income-feature">Income feature</a></h3>
-<div class="paragraph">
-<p>The <code>add_income</code> command allows for users to register new <code>Income</code> objects into FinSec.</p>
-</div>
-<div class="paragraph">
-<p>The format for the <code>add_income</code> command is as follows:</p>
-</div>
-<div class="literalblock">
-<div class="content">
-<pre>`add_income d/&lt;description&gt; c/&lt;cash amount&gt; date/&lt;date&gt; n/&lt;name&gt; p/&lt;phone number&gt;`</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="adding-an-income"><a class="link" href="#adding-an-income">Adding an Income</a></h4>
-<div class="paragraph">
-<p><strong>Overview</strong></p>
-</div>
-<div class="paragraph">
-<p>The add income <code>add_income</code> mechanism is facilitated by <code>AddIncomeCommand</code> and <code>AddIncomeCommandParser</code>. It takes in the following input from the user:
-<code>description</code>, <code>cash amount</code>, <code>name</code> and <code>phone number</code>, which will construct individual objects that construct an <code>Income</code> object.</p>
-</div>
-<div class="paragraph">
-<p>The <code>AddIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>AddIncomeCommandParser#parse()</code> - This operation will take in a <code>String</code> input from the user that will create individual objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 'p/'. The <code>String</code> value after the individual prefixes will create
-the respective object: d/ <code>description</code>, c/ <code>cash amount</code>, date/<code>date</code>,  n/ <code>name</code> and p/ <code>phone</code>. A validation check will be imposed upon the creation of each object. Any checks that fails the validation would prompt the user on the failed component.
-For example:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cash amount</code> would use <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of 2 decimal places.</p>
-</li>
-<li>
-<p><code>phone</code> would use <code>ParserUtil#parsePhone()</code> to ensure that the phone number entered would only contain numbers that are at least 3 numbers long.</p>
-</li>
-<li>
-<p><code>date</code> would use <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>After validation checks are completed with no errors, an <code>Income</code> object is then constructed with <code>description</code>, <code>cash</code>, <code>date</code>, <code>name</code> and <code>phone</code> as the parameters.</p>
-</li>
-<li>
-<p><code>AddIncomeCommandParser</code> would then return a <code>AddIncomeCommand</code> object with <code>Income</code> as the parameter.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Example</strong></p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario of how <code>add_income</code> mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> The user executes <code>add_income d/shirt sales c/100.05 date/11-11-2019 n/John Doe p/91111111</code> to add an income of $100.05 of shirt sales received from John Doe who is contactable at 91111111.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> <code>LogicManager</code> would use <code>FinSecParser#parse()</code> to parse input from the user.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> <code>FinSecParser</code> would determine which command is being used and creates the respective parser. In this case, <code>AddIncomeCommandParser</code> is being created and the user&#8217;s input would be passed in as a parameter.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> <code>AddIncomeCommandParser</code> would do a validation check on the user&#8217;s input before creating and returning a <code>AddIncomeCommand</code> object with <code>Income</code> as the parameter.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 5:</strong> <code>LogicManager</code> would use <code>AddIncomeCommand#execute()</code> to add the <code>Income</code> into the <code>Model</code> which is handled by the <code>ModelManager</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 6:</strong> <code>AddIncomeCommand</code> would return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to the user.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="../images/AddIncomeSequenceDiagram.png" alt="AddIncomeSequenceDiagram">
-</div>
-<div class="title">Figure 2. Add Income Command Sequence Diagram</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-an-income"><a class="link" href="#deleting-an-income">Deleting an Income</a></h4>
-<div class="paragraph">
-<p>This feature allows the user to delete an income entry from the Unique Incomes List through its index.</p>
-</div>
-<div class="paragraph">
-<p>The delete income feature is facilitated by the <code>DeleteIncomeCommandParser</code> and the <code>DeleteIncomeCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The delete income command is part of the logic component of our application. It interacts with the model and storage components of our application.</p>
-</div>
-<div class="paragraph">
-<p><strong>Overview</strong></p>
-</div>
-<div class="paragraph">
-<p>The <code>DeleteIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>DeleteIncomeCommandParser#parse()</code> - This operation will take in a <code>int</code> input from the user which will delete the income entry at the index which has entered.
-Any invalid format of the command will be prompted by the command parser.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Current Implementation</strong></p>
-</div>
-<div class="paragraph">
-<p>The delete income feature is executed by the <code>DeleteIncomeCommand</code>. Currently, the deletion of any income entry is done based on the <code>INDEX</code> of the income entry.</p>
-</div>
-<div class="paragraph">
-<p>During the design of our delete function, we considered between two alternatives.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 1. Delete function alternatives</caption>
-<colgroup>
-<col style="width: 50%;">
-<col style="width: 50%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Design Consideration</th>
-<th class="tableblock halign-left valign-top">Pros and Cons</th>
-</tr>
-</thead>
-<tfoot>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Income description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : It may be more intuitive for users to delete an income through the description of the income.</p>
-<p class="tableblock">                                        <strong>Cons</strong> : Incomes of different entries can have similar description. The user would eventually still have to look through the income list.</p></td>
-</tr>
-</tfoot>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Deletion by Index (Current Choice)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Since each income has a unique index, any deletion by the index is less prone to bugs and easier to implement.</p>
-<p class="tableblock">                                        <strong>Cons</strong> : User will have to scroll the income list for the income entry and look for its index which can be inconvenient.</p></td>
-</tr>
-</tbody>
-</table>
-<div class="paragraph">
-<p>We have decided to opt for the first option primarily because it reduces the number of potential bugs and the complexities involved when taking into account the different cases and scenarios upon using deletion by income description.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="editing-an-income"><a class="link" href="#editing-an-income">Editing an Income</a></h4>
-<div class="paragraph">
-<p>This feature allows the user to edit any attribute of the income entries. There are a total of five attributes for each entry, the description of the income, the amount of money received, the date it was received, the name of the person / organisation the user
-received the money from and the contact number. The user can edit at least one and up to all attributes.</p>
-</div>
-<div class="paragraph">
-<p>The edit income feature is facilitated by the <code>EditIncomeCommandParser</code> and the <code>EditIncomeCommand</code>.</p>
-</div>
-<div class="paragraph">
-<p>The edit command is part of the logic component of our application. It interacts with the model component of our software architecture.</p>
-</div>
-<div class="paragraph">
-<p><strong>Overview</strong></p>
-</div>
-<div class="paragraph">
-<p>The <code>EditIncomeCommandParser</code> implements <code>Parser</code> with the following operation:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>EditIncomeCommandParser#parse()</code> - This operation will take in an <code>int</code> input and one to five <code>String</code> input(s) from the user that will alter the attributes of current income entries based on the prefixes 'd/', 'c/', 'date/', 'n/', 'p'. The <code>String</code>
-value after the individual prefixes will alter the respective attribute it corresponds to: 'd/' for <code>Description</code>, 'c/' for <code>Amount</code>, 'date/' for <code>Date</code>, 'n/' for <code>Name</code> and 'p/' for <code>Phone</code>. A validation check will be imposed upon editing of each object. Any checks that fails
-the validation would prompt the user on the failed component.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Current Implementation</strong></p>
-</div>
-<div class="paragraph">
-<p>Here is an example of a step-by-step process on how the edit command alters an attribute of the homework entry. For each step, you may follow the activity diagram at the end of this section to better understand the flow of events within FinSec when an edit_income command is entered.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1 :</strong> The user launches the application and nagivates to the income page. There is a list of existing income entries in FinSec.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 2 :</strong> The user then wishes to alter the income description of the second entry in the income list to "Fundraising". He then types <code>edit_income 2 d/Fundraising</code> into the Command Line Interface(CLI) and executes it.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 3 :</strong> The FinSecParser (refer to logic) then reads in these attributes that have been entered and proceeds to alter the attributes of the income entry in the given index. Each attribute will be validated.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 4 :</strong> The FinSecParser then creates a new EditIncomeCommand based on the input of the user. When the EditIncomeCommand is executed, it interacts with the Model architecture by calling the setIncome method. The setIncome method replaces the current income entry with the new income entry containing all the desired attributes. The income entry is now updated.</p>
-</div>
-</div>
-</div>
-<div class="sect2">
 <h3 id="shortcut-feature"><a class="link" href="#shortcut-feature">Shortcut feature</a></h3>
 <div class="paragraph">
 <p>This feature gives the user an option to create a shortcut when an unknown command is entered into FinSec.</p>
@@ -828,16 +454,25 @@ and it would return a <code>CommandResult</code> with a false value of <code>cre
 <p><strong>Step 7 :</strong> <code>CreateShortCutCommmand</code> would then return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to the user.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram summarises what happens when a user executes an unknown command:</p>
+<p>The following diagrams summarises what happens when a user executes an unknown command:</p>
 </div>
 <div class="paragraph">
-<p><a href="#ShortcutDiagram">Figure 2.4</a> is the activity diagram when a user inputs an unknown command</p>
+<p><a href="#ShortcutDiagram">Figure 2.4.1</a> is the activity diagram when a user inputs an unknown command</p>
 </div>
 <div id="ShortcutDiagram" class="imageblock">
 <div class="content">
 <img src="../images/ShortcutActivityDiagram.png" alt="ShortcutActivityDiagram" width="800">
 </div>
-<div class="title">Figure 2.4: ActivityDiagram when a user inputs an unknown command</div>
+<div class="title">Figure 2.4.1: ActivityDiagram when a user inputs an unknown command</div>
+</div>
+<div class="paragraph">
+<p><a href="#CreateShortCutDiagram">Figure 2.4.2</a> shows the UML diagram of the flow of logic when a user creates a shortcut to a valid command</p>
+</div>
+<div id="CreateShortCutDiagram" class="imageblock">
+<div class="content">
+<img src="../images/CreateShortCutDiagram.png" alt="CreateShortCutDiagram" width="800">
+</div>
+<div class="title">Figure 2.4.2: UML diagram when a user creates a shortcut</div>
 </div>
 <div class="sect3">
 <h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">Why was it implemented this way?</a></h4>
@@ -852,7 +487,7 @@ create more commands as the user uses the application.</p>
 <p>We considered between two alternatives.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. Data structure to store commandWord and commandTask alternatives</caption>
+<caption class="title">Table 1. Data structure to store commandWord and commandTask alternatives</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -885,4 +520,4 @@ create more commands as the user uses the application.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:51:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 23:23:25 UTC</div></div></div></body></html>
