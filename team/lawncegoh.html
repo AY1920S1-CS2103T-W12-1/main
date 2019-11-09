@@ -265,20 +265,9 @@ APPROVED and lastly REJECTED.</p>
 <div class="paragraph">
 <p>Format: <code>sort status</code></p>
 </div>
-<div class="openblock">
-<div class="content">
-<div class="imageblock" style="float: left">
-<div class="content">
-<img src="../images/warning.png" alt="warning" width="20">
-</div>
-</div>
-</div>
-</div>
 <div class="paragraph">
-<p><strong>Warning</strong></p>
-</div>
-<div class="paragraph">
-<p><code>sort status</code> only applies to the claims list</p>
+<p><strong>Warning</strong>
+<code>sort status</code> only applies to the claims list</p>
 </div>
 <div class="paragraph">
 <p><a href="#UG-BudgetExample">Figure 3.15.1</a> shows what you can expect to see when typing in the <code>sort status</code> command in claims list.</p>
@@ -331,14 +320,12 @@ that you want to see in clearer view.</p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><strong>Example 1: Checking of a contact in the contacts page:</strong><br></p>
-</div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> Type <code>check 1</code> into the command box and press <kbd>Enter</kbd> to execute it</p>
+<p><strong>Checking of a contact in the contacts page:</strong><br>
+<strong>Step 1:</strong> Type <code>check 1</code> into the command box and press <kbd>Enter</kbd> to execute it</p>
 </div>
 <div id="UG-CheckExample1" class="imageblock">
 <div class="content">
-<img src="../images/UG-CheckExample1.png" alt="UG CheckExample1" width="500">
+<img src="../images/UG-CheckExample1.png" alt="UG CheckExample1" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -346,7 +333,7 @@ that you want to see in clearer view.</p>
 </div>
 <div id="UG-CheckExample2" class="imageblock">
 <div class="content">
-<img src="../images/UG-CheckExample2.png" alt="UG CheckExample2" width="500">
+<img src="../images/UG-CheckExample2.png" alt="UG CheckExample2" width="800">
 </div>
 </div>
 <div class="paragraph">
@@ -355,47 +342,41 @@ able to see the claims that belong to this contact</p>
 </div>
 <div id="UG-CheckExample3" class="imageblock">
 <div class="content">
-<img src="../images/UG-CheckExample3.png" alt="UG CheckExample3" width="400">
+<img src="../images/UG-CheckExample3.png" alt="UG CheckExample3" width="800">
 </div>
-</div>
-</div>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><strong>Example 2: Checking of a claim in the claims page:</strong><br></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 1:</strong> Type <code>check 2</code> into the command box and press <kbd>Enter</kbd> to execute it. This index 2 represents the claimID
+<p><strong>Checking of a claim in the claims page:</strong><br>
+<strong>Step 1:</strong> Type <code>check 2</code> into the command box and press <kbd>Enter</kbd> to execute it. This index 2 represents the claimID
 of each individual claim card.</p>
 </div>
-<div id="UG-CheckExample4" class="imageblock">
+<div id="UG-CheckExample1" class="imageblock">
 <div class="content">
-<img src="../images/UG-CheckExample4.png" alt="UG CheckExample4" width="500">
+<img src="../images/UG-CheckExample4.png" alt="UG CheckExample4" width="800">
 </div>
 </div>
 <div class="paragraph">
 <p><strong>Step 2:</strong> The result box will display "Claim Shown"</p>
 </div>
-<div id="UG-CheckExample5" class="imageblock">
+<div id="UG-CheckExample2" class="imageblock">
 <div class="content">
-<img src="../images/UG-CheckExample5.png" alt="UG CheckExample5" width="500">
+<img src="../images/UG-CheckExample5.png" alt="UG CheckExample5" width="800">
 </div>
 </div>
 <div class="paragraph">
 <p><strong>Step 3:</strong> This is the pop-up window that comes up after the command is entered. You are now able to see the important
 details that belong to this claim.</p>
 </div>
-<div id="UG-CheckExample6" class="imageblock">
+<div id="UG-CheckExample3" class="imageblock">
 <div class="content">
-<img src="../images/UG-CheckExample6.png" alt="UG CheckExample6" width="300">
+<img src="../images/UG-CheckExample6.png" alt="UG CheckExample6" width="600">
 </div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-implementation-checking-for-months-or-dates"><a class="link" href="#proposed-implementation-checking-for-months-or-dates">[Proposed Implementation] Checking for months or dates</a></h3>
+<h3 id="checking-for-months-or-dates"><a class="link" href="#checking-for-months-or-dates">Checking for months or dates</a></h3>
 <div class="paragraph">
 <p>Checks for the claims or incomes that matches the specific month or date that was typed as input.</p>
 </div>
@@ -428,7 +409,7 @@ current check feature. This is an increment to that feature.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-implementation-display-statistics-of-the-application"><a class="link" href="#proposed-implementation-display-statistics-of-the-application">[Proposed Implementation] Display statistics of the application</a></h3>
+<h3 id="display-statistics-of-the-application"><a class="link" href="#display-statistics-of-the-application">Display statistics of the application</a></h3>
 <div class="paragraph">
 <p>Displays the important statistics that a Finance Secretary need to know. Examples of statistics are:</p>
 </div>
@@ -469,140 +450,162 @@ I have made for <code>goto</code> and <code>check</code> features.</em></p></td>
 </tbody>
 </table>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">Sort Feature</a></h3>
+<h3 id="goto-feature"><a class="link" href="#goto-feature">Goto feature</a></h3>
 <div class="paragraph">
-<p>This section describes the ways that a user can sort the various lists. An overview is also included on how these sorts
-work.
-It also provides some design considerations to give users an insight of how the current solutions are worked out.
-==== Overview
-There are 2 ways that a user can sort the lists by. It gives the user flexibility in how he wants to see the lists. In
-addition, after sorting, the user can then employ the check method once again to see each individual object.</p>
+<p>This section describes the different Views that Goto can bring a user to. It includes an overview of the goto details and how users can interact
+with goto based on commands implemented with the revamp of the original list feature.
+It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>There are various message attributes in goto command: <code>MESSAGE_SUCCESS_CONTACTS</code>, <code>MESSAGE_SUCCESS_CLAIMS</code>, <code>MESSAGE_SUCCESS_INCOMES</code>, <code>MESSAGE FAILURE</code>,
+<code>MESSAGE_USAGE</code> that informs the user if the changing of View is successful. The attribute <code>View</code> is also stored as an attribute
+of the command. It is taken in as the parameter and the index of this View determines the list that will be shown in the MainWindow.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
 <div class="paragraph">
-<p>The sort command takes in a 1 parameter that is the <code>Filter</code>. This <code>Filter</code> can either be <code>name</code> or <code>date</code>.
-<code>name</code> filter works in all 3 lists. However, in contacts and incomes list, the <code>name</code> filter refers to the name of
-the contact and in claims list, <code>name</code> refers to the description of the claim.
-<code>date</code> filter works in claims and incomes list and not in contacts list because contacts are not created
-with a date.</p>
+<p>Figure 2.4.2.1 is a sequence of steps that illustrates the interaction between various classes when the <code>goto</code> command is entered.
+<code>goto claims</code></p>
 </div>
 <div class="paragraph">
-<p>1) The 2 parameters after the <code>sort</code> command in the user input are <code>name</code> and <code>date</code></p>
+<p><a href="#gotoSeqDiagram">Figure 2.4.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>goto contacts</code>
+command is entered.</p>
 </div>
-<div class="paragraph">
-<p>2) This command is then parsed in the same way as the rest of the commands</p>
-</div>
-<div class="paragraph">
-<p>3) The Activity Diagram below shows the <code>SortCommand::execute</code> method<br></p>
-</div>
-<div class="paragraph">
-<p><a href="#sortActDiagram">Figure 2.7.2.1</a> is the activity diagram of the check command</p>
-</div>
-<div id="sortActDiagram" class="imageblock">
+<div id="gotoSeqDiagram" class="imageblock">
 <div class="content">
-<img src="../images/SortActivityDiagram.png" alt="SortActivityDiagram" width="800">
+<img src="../images/GotoSequenceDiagram.png" alt="GotoSequenceDiagram" width="800">
 </div>
-<div class="title">Figure 2.7.2.1: SortActivityDiagram</div>
-</div>
-<div class="paragraph">
-<p>4) To elaborate, once the sort command is called, <code>UiManager::getState</code> method is called to determine the current view
-the application is on then implements the correct type of sort on the list.</p>
+<div class="title">Figure 2.4.2.1: Execution sequence of the <code>goto contacts</code> command</div>
 </div>
 <div class="paragraph">
-<p>5) The comparators shown below are examples of the various lists are sorted.</p>
+<p>1) The only parameter after the goto command in the user input is passed into the LogicManager::execute method of the LogicManager instance.<br></p>
+</div>
+<div class="paragraph">
+<p>2) The LogicManager::execute method calls FinSecParser::parseCommand which receives the user input as a parameter.<br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>sortFilteredClaimListByName</code> is implemented with the help of a comparator that compares the descriptions of each claim
-with <code>claim.getDescription()</code> method. The code snippet below illustrates the comparator.</p>
+<p>This user input which is in <code>String</code> format is then formatted, the first word before the space is taken as the command word
+and the rest of the String is grouped together as the argument that will be used later by the GotoCommandParser.</p>
+</li>
+<li>
+<p>With the command word determined, the FinSecParser instance identifies the command as a <code>goto</code> command and constructs an
+instance of the GotoCommandParser.</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="type">class</span> <span class="class">ClaimNameComparator</span> <span class="directive">implements</span> <span class="predefined-type">Comparator</span>&lt;Claim&gt; {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> <span class="type">int</span> compare(Claim claim1, Claim claim2) {
-        <span class="keyword">return</span> claim1.getDescription().toString().toUpperCase()
-                .compareTo(claim2.getDescription().toString().toUpperCase());
-    }
-}</code></pre>
-</div>
+<div class="paragraph">
+<p>3) FinSecParser calls the GotoCommandParser::parse method. This instance of GotoCommandParser then takes in the rest of the string,
+in this case: <code>claims</code><br></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>sortFilteredIncomeListByDate</code> is implemented with the help of a comparator that compares the dates of each income
-with <code>income.getDate().getLocalDate()</code> method. The code snippet below illustrates the comparator.</p>
+<p>A <code>View</code> instance is then created when the ParserUtil:parseView method is called. This method takes in the argument from the GotoCommandParser::parse method parameter
+and returns a GotoCommand with the View instance. This View forms the gotoView attribute of this specific GotoCommand instance.</p>
+</li>
+<li>
+<p>When the argument for the GotoCommandParser::parse method is not recognised or present, a <code>ParseException</code> will be thrown with an error
+message that asks for the proper usage of the goto Command.</p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="type">class</span> <span class="class">IncomeDateComparator</span> <span class="directive">implements</span> <span class="predefined-type">Comparator</span>&lt;Income&gt; {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> <span class="type">int</span> compare(Income income1, Income income2) {
-        <span class="keyword">return</span> income1.getDate().getLocalDate()
-                .compareTo(income2.getDate().getLocalDate());
-    }
-}</code></pre>
+<div class="paragraph">
+<p>4) This newly created GotoCommand object is returned to the LogicManager instance through the GotoCommandParser and FinSecParser objects.</p>
 </div>
+<div class="paragraph">
+<p>5) In the LogicManager object, it then calls the <code>GotoCommand::execute</code> method</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>sortFilteredClaimListByStatus</code> is implemented with the help of a comparator that compares the statuses of each claim.
-The order is as such: Pending, Approved, Rejected. There are 9 cases of comparison between 2 claims.
-The code snippet below illustrates the comparator.</p>
+<p>The method takes in a <code>Model</code> object to access the application’s data context, the general storage of data for the application</p>
+</li>
+<li>
+<p>The activity diagram below shows the <code>GotoCommand::execute</code> method<br></p>
 </li>
 </ul>
 </div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code data-lang="java"><span class="type">class</span> <span class="class">ClaimStatusComparator</span> <span class="directive">implements</span> <span class="predefined-type">Comparator</span>&lt;Claim&gt; {
-    <span class="annotation">@Override</span>
-    <span class="directive">public</span> <span class="type">int</span> compare(Claim claim1, Claim claim2) {
-        <span class="keyword">if</span> (claim1.getStatus().equals(Status.PENDING) &amp;&amp; claim2.getStatus().equals(Status.APPROVED)) {
-            <span class="keyword">return</span> -<span class="integer">1</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.PENDING) &amp;&amp; claim2.getStatus().equals(Status.PENDING)) {
-            <span class="keyword">return</span> <span class="integer">0</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.PENDING) &amp;&amp; claim2.getStatus().equals(Status.REJECTED)) {
-            <span class="keyword">return</span> -<span class="integer">1</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.APPROVED) &amp;&amp; claim2.getStatus().equals(Status.REJECTED)) {
-            <span class="keyword">return</span> -<span class="integer">1</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.APPROVED) &amp;&amp; claim2.getStatus().equals(Status.APPROVED)) {
-            <span class="keyword">return</span> <span class="integer">0</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.APPROVED) &amp;&amp; claim2.getStatus().equals(Status.PENDING)) {
-            <span class="keyword">return</span> <span class="integer">1</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.REJECTED) &amp;&amp; claim2.getStatus().equals(Status.PENDING)) {
-            <span class="keyword">return</span> <span class="integer">1</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.REJECTED) &amp;&amp; claim2.getStatus().equals(Status.REJECTED)) {
-            <span class="keyword">return</span> <span class="integer">0</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (claim1.getStatus().equals(Status.REJECTED) &amp;&amp; claim2.getStatus().equals(Status.APPROVED)) {
-            <span class="keyword">return</span> <span class="integer">1</span>;
-        } <span class="keyword">else</span> {
-            <span class="keyword">return</span> <span class="integer">0</span>;
-        }
-    }
-}</code></pre>
+<div class="paragraph">
+<p><a href="#gotoActDiagram">Figure 2.5.2.2</a> is the activity diagram of the goto command</p>
 </div>
+<div id="gotoActDiagram" class="imageblock">
+<div class="content">
+<img src="../images/GotoActivityDiagram.png" alt="GotoActivityDiagram" width="800">
+</div>
+<div class="title">Figure 2.5.2.2: ActivityDiagram</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The model parameter passed into the <code>GotoCommand::execute</code> method is checked to be not null is made before the rest of the method continues.</p>
+</li>
+<li>
+<p>The <code>View::getIndex</code> method is then called to determine the gotoView for this current <code>GotoCommand</code> instance. There are 3 alternatives for
+this command. They are <code>1, 2, 3</code>. These indexes refer to <code>contacts</code>, <code>claims</code> and <code>incomes</code> respectively.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>6) Depending on which alternative is chosen based on the index of the gotoView, the <code>model</code> instance will then be updated with the correct list
+of items.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If the user wants to go to contacts, the <code>Model::updateFilteredContactList</code> method is called with a true predicate as the argument</p>
+</li>
+<li>
+<p>If the user wants to go to claims, the <code>Model::updateFilteredClaimList</code> method is called with a true predicate as the argument</p>
+</li>
+<li>
+<p>If the user wants to go to incomes, the <code>Model::updateFilteredIncomeList</code> method is called with a true predicate as the argument</p>
+</li>
+<li>
+<p>If the index that was retrieved through the <code>Model::getIndex</code> method is invalid or not within these 3 numbers, then a <code>CommandException</code> will
+be thrown with the <code>MESSAGE_FAILURE</code> static attribute.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>7) This <code>GotoCommand::execute</code> method completes by returning a new <code>CommandResult</code> with the specific success message to its calling method
+which is <code>LogicManager::execute</code>.</p>
+</div>
+<div class="paragraph">
+<p>8) <code>LogicManager::execute</code> method returns a <code>CommandResult</code> to the calling method which is <code>MainWindow::executeCommand</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The specific feedback is then retrieved through <code>CommandResult::getFeedbackToUser</code> and set in the result display of the MainWindow.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
 <h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">Why was it implemented this way?</a></h4>
 <div class="paragraph">
-<p>The major implementation difference for claims list sorted by <code>name</code>, it is sorted based on the description of each
-claim. This was implemented like this because of the check feature. The check feature in the contacts list allows
-the user to see what claims are under the user. When a user is in the claims page, he/she will only need to sort based
-on descriptions to prevent redundant information through different commands.</p>
+<p>Our application allows for adding of claims and incomes, which are the extra features in comparison to the original AddressBook. Therefore, instead
+of placing all of them into the same list</p>
 </div>
-<div class="paragraph">
-<p>The 2 different filters allow the user to be able to look through the lists based on what is important to him/her. <code>date</code>
-filter is especially important so the user can check what are the latest or oldest claims. <code>name</code> filter helps the user
-find the various contacts/claims/incomes. It doubles up as a find or filter function to let the user find the specific
-object he/she is finding.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>We found the need to split them into 3 separate lists instead of placing them in the same window where a user sees 3 lists cluttered together.</p>
+</li>
+<li>
+<p>We want the user to have a clear command to know that he/she is no longer on the contacts list and has moved on to another list.</p>
+</li>
+<li>
+<p>In addition, with these new Views created, upon successful invocation of the <code>add_contacts</code>, <code>add_claim</code> or <code>add_income</code> methods by the user, the UI will
+change automatically to either the contact, claims or incomes page. This gives the user a clear indication if the specific entry he/she has added
+is successful.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
@@ -610,28 +613,31 @@ object he/she is finding.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Sorting of the claims list based on description</p>
+<p>Change the current list to another, overtaking the same area</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Advantage</strong>: Easily find the claim you are looking for</p>
+<p><strong>Advantage</strong>: Cleaner user interface</p>
 </li>
 <li>
-<p><strong>Disadvantage</strong>: Might be difficult to remember the names of each claim</p>
+<p><strong>Disadvantage</strong>: Performance issues may arise when the lists get too long and this constant reloading may cause lags</p>
+</li>
+<li>
+<p>I decided to proceed with this option because the change in tabs
+would allow users to be clear that they are changing a page to the specific list that they want.</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p>Sorting of the claims list based on contact&#8217;s name instead</p>
+<p>Display 3 lists in the same main page</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Advantage</strong>: Easy to know as the person&#8217;s name is probably easier to remember than the claim&#8217;s description</p>
+<p>Pros: Can see everything in a glance</p>
 </li>
 <li>
-<p><strong>Disadvantage</strong>: Already done in check contact, where you can filter the claims of a certain contact through the
-<code>check</code> feature</p>
+<p>Cons: Main page may have performance issues too as the lists all have to be loaded at the same time</p>
 </li>
 </ul>
 </div>
@@ -647,7 +653,7 @@ object he/she is finding.</p>
 the user is in the claims or contacts page. This command is called when the user wants to check each contact or claim individually.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
 <div class="paragraph">
 <p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing. The 2 lists
@@ -864,4 +870,4 @@ or contact needed</p>
 <div class="sectionbody">
 <hr>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:49:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 18:51:31 UTC</div></div></div></body></html>
