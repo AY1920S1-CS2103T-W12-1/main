@@ -1089,7 +1089,7 @@ command is entered.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered-2"><a class="link" href="#alternatives-considered-2">2.6.4. Alternatives Considered</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">2.6.4. Design Considerations</a></h4>
 <div class="paragraph">
 <p>We have considered between two differing graph designs.</p>
 </div>
@@ -1285,15 +1285,38 @@ is successful.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternatives-considered-3"><a class="link" href="#alternatives-considered-3">2.7.4. Alternatives Considered</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">2.7.4. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>We wanted to display 3 lists in the same main page, but that would cause the lists to be too crammed</p>
+<p>Change the current list to another, overtaking the same area</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Advantage</strong>: Cleaner user interface</p>
 </li>
 <li>
-<p>We wanted to reload the list on the current page to the various lists, but we believe that such a change in tabs will
-help to tell the user that he is currently working on something different.</p>
+<p><strong>Disadvantage</strong>: Performance issues may arise when the lists get too long and this constant reloading may cause lags</p>
+</li>
+<li>
+<p>I decided to proceed with this option because the change in tabs
+would allow users to be clear that they are changing a page to the specific list that they want.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Display 3 lists in the same main page</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Can see everything in a glance</p>
+</li>
+<li>
+<p>Cons: Main page may have performance issues too as the lists all have to be loaded at the same time</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1479,12 +1502,38 @@ can continue to work on his tasks immediately.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternative-considered"><a class="link" href="#alternative-considered">2.8.4. Alternative Considered</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">2.8.4. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p>We also considered that upon <code>check index</code>, it just removes the whole list from view and isolates the desired claim
-or contact needed, but we realised that might not catch the attention of the user</p>
+<p>Show a pop-up of the individual card</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Advantage</strong>: Clearly shows the user what he/she is checking</p>
+</li>
+<li>
+<p><strong>Disadvantage</strong>: Inconvenient for people with dual screens as the pop-up may appear on another screen</p>
+</li>
+<li>
+<p>I decided to proceed with this option because it is the best way of making the individual window clear to the user.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Remove the whole list from view and isolates the desired claim
+or contact needed</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Advantage</strong>: Does not require the pop-up, another window to be shown</p>
+</li>
+<li>
+<p><strong>Disadvantage</strong>: Might not catch the attention of the user</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -1628,11 +1677,35 @@ object he/she is finding.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="alternative-considered-2"><a class="link" href="#alternative-considered-2">2.9.3. Alternative Considered</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.9.3. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
+<p>Sorting of the claims list based on description</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Advantage</strong>: Easily find the claim you are looking for</p>
+</li>
+<li>
+<p><strong>Disadvantage</strong>: Might be difficult to remember the names of each claim</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p>Sorting of the claims list based on contact&#8217;s name instead</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Advantage</strong>: Easy to know as the person&#8217;s name is probably easier to remember than the claim&#8217;s description</p>
+</li>
+<li>
+<p><strong>Disadvantage</strong>: Already done in check contact, where you can filter the claims of a certain contact through the
+<code>check</code> feature</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -2840,4 +2913,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 14:27:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-09 15:11:18 UTC</div></div></div></body></html>
