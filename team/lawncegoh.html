@@ -140,13 +140,13 @@ user one more time to ensure that the command was not by accident.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Updated Mockup for UI of product (Commit <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/commit/560d7bdc3c9e4ea835285441bc7cc013f6f90ab2">560d7bdc3c9e4ea835285441bc7cc013f6f90ab2</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 49% to 53%. <a href="https://coveralls.io/jobs/55463719">529</a></p>
+<p>Updated the mock up for UI of product (Commit <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/commit/560d7bdc3c9e4ea835285441bc7cc013f6f90ab2">560d7bdc3c9e4ea835285441bc7cc013f6f90ab2</a>)</p>
 </li>
 <li>
 <p>Updated the UI of the whole application to suit our general theme of a more pastel-coloured application to allow the user to feel comfortable using it</p>
+</li>
+<li>
+<p>Wrote additional tests for existing features to increase coverage from 49% to 53%. <a href="https://coveralls.io/jobs/55463719">529</a> and from 57% to 60%. <a href="https://coveralls.io/builds/26886555">561</a></p>
 </li>
 </ul>
 </div>
@@ -203,10 +203,55 @@ user one more time to ensure that the command was not by accident.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. The following is an excerpt from our FinSec User Guide, showing additions that I have
-made for <code>sort</code> and <code>check</code> features. There is also a section on the 2 features I am proposing to implement in v2.0</em></p></td>
+made for <code>goto</code> , <code>sort</code> and <code>check</code> features. There is also a section on the 2 features I am proposing to implement in v2.0</em></p></td>
 </tr>
 </tbody>
 </table>
+<hr>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">The <span class="integer">3</span> features below are made to be used in conjunction with each other. They are <span class="error">`</span><span class="reserved">goto</span><span class="error">`</span>, <span class="error">`</span>check<span class="error">`</span> and <span class="error">`</span>sort<span class="error">`</span>/<span class="error">`</span>reverse<span class="error">`</span> respectively.
+They are an implementation of the other objects created in <span class="local-variable">this</span> application. You will be able to use these <span class="integer">3</span> features smoothly once
+you have input objects like <span class="error">`</span>claim<span class="error">`</span>, <span class="error">`</span>income<span class="error">`</span> into FinSec. You would then be able to <span class="keyword">switch</span> between the different <span class="string"><span class="delimiter">&quot;</span><span class="content">tabs</span><span class="delimiter">&quot;</span></span> that
+we call as <span class="error">`</span><span class="predefined-type">View</span><span class="error">`</span>. Once you are in the specific <span class="error">`</span><span class="predefined-type">View</span><span class="error">`</span> that displays the list of objects you created. You can<span class="error">`</span>sort<span class="error">`</span> or <span class="error">`</span>reverse<span class="error">`</span> <span class="local-variable">this</span>
+list. The list will then be sorted into a more organised manner <span class="keyword">for</span> you. Once you have sorted the list, you can then use the <span class="error">`</span>check<span class="error">`</span>
+feature in the <span class="error">`</span>contact<span class="error">`</span> or <span class="error">`</span>claim<span class="error">`</span> <span class="predefined-type">View</span> to sieve out a specific contact or claim that interests you.
+Now that you have gotten a clearer picture of how these <span class="integer">3</span> features will work together, read on to know more specific details about each feature.</code></pre>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-views-code-goto-code"><a class="link" href="#changing-views-code-goto-code">Changing Views : <code>goto</code></a></h3>
+<div class="paragraph">
+<p>This command changes the displayed list to show Contacts, Claims or Incomes. Such a command allows you to switch
+between the 3 lists easily. This feature has also been enhanced with the addition of tabs below the Command Result panel.
+These tabs give the same functionality as this goto feature so that you can choose to type or click on the tabs.<br></p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-GotoExample">Figure 3.2.1</a> shows the command result panel after the <code>goto contacts</code> command has been entered
+as well as the tabs that are below this panel.</p>
+</div>
+<div id="UG-GotoExample" class="imageblock">
+<div class="content">
+<img src="../images/UG-GotoExample.png" alt="UG GotoExample" width="800">
+</div>
+<div class="title">Figure 3.2.1: FinSec giving a brief description of the <code>goto</code> command</div>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>goto</code><br></p>
+</div>
+<div class="paragraph">
+<p>Additional Parameters: claims, contacts, incomes<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>goto (parameter)</code></p>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>goto contacts</code>
+<code>goto claims</code>
+<code>goto incomes</code></p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="sorting-the-contacts-claims-incomes-list-by-contact-s-name"><a class="link" href="#sorting-the-contacts-claims-incomes-list-by-contact-s-name">Sorting the Contacts/Claims/Incomes list by Contact&#8217;s Name</a></h3>
 <div class="paragraph">
@@ -454,10 +499,14 @@ I have made for <code>sort</code> and <code>check</code> features.</em></p></td>
 <div class="paragraph">
 <p>This section describes the ways that a user can sort the various lists. An overview is also included on how these sorts
 work.
-It also provides some design considerations to give users an insight of how the current solutions are worked out.
-==== Overview
-There are 2 ways that a user can sort the lists by. It gives the user flexibility in how he wants to see the lists. In
+It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
+</div>
+<div class="sect3">
+<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<div class="paragraph">
+<p>There are 2 ways that a user can sort the lists by. It gives the user flexibility in how he wants to see the lists. In
 addition, after sorting, the user can then employ the check method once again to see each individual object.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
@@ -628,7 +677,7 @@ object he/she is finding.</p>
 the user is in the claims or contacts page. This command is called when the user wants to check each contact or claim individually.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">Overview</a></h4>
 <div class="paragraph">
 <p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing. The 2 lists
@@ -840,4 +889,4 @@ or contact needed</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:13:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:12:36 UTC</div></div></div></body></html>

@@ -1574,13 +1574,17 @@ or contact needed</p>
 <div class="paragraph">
 <p>This section describes the ways that a user can sort the various lists. An overview is also included on how these sorts
 work.
-It also provides some design considerations to give users an insight of how the current solutions are worked out.
-==== Overview
-There are 2 ways that a user can sort the lists by. It gives the user flexibility in how he wants to see the lists. In
-addition, after sorting, the user can then employ the check method once again to see each individual object.</p>
+It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
 <div class="sect3">
-<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">2.9.1. Current Implementation</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">2.9.1. Overview</a></h4>
+<div class="paragraph">
+<p>There are 2 ways that a user can sort the lists by. It gives the user flexibility in how he wants to see the lists. In
+addition, after sorting, the user can then employ the check method once again to see each individual object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation-5"><a class="link" href="#current-implementation-5">2.9.2. Current Implementation</a></h4>
 <div class="paragraph">
 <p>The sort command takes in a 1 parameter that is the <code>Filter</code>. This <code>Filter</code> can either be <code>name</code> or <code>date</code>.
 <code>name</code> filter works in all 3 lists. However, in contacts and incomes list, the <code>name</code> filter refers to the name of
@@ -1692,7 +1696,7 @@ The code snippet below illustrates the comparator.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="why-was-it-implemented-this-way-6"><a class="link" href="#why-was-it-implemented-this-way-6">2.9.2. Why was it implemented this way?</a></h4>
+<h4 id="why-was-it-implemented-this-way-6"><a class="link" href="#why-was-it-implemented-this-way-6">2.9.3. Why was it implemented this way?</a></h4>
 <div class="paragraph">
 <p>The major implementation difference for claims list sorted by <code>name</code>, it is sorted based on the description of each
 claim. This was implemented like this because of the check feature. The check feature in the contacts list allows
@@ -1707,7 +1711,7 @@ object he/she is finding.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.9.3. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">2.9.4. Design Considerations</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3062,4 +3066,4 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 11:13:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 12:12:36 UTC</div></div></div></body></html>
