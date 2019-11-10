@@ -42,8 +42,9 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
+<li><a href="#viewing-help">G.2. Viewing Help</a></li>
+<li><a href="#deleting-a-contact">G.3. Deleting a contact</a></li>
+<li><a href="#displaying-budget-values">G.4. Displaying budget values</a></li>
 </ul>
 </li>
 </ul>
@@ -313,7 +314,8 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="help-feature"><a class="link" href="#help-feature">2.1. Help feature</a></h3>
 <div class="paragraph">
-<p>The <code>help</code> command allows for users to generate a <code>HelpCommand</code> object in FinSec. It then provides one of various types of help dependant on the request of the user.</p>
+<p>The <code>help</code> command allows for users to generate a <code><strong>HelpCommand</strong></code> object in FinSec. It then provides one of various
+types of help dependant on the request of the user.</p>
 </div>
 <div class="paragraph">
 <p>The format for the <code>help</code> command is as follows:</p>
@@ -326,17 +328,18 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect3">
 <h4 id="overview"><a class="link" href="#overview">2.1.1. Overview</a></h4>
 <div class="paragraph">
-<p>The <code>Help</code> mechanism is facilitated by <code>HelpCommand</code> and <code>HelpCommandParser</code>, taking in the following inputs from the user: <code>SecondaryCommand</code> and <code>Type</code>.
-After the parameters have been parsed, the relevant <code>CommandResult</code> object will be instantiated based on the input <code>Type</code> and pertaining to the input <code>SecondaryCommand</code>.</p>
+<p>The <code>help</code> mechanism is facilitated by <code><strong>HelpCommand</strong></code> and <code><strong>HelpCommandParser</strong></code>, taking in the following inputs from the
+user: <code>SecondaryCommand</code> and <code>Type</code>.
+After the parameters have been parsed, the relevant <code><strong>CommandResult</strong></code> object will be instantiated based on the input <code>Type</code> and pertaining to the input <code>SecondaryCommand</code>.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="current-implementation"><a class="link" href="#current-implementation">2.1.2. Current Implementation</a></h4>
 <div class="paragraph">
-<p>The activity diagram below shows how it would look like from a user&#8217;s point of view during the creation of a <code>HelpCommand</code> object.</p>
+<p>The activity diagram below shows how it would look like from a user&#8217;s point of view during the creation of a <code><strong>HelpCommand</strong></code> object.</p>
 </div>
 <div class="paragraph">
-<p><a href="#helpActDiagram">Figure 2.1.2.1</a> describes the workflow of the <code>help</code> command
+<p><a href="#helpActDiagram">Figure 2.1.2.1</a> describes the workflow of FinSec when the <code>help</code> command
 command is entered.</p>
 </div>
 <div id="helpActDiagram" class="imageblock">
@@ -352,18 +355,18 @@ command is entered.</p>
 <p><strong>Step 1 :</strong> The user requests for help.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2 :</strong> The <code>HelpParser</code> then calls the execute function of the <code>HelpCommand</code>.</p>
+<p><strong>Step 2 :</strong> The <code><strong>HelpParser</strong></code> then calls the execute function of the <code><strong>HelpCommand</strong></code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3 :</strong> The <code>HelpCommand</code> then returns a <code>CommandResult</code> based on what parameters the user enters.</p>
+<p><strong>Step 3 :</strong> The <code><strong>HelpCommand</strong></code> then returns a <code><strong>CommandResult</strong></code> based on what parameters the user enters.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>If no parameters are entered, the <code>HelpCommand</code> class returns with a <code>CommandResult</code> requesting to show a basic <code>helpWindow</code></p>
+<p>If no parameters are entered, the <code><strong>HelpCommand</strong></code> class returns with a <code><strong>CommandResult</strong></code> requesting to show a basic <code>helpWindow</code></p>
 </li>
 <li>
-<p>If the incorrect parameters are entered, an error message will be sent as feedback to the user in the <code>CommandResult</code></p>
+<p>If the incorrect parameters are entered, an error message will be sent as feedback to the user in the <code><strong>CommandResult</strong></code></p>
 </li>
 </ul>
 </div>
@@ -373,13 +376,13 @@ command is entered.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If the user chooses <code>Type</code> brief, a brief description will be returned as feedback to the user in the <code>CommandResult</code></p>
+<p>If the user chooses <code>brief</code>, a brief description will be returned as feedback to the user in the <code><strong>CommandResult</strong></code></p>
 </li>
 <li>
-<p>If the user chooses <code>Type</code> guide, the <code>HelpCommand</code> class accesses the <code>WebLinks</code> class to get the String value of the respective command. It then utilises your default web browser to open up the FinSec User Guide and centers on the requested command.</p>
+<p>If the user chooses <code>guide</code>, the <code><strong>HelpCommand</strong></code> class accesses the <code><strong>WebLinks</strong></code> class to get the String value of the respective command. It then utilises your default web browser to open up the FinSec User Guide and centers on the requested command.</p>
 </li>
 <li>
-<p>If the user chooses <code>Type</code> api, the <code>HelpCommand</code> class accesses the <code>ApiLinks</code> class to get the String value of the respective command. It then generates an API.html file of the requested command on the local system and accesses it.</p>
+<p>If the user chooses <code>api</code>, the <code><strong>HelpCommand</strong></code> class accesses the <code><strong>ApiLinks</strong></code> class to get the String value of the respective command. It then generates an API.html file of the requested command on the local system and accesses it.</p>
 </li>
 </ul>
 </div>
@@ -973,14 +976,17 @@ create more commands as the user uses the application.</p>
 <div class="sect2">
 <h3 id="budget-feature"><a class="link" href="#budget-feature">2.6. Budget feature</a></h3>
 <div class="paragraph">
-<p>The <code>budget</code> command allows for users to Generate a <code>Budget</code> object in FinSec. It also creates a <code>Budget Graph</code> object and displays it via the User Interface.</p>
+<p>The <code>budget</code> command allows for users to Generate a <code><strong>Budget</strong></code> object in FinSec. It also creates a <code><strong>BudgetGraph</strong></code>
+object and displays it via the User Interface.</p>
 </div>
 <div class="sect3">
 <h4 id="overview-2"><a class="link" href="#overview-2">2.6.1. Overview</a></h4>
 <div class="paragraph">
-<p>The <code>Budget</code> feature relies primarily on the <code>Claim</code> and <code>Income</code> features, and serves as an extension to calculate their difference.
-The <code>Budget</code> object calculates the cash <code>amount</code> values of all existing <code>Income</code> objects and all cash <code>amount</code> values of <code>Claims</code> that have a <code>status</code> of <code>approved</code>.
-It then returns the difference in values as the <code>budget</code> value and creates a graph detailing the statistics for the month.</p>
+<p>The <code><strong>Budget</strong></code> feature relies primarily on the <code><strong>Claim</strong></code> and <code><strong>Income</strong></code> features, and serves as an extension to
+calculate their difference.
+The <code><strong>Budget</strong></code> object calculates the cash amount values of all existing <code><strong>Income</strong></code> objects and all cash amount
+values of <code><strong>Claims</strong></code> that have a status of 'approved'.
+It then returns the difference in values as the budget value and creates a graph detailing the statistics for the month.</p>
 </div>
 </div>
 <div class="sect3">
@@ -996,64 +1002,76 @@ command is entered.</p>
 <div class="title">Figure 2.6.2.1: Execution sequence of the <code>budget</code> command</div>
 </div>
 <div class="paragraph">
-<p><strong>Step 1 :</strong> The <code>budget</code> command is passed on to the <code>LogicManager</code> as <code>commandText</code><br></p>
+<p><strong>Step 1 :</strong> The <code>budget</code> command is passed on to the <code><strong>LogicManager</strong></code> as commandText<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2 :</strong> The LogicManager::execute method then calls FinSecParser::parseCommand which receives the user input (<code>budget</code>) as a parameter.<br></p>
+<p><strong>Step 2 :</strong> The <code><strong>LogicManager::execute</strong></code> method then calls <code><strong>FinSecParser::parseCommand</strong></code> which receives the user
+input (<code>budget</code>) as a parameter.<br></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3 :</strong> FinSecParser then references the various command words and identifies the command to be a <code>budget</code> command. It then calls the <code>BudgetCommand</code> method.</p>
+<p><strong>Step 3 :</strong> FinSecParser then references the various command words and identifies the command to be a <code>budget</code> command
+. It then calls the <code><strong>BudgetCommand</strong></code> class.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4 :</strong> This newly created <code>BudgetCommand</code> object is returned to the LogicManager class, which then calls the BudgetCommand::execute method.</p>
+<p><strong>Step 4 :</strong> This newly created <code><strong>BudgetCommand</strong></code> object is returned to the LogicManager class, which then calls the
+<code><strong>BudgetCommand::execute</strong></code> method.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5 :</strong> The <code>BudgetCommand</code> then interacts with the model component of our software architecture to create a filteredList of all <code>Income</code> and <code>Claim</code> objects using the <code>model.getFilteredClaimList()</code> and <code>model.getFilteredIncomeList()</code> commands.</p>
+<p><strong>Step 5 :</strong> The <code><strong>BudgetCommand</strong></code> then interacts with the model component of our software architecture to create a
+filteredList of all <code><strong>Income</strong></code> and <code><strong>Claim</strong></code> objects using the <code><strong>model.getFilteredClaimList()</strong></code> and <code><strong>model
+.getFilteredIncomeList()</strong></code> methods.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6 :</strong> It instantiates a <code>Budget</code> object which contains classes such as <code>calculateTotalExpenses()</code> and <code>calculateBudget()</code> to calculate the <code>Amount</code> values of all the <code>Claims</code>, <code>Incomes</code> and thus use them to find the budget amount.<br>
-A <code>BudgetGraph</code> object is also created in parallel (Details expanded upon below)</p>
+<p><strong>Step 6 :</strong> It instantiates a <code><strong>Budget</strong></code> object which contains methods such as <code><strong>calculateTotalExpenses()</strong></code> and
+<code><strong>calculateBudget()</strong></code> to calculate the amount values of all the <code><strong>Claims</strong></code>, <code><strong>Incomes</strong></code> and thus use them to find
+the budget amount.<br>
+A <code><strong>BudgetGraph</strong></code> object is also created in parallel (Details expanded upon below)</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 7:</strong> The <code>BudgetCommand::execute</code> finally completes by constructing a message string containing all these values and returning a new <code>CommandResult</code> with the specific message string to its calling method which is <code>LogicManager::execute</code>.</p>
+<p><strong>Step 7:</strong> The <code><strong>BudgetCommand::execute</strong></code> finally completes by constructing a message string containing all these
+values and returning a new <code><strong>CommandResult</strong></code> with the specific message string to its calling method which is
+<code><strong>LogicManager::execute</strong></code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 8 :</strong> <code>LogicManager::execute</code> method returns a <code>CommandResult</code> to the calling method which is <code>MainWindow::executeCommand</code></p>
+<p><strong>Step 8 :</strong> <code><strong>LogicManager::execute</strong></code> method returns a <code><strong>CommandResult</strong></code> to the calling method which is
+<code><strong>MainWindow::executeCommand</strong></code></p>
 </div>
 <div class="paragraph">
-<p><strong>Step 9 :</strong> The specific feedback is then retrieved through <code>CommandResult::getFeedbackToUser</code> and set in the result display of the MainWindow.<br></p>
+<p><strong>Step 9 :</strong> The specific feedback is then retrieved through <code><strong>CommandResult::getFeedbackToUser</strong></code> and set in the result
+display of the MainWindow.<br></p>
 </div>
 <div class="paragraph">
-<p>While creating the <code>Budget</code> object, a <code>BudgetGraph</code> object is also created in parallel. The activity diagram below shows how it would look like from a user&#8217;s point of view.</p>
+<p>While creating the <code><strong>Budget</strong></code> object, a <code><strong>BudgetGraph</strong></code> object is also created in parallel. The activity diagram
+below
+shows how it would look like from a user&#8217;s point of view.</p>
 </div>
 <div class="paragraph">
-<p><a href="#budgetActDiagram">Figure 2.5.2.2</a> describes the workflow of the budget command
-command is entered.</p>
+<p><a href="#budgetActDiagram">Figure 2.6.2.2</a> describes the workflow of FinSec when the <code>budget</code> command is entered.</p>
 </div>
 <div id="budgetActDiagram" class="imageblock">
 <div class="content">
 <img src="images/DG-BudgetActivityDiagram.PNG" alt="DG BudgetActivityDiagram" width="800">
 </div>
-<div class="title">Figure 2.5.2.2: Activity diagram of the <code>budget</code> command</div>
+<div class="title">Figure 2.6.2.2: Activity diagram of the <code>budget</code> command</div>
 </div>
 <div class="paragraph">
-<p>The series of steps below demonstrates what the <code>BudgetGraph</code> object does in parallel to Step 6 above.</p>
+<p>The series of steps below demonstrates what the <code><strong>BudgetGraph</strong></code> object does in parallel to Step 6 above.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6a :</strong> At the same time the <code>Budget</code> object is created, the <code>BudgetGraph</code> object is also instantiated, which is basically an XY-graph.</p>
+<p><strong>Step 6a :</strong> At the same time the <code><strong>Budget</strong></code> object is created, the <code><strong>BudgetGraph</strong></code> object is also instantiated,
+which is
+basically an XY-graph.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6b :</strong> The <code>BudgetGraph</code> object creates a dataset by taking in the list of <code>Claims</code> and <code>Incomes</code> and parsing them to the <code>ClaimPlotter</code>, <code>IncomePlotter</code> and <code>BudgetPlotter</code> classes.</p>
+<p><strong>Step 6b :</strong> The <code><strong>BudgetGraph</strong></code> object creates a dataset by taking in the list of <code><strong>Claims</strong></code> and <code><strong>Incomes</strong></code> and
+parsing
+them to the <code><strong>ClaimPlotter</strong></code>, <code><strong>IncomePlotter</strong></code> and <code><strong>BudgetPlotter</strong></code> classes.</p>
 </div>
 <div class="paragraph">
 <p><strong>Step 6c :</strong> The 3 plotter classes then filter their respective lists to create new lists for the current month and start adding the points to the series.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>The code snippet below shows the <code>ClaimPlotter::plotClaims</code> method<br></p>
-</li>
-</ul>
+<div class="paragraph">
+<p>The code snippet below shows the <code><strong>ClaimPlotter::plotClaims</strong></code> method<br></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1075,10 +1093,12 @@ command is entered.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Step 6d :</strong> Once the 3 series have been returned, the BudgetGraph then returns the completed dataset to the <code>BudgetGraph</code> class which then renders the image.</p>
+<p><strong>Step 6d :</strong> Once the 3 series have been returned, the plotter classes then return the completed dataset to the
+<code><strong>BudgetGraph</strong></code> class which then renders the image.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6e :</strong> The <code>BudgetCommand::execute</code> method then calls the <code>BudgetGraph::displayBudgetGraph</code> method to display the graph image.</p>
+<p><strong>Step 6e :</strong> The <code><strong>BudgetCommand::execute</strong></code> method then calls the <code><strong>BudgetGraph::displayBudgetGraph</strong></code> method to
+display the graph image.</p>
 </div>
 </div>
 <div class="sect3">
@@ -1089,10 +1109,11 @@ command is entered.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>We felt that while knowing how much our prospective budget would be is good, knowing it over a range of time (such as a month in the case of <code>BudgetGraph</code>) would help with better planning</p>
+<p>We felt that while knowing how much our prospective budget would be is good, knowing it over a range of time (such as a month in the case of <code><strong>BudgetGraph</strong></code>) would help with better planning</p>
 </li>
 <li>
-<p>We also wanted to keep track of the history of said <code>Claims</code> and <code>Incomes</code> and doing it over a 1 month period ensures there will not be too visual data cluttering the screen.</p>
+<p>We also wanted to keep track of the history of said <code><strong>Claims</strong></code> and <code><strong>Incomes</strong></code> and doing it over a 1 month period
+ensures there will not be too visual data cluttering the screen.</p>
 </li>
 </ul>
 </div>
@@ -2001,7 +2022,60 @@ lists based on the same filters in the reverse of natural ordering. It shows the
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is <code>FinSec</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is <em>FinSec</em> and the <strong>Actor</strong> is the <em>user</em>, unless specified otherwise)</p>
+</div>
+<h3 id="use-case-requesting-help-from-finsec" class="discrete">Use case: Requesting help from FinSec</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests for help in FinSec</p>
+</li>
+<li>
+<p>FinSec dispenses the appropriate type of help as requested by the user</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The user does not type in any parameters.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1a1. FinSec displays a help window showing a list of commands as well as the usage parameters of the help command</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 1</p>
+</div>
+</li>
+<li>
+<p>1b. The given parameters are incorrect.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. FinSec shows an error message</p>
+</li>
+<li>
+<p>1b2. FinSec displays a help window showing a list of commands</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
 </div>
 <h3 id="use-case-adding-a-contact" class="discrete">Use case: Adding a contact</h3>
 <div class="paragraph">
@@ -2577,7 +2651,7 @@ lists based on the same filters in the reverse of natural ordering. It shows the
 <p>User requests to view current budget</p>
 </li>
 <li>
-<p>FinSec shows current budget</p>
+<p>FinSec shows current budget and displays budget graph</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2865,31 +2939,65 @@ Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
+<h3 id="viewing-help"><a class="link" href="#viewing-help">G.2. Viewing Help</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a person while all persons are listed</p>
+<p>Requesting help from FinSec</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
+<p>Prerequisites: None</p>
 </li>
 <li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
+<p>Test case: <code>help</code><br>
+Expected: A help window pops up displaying the list of all FinSec commands and advanced help usage</p>
+</li>
+<li>
+<p>Test case: <code>help cmd/add_claim type/brief</code><br>
+Expected: FinSec displays a brief description of the <code>add_claim</code> command, as well as usage instructions</p>
+</li>
+<li>
+<p>Test case: <code>help cmd/edit_income_claim type/guide</code><br>
+Expected: FinSec opens up your default web browser and brings you to the <code>edit_income</code> section of our User Guide</p>
+</li>
+<li>
+<p>Test case: <code>help cmd/help type/api</code><br>
+Expected: FinSec generates an API.html file containing the <code>help</code> command and opens it up.</p>
+</li>
+<li>
+<p>Test case: <code>help cmd/randomstuff type/lalala</code><br>
+Expected: FinSec displays an error message and usage instructions for help</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="deleting-a-contact"><a class="link" href="#deleting-a-contact">G.3. Deleting a contact</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a contact while all contacts are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all contacts using the <code>goto_contacts</code> command. Multiple contacts in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete_contact 1</code><br>
+Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.</p>
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
+Expected: No person is deleted. Error details shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -2897,29 +3005,61 @@ Expected: Similar to previous.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
 </div>
 <div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
+<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.4. Displaying budget values</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Dealing with missing/corrupted data files</p>
+<p>Display budget values without any incomes or claims present</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p>Prerequisites: No claims or incomes are present</p>
+</li>
+<li>
+<p>Test case: <code>budget</code><br>
+Expected: Budget displayed should be $0.00. Graph should reflect the same result</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Display budget values without any approved claims present</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: No claims have been approved</p>
+</li>
+<li>
+<p>Test case: <code>budget</code><br>
+   Expected: Budget displayed should be the same as the income value. The red line in the graph representing claim
+amounts should remain at 0.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Display budget values with an assortment of varied approved claims and incomes</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: All claims and incomes have been set to varying dates that predate and postdate the current date.</p>
+</li>
+<li>
+<p>Test case: <code>budget</code><br>
+   Expected: Budget displayed should be the total income value minus total approved claim value. Budget Graph
+should reflect accurate statistics for the current month.</p>
+</li>
+<li>
+<p>Test case: <code>budget 99</code><br>
+Expected: An error pops up stating that <code>budget</code> is a standalone command and does not require additional parameters</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
 </div>
 </div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 04:46:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 09:16:12 UTC</div></div></div></body></html>
