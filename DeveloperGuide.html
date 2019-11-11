@@ -189,7 +189,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>AddressBookParser</code> class to parse the user command.</p>
+<p><code>Logic</code> uses the <code>FinSecParser</code> class to parse the user command.</p>
 </li>
 <li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
@@ -247,7 +247,7 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
 </li>
 <li>
-<p>stores the Address Book data.</p>
+<p>stores the FinSec data.</p>
 </li>
 <li>
 <p>exposes an unmodifiable <code>ObservableList&lt;Person&gt;</code> that can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
@@ -292,7 +292,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the Address Book data in json format and read it back.</p>
+<p>can save the FinSec data in json format and read it back.</p>
 </li>
 </ul>
 </div>
@@ -300,7 +300,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>Address Book<
 <div class="sect2">
 <h3 id="Design-Commons"><a class="link" href="#Design-Commons">1.6. Common classes</a></h3>
 <div class="paragraph">
-<p>Classes used by multiple components are in the <code>seedu.addressbook.commons</code> package.</p>
+<p>Classes used by multiple components are in the <code>seedu.address.commons</code> package.</p>
 </div>
 </div>
 </div>
@@ -456,7 +456,7 @@ parameters to display the command list and explain the deeper features of the he
 </div>
 <div class="paragraph">
 <p>The add claim <code>add_claim</code> mechanism is facilitated by <code>AddClaimCommand</code> and <code>AddClaimCommandParser</code>, taking in the
-following input from the user: <code>Description</code>, <code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Phone</code>, which will construct <code>Claim</code> objects.</p>
+following input from the user: <code>Description</code>, <code>Amount</code>, <code>Date</code> and <code>Name</code>, which will construct <code>Claim</code> objects.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -476,9 +476,9 @@ following input from the user: <code>Description</code>, <code>Amount</code>, <c
 <div class="ulist">
 <ul>
 <li>
-<p><code>AddClaimCommandParser#parse()</code> - This operation will take in a String input from the user that will create <code>Claim</code>
-objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 'p/'. The String value after the individual prefixes will
-create the respective object: d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and p/<code>phone</code>. A regex validation
+<p><code>AddClaimCommandParser#parse()</code> - This operation takes in a String input from the user that will create <code>Claim</code>
+objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 't/'. The String value after the individual prefixes will
+create the respective object: d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and t/<code>tags</code>. A regex validation
 check will be imposed upon the creation of each argument. Any checks that fails the validation would prompt the user on
 the failed component.</p>
 </li>
@@ -490,32 +490,34 @@ the failed component.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>date</code> would use <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY.</p>
+<p><code>date</code> uses <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY. The
+date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is valid)</em>.</p>
 </li>
 <li>
-<p><code>amount</code> would use <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of
+<p><code>amount</code> uses <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of
 2 decimal places.</p>
 </li>
 <li>
-<p><code>phone</code> would use <code>ParserUtil#parsePhone()</code> to ensure that the phone number entered would only contain numbers that
-are at least 3 numbers long.</p>
-<div class="ulist">
-<ul>
-<li>
 <p>After validation checks are completed with no errors, a <code>Claim</code> object will be constructed with <code>Id</code>, <code>Description</code>,
-<code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Phone</code> as the parameters.</p>
+<code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Tags</code> as the parameters.</p>
 </li>
 <li>
-<p><code>AddClaimCommandParser</code> would then return an <code>AddClaimCommand</code> object with <code>Claim</code> as its attribute.</p>
+<p><code>AddClaimCommandParser</code> will then return an <code>AddClaimCommand</code> object with <code>Claim</code> as its attribute.</p>
 </li>
 <li>
-<p><code>AddClaimCommand#execute</code> checks against all existing contacts against the inputs <code>name</code> and <code>phone</code> to make sure
+<p><code>AddClaimCommand#execute</code> will check against all existing contacts against the input <code>name</code> to make sure
 the contact exists.</p>
 </li>
 </ul>
 </div>
-</li>
-</ul>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddClaimActivityDiagram.png" alt="AddClaimActivityDiagram">
+</div>
+<div class="title">Figure 11. Add Claim Command Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>The above activity diagram models the workflow of the addition of a claim.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
@@ -528,31 +530,75 @@ the contact exists.</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add_claim d/Logistics for Sports Day c/150.60 date/21-12-2019 n/Melissa p/99875432`</pre>
+<pre>add_claim n/Melissa d/Logistics for Sports Day c/150.60 date/21-12-2019</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>This adds a <code>Claim</code> of $150.60 for Logistics for Sports Day by Melissa, with a phone identity of 99875432.</p>
+<p>This is intended to add a <code>Claim</code> of $150.60 for Logistics for Sports Day by Melissa.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 2:</strong> <code>LogicManager</code> would use <code>FinSecParser#parse()</code> to parse input from the user.</p>
+<p><strong>Step 2:</strong> <code>LogicManager</code> uses <code>FinSecParser#parse()</code> to parse input from the user.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 3:</strong> <code>FinSecParser</code> would determine which command is being used and creates the respective parser. In this case,
-<code>AddClaimCommandParser</code> is being created and the user&#8217;s input would be passed in as a parameter.</p>
+<p><strong>Step 3:</strong> <code>FinSecParser</code> determines which command is being used and creates the respective parser. In this case,
+<code>AddClaimCommandParser</code> is being created and the user&#8217;s input will be passed in as a parameter.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 4:</strong> <code>AddClaimCommandParser</code> would do a validation check on the user&#8217;s input before creating and returning a
+<p><strong>Step 4:</strong> <code>AddClaimCommandParser</code> will do a validation check on the user&#8217;s input before creating and returning a
 <code>AddClaimCommand</code> object with <code>Claim</code> as its attribute.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 5:</strong> <code>LogicManager</code> would execute <code>AddClaimCommand#execute()</code>, checking whether there is an existing Claim and also
+<p><strong>Step 5:</strong> <code>LogicManager</code> will execute <code>AddClaimCommand#execute()</code>, checking whether there is an existing Claim and also
 whether there is an existing contact for the claim, then adding the <code>PendingClaim</code> into the <code>Model</code> which is handled by the
 <code>ModelManager</code>.</p>
 </div>
 <div class="paragraph">
-<p><strong>Step 6:</strong> <code>AddClaimCommand</code> would return a <code>CommandResult</code> to the <code>LogicManager</code> which would then be returned back to
+<p><strong>Step 6:</strong> During the addition of claim into the <code>UniqueClaimsList</code> in <code>FinSec</code>, <code>FinSec#addClaimIntoContact</code> will also
+be called, adding the <code>Id</code> of the claim to the associated contact&#8217;s <code>claims</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7:</strong> <code>AddClaimCommand</code> will return a <code>CommandResult</code> to the <code>LogicManager</code> which will then be returned back to
 the user.</p>
+</div>
+<div class="paragraph">
+<p>During the design of our <code>add_claim</code> function, specifically its association with <code>Contacts</code>, we considered other
+alternatives as well.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 2. add_claim alternatives</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Design Consideration</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adding the claim into contact by its object</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : This allows the claim to be stored inside the contact itself, thus is easily accessible.</p>
+<p class="tableblock"><strong>Cons</strong> : It is more difficult ensuring that both the same claim in the contact and in the <code>UniqueClaimsList</code> remains
+exactly the same to each other when one of them is changed.</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Adding the claim into contact by its Id</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Since each claim has an unique Id, it can easily be retrieved from <code>UniqueClaimsList</code> <em>(returned from
+<code>FinSec#getClaimList()</code>)</em>. This reduces coupling when the claim is to be changed <em>(eg. gets approved)</em>.</p>
+<p class="tableblock"><strong>Cons</strong> : Every time we retrieve a claim using its <code>Id</code>, we have to search through the whole <code>UniqueClaimsList</code> to find
+the associated claim. As the list gets bigger and the more claims we have to search for an individual contact, this
+may take more time.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We have decided to opt for the first option primarily because it reduces the number of potential bugs and the
+complexities involved. Moreover, as we are trying to push a Minimum Viable Product, the implementation is still fast
+enough for small-scale organisations to pick up our app and use it, minimising the cons.</p>
 </div>
 </div>
 <div class="sect3">
@@ -663,7 +709,7 @@ For example:</p>
 <div class="content">
 <img src="images/AddIncomeSequenceDiagram.png" alt="AddIncomeSequenceDiagram">
 </div>
-<div class="title">Figure 11. Add Income Command Sequence Diagram</div>
+<div class="title">Figure 12. Add Income Command Sequence Diagram</div>
 </div>
 </div>
 <div class="sect3">
@@ -701,7 +747,7 @@ Any invalid format of the command will be prompted by the command parser.</p>
 <p>During the design of our delete function, we considered between two alternatives.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 2. Delete function alternatives</caption>
+<caption class="title">Table 3. Delete function alternatives</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -877,7 +923,7 @@ create more commands as the user uses the application.</p>
 <p>We considered between two alternatives.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 3. Data structure to store commandWord and commandTask alternatives</caption>
+<caption class="title">Table 4. Data structure to store commandWord and commandTask alternatives</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -1124,7 +1170,7 @@ ensures there will not be too visual data cluttering the screen.</p>
 <p>We have considered between two differing graph designs.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
-<caption class="title">Table 4. Graph Designs</caption>
+<caption class="title">Table 5. Graph Designs</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
@@ -3066,4 +3112,4 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 16:30:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:42:32 UTC</div></div></div></body></html>
