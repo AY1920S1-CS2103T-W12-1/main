@@ -1121,18 +1121,22 @@ them to the <code><strong>ClaimPlotter</strong></code>, <code><strong>IncomePlot
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="java">XYSeries plotClaims() {
+<pre class="CodeRay highlight"><code data-lang="java">   XYSeries plotClaims() {
+        <span class="predefined-type">Double</span> amountToAdd;
         findClaimValueAtStartOfMonth();
         claimSeries.add(<span class="integer">1</span>, startingExpenses);
         <span class="type">double</span> currentExpenses = startingExpenses;
         <span class="predefined-type">List</span>&lt;Claim&gt; approvedClaimsInCurrentMonthList = findApprovedClaimsInCurrentMonth();
-        <span class="keyword">for</span> (Claim claim : approvedClaimsInCurrentMonthList) {
-            <span class="keyword">for</span> (<span class="type">int</span> day = <span class="integer">2</span>; day &lt;= <span class="integer">31</span>; day++) {
+        <span class="keyword">for</span> (<span class="type">int</span> day = <span class="integer">2</span>; day &lt;= <span class="integer">30</span>; day++) {
+            <span class="keyword">for</span> (Claim claim : approvedClaimsInCurrentMonthList) {
                 <span class="keyword">if</span> (claim.getDate().date.getDayOfMonth() == day) {
-                    currentExpenses += <span class="predefined-type">Double</span>.parseDouble(claim.getAmount().value);
+                    amountToAdd = <span class="predefined-type">Double</span>.parseDouble(claim.getAmount().value);
+                    <span class="keyword">assert</span> amountToAdd &gt;= <span class="integer">0</span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">A negative claim value managed to get into the claim list</span><span class="delimiter">&quot;</span></span>;
+                    currentExpenses += amountToAdd;
+                    currentExpenses = <span class="predefined-type">Math</span>.round(currentExpenses * <span class="integer">100</span>) / <span class="float">100.0</span>;
                 }
-                claimSeries.add(day, currentExpenses);
             }
+            claimSeries.add(day, currentExpenses);
         }
         <span class="keyword">return</span> claimSeries;
     }</code></pre>
@@ -3112,4 +3116,4 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:20:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:12:51 UTC</div></div></div></body></html>

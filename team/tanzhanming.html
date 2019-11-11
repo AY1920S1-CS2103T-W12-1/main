@@ -1,0 +1,586 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Tan Zhan Ming - Project Portfolio for FinSec</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">FinSec</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S1-CS2103T-W12-1/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Tan Zhan Ming - Project Portfolio for FinSec</h1></div><div id="content"><div class="sect1">
+<h2 id="1-overview"><a class="link" href="#1-overview">1. Overview</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="1-1-introduction"><a class="link" href="#1-1-introduction">1.1 Introduction</a></h3>
+<div class="paragraph">
+<p>This project portfolio serves to provide a sample of my technical software engineering skills,
+by showcasing the work I have done on FinSec - the financial secretary application.
+FinSec is developed by a group of 4 students, including myself, as a software engineering project for the module
+CS2103T as part of our studies in the National University of Singapore.</p>
+</div>
+<div class="paragraph">
+<p>The aim of the project was for us, as students, to be able to contribute production quality work to a small to medium
+software project.
+This was done by letting us morph an existing product - the AddressBook Level 3, into a product of our choice under
+certain constraints to mimic a realistic development environment. The main constraint is as follows: The application
+should be a CLI-based desktop application. This meant the application should be based around working on a single
+computer, and should target users who can type fast or users who prefer typing over other means of input.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="1-2-about-the-product"><a class="link" href="#1-2-about-the-product">1.2 About the product</a></h3>
+<div class="paragraph">
+<p>FinSec is a finance planning and management application that can keep track of various financial statistics such as claim amounts, revenue streams and overall budgets. FinSec is targeted at finance secretaries and
+accountants of small organisations, such as those belonging to school clubs or even Small-Medium Enterprises, and aims
+to replace Microsoft Excel as their preferred tool to keep track of finances
+by providing a core set of specialised features. With its main form of input being the Command Line Interface (CLI), FinSec also favors people who can type fast.</p>
+</div>
+<div class="paragraph">
+<p>FinSec&#8217;s main features are as follows.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>FinSec can store information about your expenditure, revenue streams and even point-of-contacts by processing them as
+Claims, Incomes and Contacts respectively.</p>
+</li>
+<li>
+<p>FinSec splits the Contact, Claim and Income tabs for improved readability and allows you to easily switch between them.</p>
+</li>
+<li>
+<p>FinSec can generate prospective Budget values and even provide you with a graph outlining the monetary amounts of Claims, Incomes and Budget for the current month.</p>
+</li>
+<li>
+<p>FinSec can map any command to a Shortcut, allowing you to shorten lengthy commands or map them to words that are
+easier for you to remember.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The following image shows how FinSec&#8217;s user interface looks like:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Ui.png" alt="Ui" width="600">
+</div>
+<div class="title">Figure 1. Main window of FinSec</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="1-3-understanding-this-document"><a class="link" href="#1-3-understanding-this-document">1.3 Understanding this document</a></h3>
+<div class="paragraph">
+<p>Note the following symbols and formatting used in this document:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code>budget</code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A grey highlight (called a mark-up) indicates that this is a command or parameter that can be input
+into the command line and executed by the application.<br></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><code><strong>HelpWindow</strong></code></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Bold text with mark-up indicates that this is a class/package name or a method name.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2-summary-of-contributions"><a class="link" href="#2-summary-of-contributions">2. Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>My main role was to design and develop the <code>help</code> and <code>budget</code> commands. This section shows a summary of my
+coding and documentation efforts toward that end, and also highlights other helpful contributions that I had made
+towards FinSec.</p>
+</div>
+<div class="sect2">
+<h3 id="2-1-enhancements-made"><a class="link" href="#2-1-enhancements-made">2.1 Enhancements made</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Major enhancement 1</strong>: I added the <strong>ability to calculate budget projections</strong></p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The <code>budget</code> command calculates your prospective budget - the balance of money you are expected to
+have after handling all your claims and incomes.<br>
+Besides calculating the overall budget, the <code>budget</code> command also displays claim, income and budget statistics for the current month via a graphical representation.</p>
+</li>
+<li>
+<p>Justification: The main point of a finance management application like FinSec is to keep track of the cashflow in your organisation. The <code>budget</code> command does exactly that by calculating and showing you your overall budget.
+By providing a clear graphical representation at the same time, it allows you to easily identify certain problems that might arise in the current month - such as the need to raise finance or cash flow difficulties.</p>
+</li>
+<li>
+<p>Highlights: This graphical portion of the <code>budget</code> command is specifically designed to be incredibly visual and easy
+to understand. This is done by varying the colour and width of the lines
+used to plot the graph and by implementing tooltips on each data-point.<br>
+The implementation was quite challenging as the library I used for the graphing was not a native one. Thus, I had to
+improvise a lot, such as by creating my own custom tooltips for the graph as the default ones provided
+did not provide as much clarity as I had wanted.</p>
+</li>
+<li>
+<p>Credits: I would like to thank [<a href="http://www.jfree.org/jfreechart/">JFreeChart</a>] for their amazing open source library. I had a
+much easier time utilising their API to create a graph rather than trying to do so with JavaFx.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Major enhancement 2</strong>: I updated the existing <code>help</code> command to <strong>provide 3 types of help for each command</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>What it does: The <code>help</code> command by default now opens up a <code><strong>HelpWindow</strong></code> containing a list of all the FinSec
+commands, while the advanced version of <code>help</code> with parameters can now provide 3 different types of assistance.<br>
+<code>brief</code> - Gives you a short summary of what the command does, how to use it and lists an example.<br>
+<code>guide</code> - Opens up your default web browser and brings you to the command in question in the FinSec User Guide<br>
+<code>api</code> - Is for advanced users who wish to know more about the inner workings of the commands</p>
+</li>
+<li>
+<p>Justification: The previous implementation of <code>help</code> was sorely lacking in that it relied solely on the user
+guide and thus was dependant on internet connectivity. This has been remedied with both the <code>brief</code> and <code>api</code>
+types of help, which cater to offline users.<br>
+The <code>guide</code> functionality has also been improved to bring you to the exact part of the user guide pertaining to the
+requested command for added convenience.</p>
+</li>
+<li>
+<p>Highlights: The <code>api</code> form of help was designed from the ground up to be as unobtrusive as possible. It will only
+generate a single html file onto your computer, and replaces it for every command thereafter to prevent excess file
+cluttering.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="2-2-code-contributed"><a class="link" href="#2-2-code-contributed">2.2 Code contributed</a></h3>
+<div class="paragraph">
+<p>Please follow these links to see my code: [<a href="https://github.com/AY1920S1-CS2103T-W12-1/main/commits?author=TanZhanMing">Commits</a>]
+ [<a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pulls?q=is%3Apr+author%3ATanZhanMing">Pull requests</a>]
+  [<a href="https://nus-cs2103-ay1920s1.github.io/tp-dashboard/#search=tanzhanming&amp;sort=groupTitle&amp;sortWithin=title&amp;since=2019-09-06&amp;timeframe=commit&amp;mergegroup=false&amp;groupSelect=groupByRepos&amp;breakdown=false&amp;tabOpen=true&amp;tabType=authorship&amp;tabAuthor=TanZhanMing&amp;tabRepo=AY1920S1-CS2103T-W12-1%2Fmain%5Bmaster%5D">RepoSense Code Contribution Dashboard</a>]</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="2-3-other-contributions"><a class="link" href="#2-3-other-contributions">2.3 Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Project management</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I have managed product releases v1.3 and v1.3.2 on <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/releases">GitHub</a>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Enhancements to existing features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Updated the original <code><strong>HelpWindow</strong></code> to display the command list and to take the user to the FinSec userguide directly instead of simply providing them with a link. (Pull request <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pull/78">#78</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Documentation:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Contributed multiple diagrams in the user guide and developer guide of FinSec to explain the execution and implementation of the <code>budget</code> and <code>help</code> commands.
+(Pull requests <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pull/189">#189</a>, <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pull/193">#193</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Community:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Helped pace pull requests and ensure adherence to deadlines
+(Pull requests <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pull/52">#52</a>, <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pull/142">#142</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Tools:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Integrated a third party library (JFreeChart) to the project (Pull request <a href="https://github.com/AY1920S1-CS2103T-W12-1/main/pull/176">#176</a>)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="3-contributions-to-the-user-guide"><a class="link" href="#3-contributions-to-the-user-guide">3. Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following section shows a small extract of what I have written in the FinSec user guide. This is to illustrate my
+ability to write clear and concise end-user documentation by guiding users on how to use the <code>help</code> command.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>{Start of extract for <code>help</code> command}</em></p>
+</div>
+<div class="sect2">
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">Viewing help : <code>help</code></a></h3>
+<div class="paragraph">
+<p>Provides 3 different types of help for all commands in FinSec.</p>
+</div>
+<div class="paragraph">
+<p>Keyword: <code>help</code></p>
+</div>
+<div class="paragraph">
+<p>Format:
+<code>help cmd/COMMAND type/TYPE</code></p>
+</div>
+<div class="paragraph">
+<p>Refer to <a href="#Command Summary">[Command Summary]</a> for all available commands</p>
+</div>
+<div class="paragraph">
+<p>Types include:<br>
+<code>brief</code> (gives a brief description)<br>
+<code>guide</code> (opens a web browser and bring you to our user guide)<br>
+<code>api</code> (for advanced users who want to know the inner workings of the command)</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/tip.png" alt="tip" width="80">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Cant remember all of FinSec&#8217;s commands or the command format for <code>help</code>? No worries! Even if you mistakenly
+type <code>help</code> without the other parameters or get the parameters confused, a default help window such as the one below
+will appear and display a command list with similar instructions to this page!</p>
+</div>
+</div>
+</div>
+<div id="UG-HelpWindow" class="imageblock">
+<div class="content">
+<img src="../images/UG-HelpWindow.png" alt="UG HelpWindow" width="500">
+</div>
+<div class="title">Figure 3.1.1: The help window that appears when the user asks for the default form of <code>help</code></div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="openblock">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="../images/tip.png" alt="tip" width="80">
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Instead of typing in <code>help</code>, you can also access help by clicking on the <code>help</code> button<br>
+on the top left of the FinSec application GUI or just press <kbd>F1</kbd> on your keyboard<br>
+as shown below!</p>
+</div>
+</div>
+</div>
+<div id="UG-HelpLocation" class="imageblock">
+<div class="content">
+<img src="../images/UG-HelpLocation.PNG" alt="UG HelpLocation" width="300">
+</div>
+<div class="title">Figure 3.1.2: The location of the help button on FinSec&#8217;s GUI</div>
+</div>
+<div class="paragraph">
+<p>Example commands:<br></p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>help cmd/add_contact type/brief</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This shows you a brief description of what the <code>add_contact</code> command does and how to use it</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>help cmd/goto type/api</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This generates an 'API.html' file containing our API for the <code>goto</code> command, and opens it up</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>help cmd/help type/guide</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This opens up a page in your browser and brings you right here to this section!</p>
+</div>
+<div class="paragraph">
+<p><a href="#UG-HelpExample">Figure 3.1.3</a> shows what you can expect to see when typing in the first example: <code>help cmd/add_contact type/brief</code>.</p>
+</div>
+<div id="UG-HelpExample" class="imageblock">
+<div class="content">
+<img src="../images/UG-HelpExample.PNG" alt="UG HelpExample" width="800">
+</div>
+<div class="title">Figure 3.1.3: FinSec giving a brief description of the <code>add_contact</code> command</div>
+</div>
+<div class="paragraph">
+<p><em>{End of extract for <code>help</code> command}</em></p>
+</div>
+<div class="paragraph">
+<p>If you are interested to find out more about my end-user documentation skills, you can click on the link below
+to view more of my handiwork; this time detailing the <code>budget</code> command in the FinSec user guide.
+(<a href="https://github.com/AY1920S1-CS2103T-W12-1/main/blob/master/docs/UserGuide.adoc#viewing-budget-budget">UG-budget</a>)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="4-contributions-to-the-developer-guide"><a class="link" href="#4-contributions-to-the-developer-guide">4. Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The following section shows a small extract of what I have written in the FinSec developer guide. This is to
+illustrate my ability in writing comprehensive technical documentation, and how I am able to provide developer insight
+on the design and development of the <code>budget</code> command.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p><em>{Start of extract for <code>budget</code> command}</em></p>
+</div>
+<div class="sect2">
+<h3 id="budget-feature"><a class="link" href="#budget-feature">Budget feature</a></h3>
+<div class="paragraph">
+<p>The <code>budget</code> command allows for users to Generate a <code><strong>Budget</strong></code> object in FinSec. It also creates a <code><strong>Budget Graph</strong></code>
+object and displays it via the User Interface.</p>
+</div>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">Overview</a></h4>
+<div class="paragraph">
+<p>The <code><strong>Budget</strong></code> feature relies primarily on the <code><strong>Claim</strong></code> and <code><strong>Income</strong></code> features, and serves as an extension to
+calculate their difference.
+The <code><strong>Budget</strong></code> object calculates the cash amount values of all existing <code><strong>Income</strong></code> objects and all cash amount
+values of <code><strong>Claims</strong></code> that have a status of 'approved'.
+It then returns the difference in values as the budget value and creates a graph detailing the statistics for the month.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="current-implementation"><a class="link" href="#current-implementation">Current Implementation</a></h4>
+<div class="paragraph">
+<p><a href="#budgetSeqDiagram">Figure 2.6.2.1</a> is a sequence of steps that illustrates the interaction between various classes when the <code>budget</code>
+command is entered.</p>
+</div>
+<div id="budgetSeqDiagram" class="imageblock">
+<div class="content">
+<img src="../images/BudgetSequenceDiagram.png" alt="BudgetSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 2.6.2.1: Execution sequence of the <code>budget</code> command</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 1 :</strong> The <code>budget</code> command is passed on to the <code><strong>LogicManager</strong></code> as commandText<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2 :</strong> The <code><strong>LogicManager::execute</strong></code> method then calls <code><strong>FinSecParser::parseCommand</strong></code> which receives the user
+input (<code>budget</code>) as a parameter.<br></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3 :</strong> FinSecParser then references the various command words and identifies the command to be a <code>budget</code> command
+. It then calls the <code><strong>BudgetCommand</strong></code> class.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4 :</strong> This newly created <code><strong>BudgetCommand</strong></code> object is returned to the LogicManager class, which then calls the
+<code><strong>BudgetCommand::execute</strong></code> method.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5 :</strong> The <code><strong>BudgetCommand</strong></code> then interacts with the model component of our software architecture to create a
+filteredList of all <code><strong>Income</strong></code> and <code><strong>Claim</strong></code> objects using the <code><strong>model.getFilteredClaimList()</strong></code> and <code><strong>model
+.getFilteredIncomeList()</strong></code> methods.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6 :</strong> It instantiates a <code><strong>Budget</strong></code> object which contains methods such as <code><strong>calculateTotalExpenses()</strong></code> and
+<code><strong>calculateBudget()</strong></code> to calculate the amount values of all the <code><strong>Claims</strong></code>, <code><strong>Incomes</strong></code> and thus use them to find
+the budget amount.<br>
+A <code><strong>BudgetGraph</strong></code> object is also created in parallel (Details expanded upon below)</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 7:</strong> The <code><strong>BudgetCommand::execute</strong></code> finally completes by constructing a message string containing all these
+values and returning a new <code><strong>CommandResult</strong></code> with the specific message string to its calling method which is
+<code><strong>LogicManager::execute</strong></code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 8 :</strong> <code><strong>LogicManager::execute</strong></code> method returns a <code><strong>CommandResult</strong></code> to the calling method which is
+<code><strong>MainWindow::executeCommand</strong></code></p>
+</div>
+<div class="paragraph">
+<p><strong>Step 9 :</strong> The specific feedback is then retrieved through <code><strong>CommandResult::getFeedbackToUser</strong></code> and set in the result
+display of the MainWindow.<br></p>
+</div>
+<div class="paragraph">
+<p>While creating the <code><strong>Budget</strong></code> object, a <code><strong>BudgetGraph</strong></code> object is also created in parallel. The activity diagram
+below
+shows how it would look like from a user&#8217;s point of view.</p>
+</div>
+<div class="paragraph">
+<p><a href="#budgetActDiagram">Figure 2.6.2.2</a> describes the workflow of FinSec when the <code>budget</code> command is entered.</p>
+</div>
+<div id="budgetActDiagram" class="imageblock">
+<div class="content">
+<img src="../images/DG-BudgetActivityDiagram.PNG" alt="DG BudgetActivityDiagram" width="800">
+</div>
+<div class="title">Figure 2.6.2.2: Activity diagram of the <code>budget</code> command</div>
+</div>
+<div class="paragraph">
+<p>The series of steps below demonstrates what the <code><strong>BudgetGraph</strong></code> object does in parallel to Step 6 above.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6a :</strong> At the same time the <code><strong>Budget</strong></code> object is created, the <code><strong>BudgetGraph</strong></code> object is also instantiated,
+which is
+basically an XY-graph.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6b :</strong> The <code><strong>BudgetGraph</strong></code> object creates a dataset by taking in the list of <code><strong>Claims</strong></code> and <code><strong>Incomes</strong></code> and
+parsing
+them to the <code><strong>ClaimPlotter</strong></code>, <code><strong>IncomePlotter</strong></code> and <code><strong>BudgetPlotter</strong></code> classes.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6c :</strong> The 3 plotter classes then filter their respective lists to create new lists for the current month and start adding the points to the series.</p>
+</div>
+<div class="paragraph">
+<p>The code snippet below shows the <code><strong>ClaimPlotter::plotClaims</strong></code> method<br></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java">   XYSeries plotClaims() {
+        <span class="predefined-type">Double</span> amountToAdd;
+        findClaimValueAtStartOfMonth();
+        claimSeries.add(<span class="integer">1</span>, startingExpenses);
+        <span class="type">double</span> currentExpenses = startingExpenses;
+        <span class="predefined-type">List</span>&lt;Claim&gt; approvedClaimsInCurrentMonthList = findApprovedClaimsInCurrentMonth();
+        <span class="keyword">for</span> (<span class="type">int</span> day = <span class="integer">2</span>; day &lt;= <span class="integer">30</span>; day++) {
+            <span class="keyword">for</span> (Claim claim : approvedClaimsInCurrentMonthList) {
+                <span class="keyword">if</span> (claim.getDate().date.getDayOfMonth() == day) {
+                    amountToAdd = <span class="predefined-type">Double</span>.parseDouble(claim.getAmount().value);
+                    <span class="keyword">assert</span> amountToAdd &gt;= <span class="integer">0</span> : <span class="string"><span class="delimiter">&quot;</span><span class="content">A negative claim value managed to get into the claim list</span><span class="delimiter">&quot;</span></span>;
+                    currentExpenses += amountToAdd;
+                    currentExpenses = <span class="predefined-type">Math</span>.round(currentExpenses * <span class="integer">100</span>) / <span class="float">100.0</span>;
+                }
+            }
+            claimSeries.add(day, currentExpenses);
+        }
+        <span class="keyword">return</span> claimSeries;
+    }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Step 6d :</strong> Once the 3 series have been returned, the plotter classes then return the completed dataset to the
+<code><strong>BudgetGraph</strong></code> class which then renders the image.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6e :</strong> The <code><strong>BudgetCommand::execute</strong></code> method then calls the <code><strong>BudgetGraph::displayBudgetGraph</strong></code> method to
+display the graph image.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="why-was-it-implemented-this-way"><a class="link" href="#why-was-it-implemented-this-way">Why was it implemented this way?</a></h4>
+<div class="paragraph">
+<p>With so many claims and incomes, all having differing dates, it can be hard to keep track of how much money one should have on hand at any one time.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>We felt that while knowing how much our prospective budget would be is good, knowing it over a range of time
+(such as a month in the case of <code><strong>BudgetGraph</strong></code>) would help with better planning</p>
+</li>
+<li>
+<p>We also wanted to keep track of the history of said <code><strong>Claims</strong></code> and <code><strong>Incomes</strong></code> and doing it over a 1 month period
+ensures there will not be too visual data cluttering the screen.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p>We have considered between two differing graph designs.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Graph Designs</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Graph Design Considerations</th>
+<th class="tableblock halign-left valign-top">Pros and Cons</th>
+</tr>
+</thead>
+<tfoot>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Separate Graphs based on Organisation Tags</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Displays all relevant data that the user can possibly ask for</p>
+<p class="tableblock">							<strong>Cons</strong> : Opening a multitude of graphs will visually clutter the screen with data
+							unless more parsing is done to sort out which graphs are required</p></td>
+</tr>
+</tfoot>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Single Graph (Current Choice)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Pros</strong> : Clean and clutter-free display.</p>
+<p class="tableblock">                                        	 	<strong>Cons</strong> : It does not display as much data</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>We have settled on adopting a single-graph approach as having multiple graphs open can lead to the user being
+overwhelmed by unnecessary data, and the code needed to achieve this result satisfactorily would be too convoluted.</p>
+</div>
+<div class="paragraph">
+<p><em>{End of extract for <code>budget</code> command}</em></p>
+</div>
+<div class="paragraph">
+<p>If you are interested to find out more about my technical documentation skills, you can click on the link below
+to view more of my handiwork; this time detailing the <code>help</code> command in the FinSec developer guide.
+(<a href="https://ay1920s1-cs2103t-w12-1.github.io/main/DeveloperGuide.html#help-feature">DG-help</a>)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="5-end-of-project-portfolio-page"><a class="link" href="#5-end-of-project-portfolio-page">5. End of Project Portfolio Page</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thank you for reading my Project Portfolio Page. If you have any questions on FinSec or about any of my documentation
+work, you can contact me at <a href="mailto:e0349703@u.nus.edu">e0349703@u.nus.edu</a>.</p>
+</div>
+<div class="paragraph">
+<p>Special thanks to my team for making this project a success!</p>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:12:51 UTC</div></div></div></body></html>
