@@ -44,7 +44,10 @@
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
 <li><a href="#viewing-help">G.2. Viewing Help</a></li>
 <li><a href="#deleting-a-contact">G.3. Deleting a contact</a></li>
-<li><a href="#displaying-budget-values">G.4. Displaying budget values</a></li>
+<li><a href="#adding-an-income-2">G.4. Adding an income</a></li>
+<li><a href="#entering-an-unknown-command-word">G.5. Entering an unknown command word</a></li>
+<li><a href="#viewing-added-autocorrect-suggestion">G.6. Viewing added autocorrect suggestion</a></li>
+<li><a href="#displaying-budget-values">G.7. Displaying budget values</a></li>
 </ul>
 </li>
 </ul>
@@ -3048,7 +3051,7 @@ Expected: First contact is deleted from the list. Details of the deleted contact
 </li>
 <li>
 <p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message.</p>
+Expected: No contact is deleted. Error details shown in the status message.</p>
 </li>
 <li>
 <p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
@@ -3061,7 +3064,97 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.4. Displaying budget values</a></h3>
+<h3 id="adding-an-income-2"><a class="link" href="#adding-an-income-2">G.4. Adding an income</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding an income while all incomes are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all incomes using the <code>goto_incomes</code> command. Multiple incomes in the list.</p>
+</li>
+<li>
+<p>Test case: <code>add_income d/Shirt sales c/307 date/11-11-2019 n/John Doe p/98765432</code><br>
+Expected: An income is added to the incomes list. Details of the added income shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>add_income</code><br>
+Expected: No income is added. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect add income commands to try: <code>add_income d/Shirtsales</code>, <code>add_income x</code> (where x is a random string)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="entering-an-unknown-command-word"><a class="link" href="#entering-an-unknown-command-word">G.5. Entering an unknown command word</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Entering a command that is not in FinSec</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: None.</p>
+</li>
+<li>
+<p>Test case (part 1): <code>thisisatest</code><br>
+Expected: FinSec does not recognise the command. FinSec will ask whether a shortcut is to be created or not in the status message.<br>
+Test case (part 2): <code>n</code><br>
+Expected: FinSec does not create a shortcut. FinSec will continue. Details will be shown in the status message.</p>
+</li>
+<li>
+<p>Test case (part 1): <code>ac</code><br>
+Expected: FinSec does not recognise the command. FinSec will ask whether a shortcut is to be created or not in the status message.<br>
+Test case (part 2): <code>add_contact</code><br>
+Expected: FinSec creates a shortcut. Details will be shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect add shortcut commands to try: ` ` (empty string)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.6. Viewing added autocorrect suggestion</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>See autocorrect suggestion list</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Add a new shortcut <code>addI</code> that is an alias to <code>add_income</code> and that is the only shortcut created.</p>
+</li>
+<li>
+<p>Test case: Type <code>ad</code> into the command bar without entering<br>
+Expected: FinSec will show a dropdown list containing <code>addI</code>.</p>
+</li>
+<li>
+<p>Test case: Type <code>test</code> into the command bar without entering<br>
+Expected: The dropdown list will not contain the word <code>test</code>.</p>
+</li>
+<li>
+<p>Other incorrect commands to type into the command bar: <code>x</code> (where x is a random string).</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.7. Displaying budget values</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3116,4 +3209,4 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:08:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:00:08 UTC</div></div></div></body></html>
