@@ -42,14 +42,18 @@
 <li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
 <li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#viewing-help">G.2. Viewing Help</a></li>
-<li><a href="#deleting-a-contact">G.3. Deleting a contact</a></li>
-<li><a href="#adding-an-income-2">G.4. Adding an income</a></li>
-<li><a href="#deleting-an-income-2">G.5. Deleting an income</a></li>
-<li><a href="#editing-an-income-2">G.6. Editing an income</a></li>
-<li><a href="#entering-an-unknown-command-word-creating-a-shortcut">G.7. Entering an unknown command word / Creating a shortcut</a></li>
-<li><a href="#viewing-added-autocorrect-suggestion">G.8. Viewing added autocorrect suggestion</a></li>
-<li><a href="#displaying-budget-values">G.9. Displaying budget values</a></li>
+<li><a href="#goto-a-different-view">G.2. Goto a different view</a></li>
+<li><a href="#viewing-help">G.3. Viewing Help</a></li>
+<li><a href="#deleting-a-contact">G.4. Deleting a contact</a></li>
+<li><a href="#adding-an-income-2">G.5. Adding an income</a></li>
+<li><a href="#deleting-an-income-2">G.6. Deleting an income</a></li>
+<li><a href="#editing-an-income-2">G.7. Editing an income</a></li>
+<li><a href="#entering-an-unknown-command-word-creating-a-shortcut">G.8. Entering an unknown command word / Creating a shortcut</a></li>
+<li><a href="#viewing-added-autocorrect-suggestion">G.9. Viewing added autocorrect suggestion</a></li>
+<li><a href="#displaying-budget-values">G.10. Displaying budget values</a></li>
+<li><a href="#sorting-the-various-lists">G.11. Sorting the various lists</a></li>
+<li><a href="#sorting-the-various-lists-in-reverse-order">G.12. Sorting the various lists in reverse order</a></li>
+<li><a href="#checking-each-individual-contact-or-claim">G.13. Checking each Individual Contact or Claim</a></li>
 </ul>
 </li>
 </ul>
@@ -3000,7 +3004,56 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help"><a class="link" href="#viewing-help">G.2. Viewing Help</a></h3>
+<h3 id="goto-a-different-view"><a class="link" href="#goto-a-different-view">G.2. Goto a different view</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Going to claims page</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User to be in any view of the application other than claims</p>
+</li>
+<li>
+<p>Test case: <code>goto claims</code><br>
+Expected: Claims list should show up on the Main Window.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Going to incomes page</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User to be in any view of the application other than incomes</p>
+</li>
+<li>
+<p>Test case: <code>goto incomes</code><br>
+Expected: Incomes list should show up on the Main Window.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Going to claims page</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: User to be in any view of the application other than contacts</p>
+</li>
+<li>
+<p>Test case: <code>goto contacts</code><br>
+Expected: Contacts list should show up on the Main Window.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-help"><a class="link" href="#viewing-help">G.3. Viewing Help</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3037,7 +3090,7 @@ Expected: FinSec displays an error message and usage instructions for help</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-contact"><a class="link" href="#deleting-a-contact">G.3. Deleting a contact</a></h3>
+<h3 id="deleting-a-contact"><a class="link" href="#deleting-a-contact">G.4. Deleting a contact</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3045,7 +3098,7 @@ Expected: FinSec displays an error message and usage instructions for help</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all contacts using the <code>goto_contacts</code> command. Multiple contacts in the list.</p>
+<p>Prerequisites: List all contacts using the <code>goto contacts</code> command. Multiple contacts in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete_contact 1</code><br>
@@ -3066,7 +3119,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-income-2"><a class="link" href="#adding-an-income-2">G.4. Adding an income</a></h3>
+<h3 id="adding-an-income-2"><a class="link" href="#adding-an-income-2">G.5. Adding an income</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3095,7 +3148,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-income-2"><a class="link" href="#deleting-an-income-2">G.5. Deleting an income</a></h3>
+<h3 id="deleting-an-income-2"><a class="link" href="#deleting-an-income-2">G.6. Deleting an income</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3124,7 +3177,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-income-2"><a class="link" href="#editing-an-income-2">G.6. Editing an income</a></h3>
+<h3 id="editing-an-income-2"><a class="link" href="#editing-an-income-2">G.7. Editing an income</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3153,7 +3206,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="entering-an-unknown-command-word-creating-a-shortcut"><a class="link" href="#entering-an-unknown-command-word-creating-a-shortcut">G.7. Entering an unknown command word / Creating a shortcut</a></h3>
+<h3 id="entering-an-unknown-command-word-creating-a-shortcut"><a class="link" href="#entering-an-unknown-command-word-creating-a-shortcut">G.8. Entering an unknown command word / Creating a shortcut</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3186,7 +3239,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.8. Viewing added autocorrect suggestion</a></h3>
+<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.9. Viewing added autocorrect suggestion</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3214,7 +3267,7 @@ Expected: The dropdown list will not contain the word <code>test</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.9. Displaying budget values</a></h3>
+<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.10. Displaying budget values</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3268,5 +3321,230 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </ol>
 </div>
 </div>
+<div class="sect2">
+<h3 id="sorting-the-various-lists"><a class="link" href="#sorting-the-various-lists">G.11. Sorting the various lists</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting contacts list by name in natural ordering<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 contacts with different names added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>sort name</code><br>
+Expected: Contacts list would be sorted in lexicographical order based on the contacts' names.</p>
+</li>
+</ol>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:16:51 UTC</div></div></div></body></html>
+</li>
+<li>
+<p>Sorting claims list by name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 claims with different descriptions added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>sort name</code> in natural ordering<br>
+Expected: Claims list would be sorted in lexicographical order based on the claims' descriptions.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting claims list by date</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 claims with different dates added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>sort date</code> in natural ordering<br>
+Expected: Claims list would be sorted in order based on the claims' dates with oldest entry at the top of the list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting claims list by status</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 claims with different status added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>sort status</code> in natural ordering<br>
+Expected: Claims list would be sorted in order based on the claims' statuses with Pending at the top of the list,
+followed by Approved then rejected.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting incomes list by name</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 incomes with different descriptions added into incomes list</p>
+</li>
+<li>
+<p>Test case: <code>sort name</code> in natural ordering<br>
+Expected: Incomes list would be sorted in lexicographical order based on the contacts' names in each individual
+income.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting incomes list by date</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 incomes with different dates added into incomes list</p>
+</li>
+<li>
+<p>Test case: <code>sort date</code> in natural ordering<br>
+Expected: Incomes list would be sorted in order based on the incomes' dates with oldest entry at the top of the
+list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-the-various-lists-in-reverse-order"><a class="link" href="#sorting-the-various-lists-in-reverse-order">G.12. Sorting the various lists in reverse order</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Sorting contacts list by name in reverse order<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 contacts with different names added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>reverse name</code><br>
+Expected: Contacts list would be sorted in reverse lexicographical order based on the contacts' names.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting claims list by name in reverse order<br></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 claims with different descriptions added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>reverse name</code><br>
+Expected: Claims list would be sorted in reverse lexicographical order based on the claims' descriptions.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting claims list by date in reverse order</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 claims with different dates added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>reverse date</code><br>
+Expected: Claims list would be sorted in order based on the claims' dates with newest entry at the top of the list.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting claims list by status in reverse order</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 claims with different status added into claims list</p>
+</li>
+<li>
+<p>Test case: <code>reverse status</code><br>
+	Expected: Claims list would be sorted in order based on the claims' statuses with Rejected at the top of the list,
+followed by Approved then Pending.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting incomes list by name in reverse order</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 incomes with different descriptions added into incomes list</p>
+</li>
+<li>
+<p>Test case: <code>reverse name</code><br>
+Expected: Incomes list would be sorted in reverse lexicographical order based on the contacts' names in each
+individual income.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Sorting incomes list by date in reverse order</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 3 incomes with different dates added into incomes list</p>
+</li>
+<li>
+<p>Test case: <code>reverse date</code><br>
+	Expected: Incomes list would be sorted in order based on the incomes' dates with newest entry at the top of the
+list.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="checking-each-individual-contact-or-claim"><a class="link" href="#checking-each-individual-contact-or-claim">G.13. Checking each Individual Contact or Claim</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Checking a contact</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 1 contact added into the contacts list</p>
+</li>
+<li>
+<p>Test case: <code>check 1</code><br>
+Expected: The first contact in the contacts list would be shown in a pop-up, displaying the claims that belong
+to this contact, empty list if it doesn&#8217;t have any claims.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Checking a claim</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: 1 claim added into the claims list</p>
+</li>
+<li>
+<p>Test case: <code>check CLAIMID</code>, refer to ClaimID number on this claim in the claims list<br>
+Expected: This claim will be shown in a pop-up, displaying the important information like date, amount and description
+that belong to this claim.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:20:36 UTC</div></div></div></body></html>
