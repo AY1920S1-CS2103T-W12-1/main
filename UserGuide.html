@@ -46,11 +46,11 @@
 <li><a href="#typing-guide">4.2. Typing Guide</a></li>
 </ul>
 </li>
-<li><a href="#upcoming-features">5. Upcoming Features</a>
+<li><a href="#upcoming-features-to-be-implemented-in-v2-0">5. Upcoming Features (To be implemented in v2.0)</a>
 <ul class="sectlevel2">
 <li><a href="#attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0">5.1. Attaching Pictures to Claims : <code>attach</code> (To be implemented in v2.0)</a></li>
-<li><a href="#checking-for-months-or-dates">5.2. Checking for months or dates</a></li>
-<li><a href="#display-statistics-of-the-application">5.3. Display statistics of the application</a></li>
+<li><a href="#checking-for-months-or-dates-to-be-implemented-in-v2-0">5.2. Checking for months or dates (To be implemented in v2.0)</a></li>
+<li><a href="#display-statistics-of-the-application-to-be-implemented-in-v2-0">5.3. Display statistics of the application (To be implemented in v2.0)</a></li>
 <li><a href="#grouping-users-code-tag-code-to-be-implemented-in-v2-0">5.4. Grouping Users : <code>tag</code> (To be implemented in v2.0)</a></li>
 </ul>
 </li>
@@ -1409,7 +1409,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="upcoming-features"><a class="link" href="#upcoming-features">5. Upcoming Features</a></h2>
+<h2 id="upcoming-features-to-be-implemented-in-v2-0"><a class="link" href="#upcoming-features-to-be-implemented-in-v2-0">5. Upcoming Features (To be implemented in v2.0)</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0"><a class="link" href="#attaching-pictures-to-claims-code-attach-code-to-be-implemented-in-v2-0">5.1. Attaching Pictures to Claims : <code>attach</code> (To be implemented in v2.0)</a></h3>
@@ -1446,7 +1446,7 @@ specified index from the user input</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-for-months-or-dates"><a class="link" href="#checking-for-months-or-dates">5.2. Checking for months or dates</a></h3>
+<h3 id="checking-for-months-or-dates-to-be-implemented-in-v2-0"><a class="link" href="#checking-for-months-or-dates-to-be-implemented-in-v2-0">5.2. Checking for months or dates (To be implemented in v2.0)</a></h3>
 <div class="paragraph">
 <p>Checks for the claims or incomes that matches the specific month or date that was typed as input.</p>
 </div>
@@ -1479,7 +1479,7 @@ current check feature. This is an increment to that feature.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="display-statistics-of-the-application"><a class="link" href="#display-statistics-of-the-application">5.3. Display statistics of the application</a></h3>
+<h3 id="display-statistics-of-the-application-to-be-implemented-in-v2-0"><a class="link" href="#display-statistics-of-the-application-to-be-implemented-in-v2-0">5.3. Display statistics of the application (To be implemented in v2.0)</a></h3>
 <div class="paragraph">
 <p>Displays the important statistics that a Finance Secretary need to know. Examples of statistics are:</p>
 </div>
@@ -1562,7 +1562,7 @@ in the contacts list</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Help</strong> : <code>help cmd/COMMAND type/TYPE</code><br>
+<p><strong>Requesting Help</strong> : <code>help cmd/COMMAND type/TYPE</code><br>
 e.g. <code>help cmd/add_income type/brief</code></p>
 </li>
 <li>
@@ -1570,35 +1570,31 @@ e.g. <code>help cmd/add_income type/brief</code></p>
 e.g. <code>goto claims</code></p>
 </li>
 <li>
-<p><strong>Add contact</strong> <code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Adding Contacts</strong> <code>add_person n/NAME p/PHONE_NUMBER e/EMAIL [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>add_contact n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
-<p><strong>Edit contact</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]</code><br>
+<p><strong>Editing Contacts</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [t/TAG]</code><br>
 e.g. <code>edit_contact 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code><br></p>
 </li>
 <li>
-<p><strong>Add claim</strong> <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME [t/TAG]</code><br>
+<p><strong>Adding Claims</strong> <code>add_claim d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME [t/TAG]</code><br>
 e.g. <code>add_claim d/Sports Equipment a/115.2 n/Lee Wei Gen t/Sports</code></p>
 </li>
 <li>
-<p><strong>Edit claim</strong> <code>edit_claim INDEX d/DESCRIPTION_OF_CLAIM a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
-e.g. <code>edit_claim 2 d/Sports Equipment a/115.2 n/Lee Wei Gen p/96777777 t/Sports</code></p>
-</li>
-<li>
-<p><strong>Approves claim</strong> <code>approve INDEX</code><br>
+<p><strong>Approving Claims</strong> <code>approve INDEX</code><br>
 e.g. <code>approve 1</code></p>
 </li>
 <li>
-<p><strong>Rejects claim</strong> <code>reject INDEX</code><br>
+<p><strong>Rejecting Claims</strong> <code>reject INDEX</code><br>
 e.g. <code>reject 1</code></p>
 </li>
 <li>
-<p><strong>Adding income</strong> <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
+<p><strong>Adding Incomes</strong> <code>add_income d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
 e.g. <code>add_income d/Shirt Sales a/307.5 n/Lee Wei Gen p/96777777 t/Marketing</code></p>
 </li>
 <li>
-<p><strong>Editing income</strong> <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
+<p><strong>Editing Incomes</strong> <code>edit_income INDEX d/DESCRIPTION_OF_INCOME a/AMOUNT n/PERSON_NAME p/PHONE_NUMBER [t/TAG]</code><br>
 e.g. <code>edit_income 2 d/Camp Fees a/1150.50 n/Lee Wei Gen p/96777777 t/FOP</code></p>
 </li>
 <li>
@@ -1616,11 +1612,11 @@ e.g.</p>
 </div>
 </li>
 <li>
-<p><strong>Deleting a person</strong> <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Deleting Contacts</strong> <code>delete_contact INDEX</code><br>
+e.g. <code>delete_contact 3</code></p>
 </li>
 <li>
-<p><strong>See Budget</strong> <code>budget</code></p>
+<p><strong>Viewing Budget</strong> <code>budget</code></p>
 </li>
 <li>
 <p><strong>Resolving Claims</strong> <code>resolve INDEX s/STATUS</code><br>
@@ -1637,11 +1633,11 @@ e.g.</p>
 </div>
 </li>
 <li>
-<p><strong>Attaching Pictures to Claims</strong> <code>attach INDEX</code><br>
+<p><strong>Attaching Pictures to Claims</strong> <code>attach INDEX</code> (To be implemented in v2.0)<br>
 e.g. <code>attach 1</code></p>
 </li>
 <li>
-<p><strong>Grouping Users</strong> <code>tag INDEX t/TAG</code><br>
+<p><strong>Grouping Users</strong> <code>tag INDEX t/TAG</code> (To be implemented in v2.0)<br>
 e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </li>
 <li>
@@ -1650,4 +1646,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:20:36 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:21:59 UTC</div></div></div></body></html>
