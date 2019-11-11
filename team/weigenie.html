@@ -18,7 +18,7 @@
 <p>I am currently a second year student in NUS School of Computing, pursuing a Bachelor of Computing (Honours).</p>
 </div>
 <div class="paragraph">
-<p>This portfolio page aims to document the contributions I have made in the development of FinSec, which is a project
+<p>This project portfolio page aims to document the contributions I have made in the development of FinSec, a project
 that my team and I completed for the module CS2103T. This project has definitely been greatly beneficial to my own
 learning and self-development in becoming a more competent software engineer.</p>
 </div>
@@ -34,9 +34,10 @@ learning and self-development in becoming a more competent software engineer.</p
 <h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>FinSec is a useful application that was created with the end goal of aiding Financial Secretaries of any organisation.
-It is a Command Line Interface (CLI) based tool to cater to computing professionals who are highly adept at typing but
-also provides a Graphical User Interface (GUI) interface for users to easily view interact with FinSec.</p>
+<p>FinSec is an application that was created with the end goal of aiding Financial Secretaries of any organisation in
+managing their financial data, mainly their contacts, claims, incomes and budget. It is a Command Line Interface (CLI)
+based tool to cater to computing professionals who are highly adept at typing but also provides a Graphical User
+Interface (GUI) interface for any users <em>(like you!)</em> to easily view interact with FinSec.</p>
 </div>
 </div>
 </div>
@@ -45,11 +46,11 @@ also provides a Graphical User Interface (GUI) interface for users to easily vie
 <div class="sectionbody">
 <div class="paragraph">
 <p>My main role was to act as the Team Lead for the project, completing team tasks for the project and managing
-general tasks for the team members. As I was the only one who has been in the position of our target audience, I
-can best understand their user requirements, so I was also the one to set the directions of the project.</p>
+general tasks for the team members. As I was the only one who has been in the position of our target audience and
+could best understand their user requirements, so I was also the one to set the directions of the project.</p>
 </div>
 <div class="paragraph">
-<p>Development-wise, I also developed the Claims feature <em>(including logic, storage and model)</em>, as well as adding the
+<p>I also developed the Claims feature <em>(including logic, storage and model)</em>, as well as adding the
 association between Claims and Contacts. I also created the documentation and tests that came along with the features.</p>
 </div>
 </div>
@@ -64,13 +65,11 @@ association between Claims and Contacts. I also created the documentation and te
 <div class="ulist">
 <ul>
 <li>
-<p><strong>What it does</strong>: This feature allows users, who are mainly Financial Secretaries, to enter Claims into
-the FinSec application and track their claim entries.</p>
+<p><strong>What it does</strong>: To allow users to add Claim entries into the FinSec application and track their claim entries.</p>
 </li>
 <li>
 <p><strong>Justification</strong>: The <code>Claim feature</code> is a vital feature to the FinSec application since that the majority of
-organisations and clubs have claims to keep track of. It allows Financial Secretaries to keep proper records of the
-organisation and to keep track of its financial status.</p>
+organisations and clubs have claims to keep track of.</p>
 </li>
 <li>
 <p><strong>Implementation</strong>: The Person class in Address Book 3 (AB3) is remodelled to resemble a claim entry <em>(with additional
@@ -115,9 +114,9 @@ of claims as well.</p>
 to a contact when viewing them using the CheckCommand.</p>
 </li>
 <li>
-<p><strong>Implementation</strong>: During the execution of the AddClaimCommand, it checks the FinSec if there is a contact with the
+<p><strong>Implementation</strong>: During the addition of a claim, the app checks if there is a contact with the
 entered name. Only if there is an existing contact for the claim will the command be executed. It also adds
-the Claim ID to the contact&#8217;s list of claims to keep track of each contact&#8217;s claim.</p>
+the Claim ID to the contact&#8217;s list of claims.</p>
 </li>
 <li>
 <p><strong>Highlights</strong>: I have also added a table to the IndividualContactWindow for the user to view the details of every
@@ -141,19 +140,10 @@ claim of each contact easily.</p>
 <p>Managed the release of version <code>v1.1</code> on GitHub</p>
 </li>
 <li>
-<p>Created GitHub organisation for the team</p>
-</li>
-<li>
-<p>Created team repository and managed the access for each individual.</p>
-</li>
-<li>
-<p>Set up auto-publishing of docs.</p>
+<p>Created GitHub organisation, team repository and managed access for the team.</p>
 </li>
 <li>
 <p>Integrated various build services into the team repository.</p>
-</li>
-<li>
-<p>Assign tasks to corresponding team members.</p>
 </li>
 </ul>
 </div>
@@ -234,7 +224,7 @@ claim of each contact easily.</p>
 <div class="sect2">
 <h3 id="adding-a-claim-code-add_claim-code"><a class="link" href="#adding-a-claim-code-add_claim-code">Adding a claim : <code>add_claim</code></a></h3>
 <div class="paragraph">
-<p>Adds a claim to the claims list.<br></p>
+<p>To add a claim to the claim list.<br></p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>add_claim</code></p>
@@ -243,7 +233,7 @@ claim of each contact easily.</p>
 <p>Format: <code>add_claim n/NAME d/DESCRIPTION_OF_CLAIM c/AMOUNT date/DATE [t/TAG]</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -251,19 +241,19 @@ claim of each contact easily.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#UG-AddClaimExample">Figure 3.4.1</a> and <a href="#UG-AddClaimResult">Figure 3.4.2</a> shows what you can expect to see after entering a valid AddClaimCommand.</p>
+<p><a href="#UG-AddClaimExample">Figure 3.4.1</a> and <a href="#UG-AddClaimResult">Figure 3.4.2</a> shows what you can expect to see after adding a claim.</p>
 </div>
 <div id="UG-AddClaimExample" class="imageblock">
 <div class="content">
 <img src="../images/UG-beforeAddClaim.png" alt="UG beforeAddClaim" width="800">
 </div>
-<div class="title">Figure 3.4.1: Type in the add_claim command.</div>
+<div class="title">Figure 3.4.1: Type in the command to add claim.</div>
 </div>
 <div id="UG-AddClaimResult" class="imageblock">
 <div class="content">
 <img src="../images/UG-afterAddClaim.png" alt="UG afterAddClaim" width="800">
 </div>
-<div class="title">Figure 3.4.2: Result after adding the claim.</div>
+<div class="title">Figure 3.4.2: Result after addition of claim.</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -288,7 +278,7 @@ claim of each contact easily.</p>
 <p><code>DATE</code> should be a valid date in the form of "dd-MM-yyyy"<em>(eg. 29-02-2019 not valid)</em>.<br></p>
 </li>
 <li>
-<p>A contact must already exist with the inputted <code>NAME</code>.</p>
+<p>A contact must already exist with the inputted <code>NAME</code> <em>(if not who is claiming it?)</em></p>
 </li>
 </ul>
 </div>
@@ -298,7 +288,7 @@ claim of each contact easily.</p>
 <div class="sect2">
 <h3 id="approving-a-claim-code-approve-code"><a class="link" href="#approving-a-claim-code-approve-code">Approving a claim : <code>approve</code></a></h3>
 <div class="paragraph">
-<p>Approves an existing pending claim at the specified <code>INDEX</code>.<br></p>
+<p>To approve a claim at the specified <code>INDEX</code>.<br></p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>approve</code></p>
@@ -307,7 +297,7 @@ claim of each contact easily.</p>
 <p>Format: <code>approve INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -318,13 +308,13 @@ claim of each contact easily.</p>
 <p>The above example approves the first claim in the claim list.</p>
 </div>
 <div class="paragraph">
-<p><a href="#UG-ApproveExample">Figure 3.5.1</a> and <a href="#UG-ApproveResult">Figure 3.5.2</a> shows what you can expect to see after entering a valid AddClaimCommand.</p>
+<p><a href="#UG-ApproveExample">Figure 3.5.1</a> and <a href="#UG-ApproveResult">Figure 3.5.2</a> shows what you can expect to see after approving a claim.</p>
 </div>
 <div id="UG-ApproveExample" class="imageblock">
 <div class="content">
 <img src="../images/UG-beforeApprove.png" alt="UG beforeApprove" width="800">
 </div>
-<div class="title">Figure 3.5.1: Type in the approve claim command.</div>
+<div class="title">Figure 3.5.1: Type in the command to approve claim.</div>
 </div>
 <div id="UG-ApproveResult" class="imageblock">
 <div class="content">
@@ -352,7 +342,7 @@ claim of each contact easily.</p>
 <p>The claim list must be currently displayed.</p>
 </li>
 <li>
-<p>Claim at the specified <code>INDEX</code> must be a pending claim.</p>
+<p>Claim at the specified <code>INDEX</code> must be a <span class="underline">pending</span> claim.</p>
 </li>
 <li>
 <p><code>INDEX</code> refers to the index number shown in the displayed claim list.</p>
@@ -369,7 +359,7 @@ claim list.</p>
 <div class="sect2">
 <h3 id="rejecting-a-claim-code-reject-code"><a class="link" href="#rejecting-a-claim-code-reject-code">Rejecting a claim : <code>reject</code></a></h3>
 <div class="paragraph">
-<p>Rejects an existing pending claim at the specified <code>INDEX</code>.<br></p>
+<p>To reject a claim at the specified <code>INDEX</code>.<br></p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>reject</code></p>
@@ -378,7 +368,7 @@ claim list.</p>
 <p>Format: <code>reject INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -389,13 +379,13 @@ claim list.</p>
 <p>The above example rejects the first claim in the claim list.</p>
 </div>
 <div class="paragraph">
-<p><a href="#UG-RejectExample">Figure 3.6.1</a> and <a href="#UG-RejectResult">Figure 3.6.2</a> shows what you can expect to see after entering a valid AddClaimCommand.</p>
+<p><a href="#UG-RejectExample">Figure 3.6.1</a> and <a href="#UG-RejectResult">Figure 3.6.2</a> shows what you can expect to see after rejecting a claim.</p>
 </div>
 <div id="UG-RejectExample" class="imageblock">
 <div class="content">
 <img src="../images/UG-beforeReject.png" alt="UG beforeReject" width="800">
 </div>
-<div class="title">Figure 3.6.1: Type in the reject claim command.</div>
+<div class="title">Figure 3.6.1: Type in the command to reject claim.</div>
 </div>
 <div id="UG-RejectResult" class="imageblock">
 <div class="content">
@@ -420,17 +410,7 @@ claim list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The displayed list must be the claim list.</p>
-</li>
-<li>
-<p>Claim at the specified <code>INDEX</code> must be a pending claim.</p>
-</li>
-<li>
-<p><code>INDEX</code> refers to the index number shown in the displayed claim list.</p>
-</li>
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;, and cannot be larger than the maximum index of the displayed
-claim list.</p>
+<p>Warning as per <strong>Approve</strong> command!</p>
 </li>
 </ul>
 </div>
@@ -452,56 +432,104 @@ claim list.</p>
 </tr>
 </tbody>
 </table>
+<div class="sect2">
+<h3 id="claim-feature"><a class="link" href="#claim-feature">Claim feature</a></h3>
+<div class="paragraph">
+<p><code>Claim</code> is meant to model a claim made by a person. It has the following fields: <code>Id</code>, <code>Description</code>, <code>Amount</code>,
+<code>Date</code>, <code>Name</code> and <code>Tags</code>.</p>
+</div>
 <div class="sect3">
 <h4 id="adding-a-claim"><a class="link" href="#adding-a-claim">Adding a Claim</a></h4>
+<div class="sect4">
+<h5 id="overview-2"><a class="link" href="#overview-2">Overview</a></h5>
 <div class="paragraph">
-<p><strong>Overview</strong></p>
+<p>The <code>add_claim</code> command allows for admins to register <code>Claims</code> into <code>FinSec</code>.</p>
+</div>
+<div class="paragraph">
+<p>The format for the <code>add_claim</code> command is as follows:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>add_claim n/&lt;NAME&gt; d/&lt;DESCRIPTION&gt; c/&lt;CASH AMOUNT&gt; date/&lt;DATE&gt; [t/&lt;TAG&gt;]</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The add claim <code>add_claim</code> mechanism is facilitated by <code>AddClaimCommand</code> and <code>AddClaimCommandParser</code>, taking in the
-following input from the user: <code>Description</code>, <code>Amount</code>, <code>Date</code> and <code>Name</code>, which will construct <code>Claim</code> objects.</p>
+following input from the user: <code>Description</code>, <code>Amount</code>, <code>Date</code>, <code>Name</code> and optionally <code>Tags</code>, which will construct
+<code>Claim</code> objects.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation"><a class="link" href="#implementation">Implementation</a></h5>
+<div class="paragraph">
+<p>Figure 9 is an activity diagram that models the workflow of the addition of a claim.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddClaimActivityDiagram.png" alt="AddClaimActivityDiagram">
+</div>
+<div class="title">Figure 1. Add Claim Command Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>Figure 10 and 11 shows the sequence diagrams in executing the <code>AddClaimCommand</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddClaimSequenceDiagram.png" alt="AddClaimSequenceDiagram">
 </div>
-<div class="title">Figure 1. Add Claim Command Sequence Diagram</div>
+<div class="title">Figure 2. Add Claim Command Sequence Diagram</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/AddClaimSequenceDiagram_Model.png" alt="AddClaimSequenceDiagram Model">
 </div>
-<div class="title">Figure 2. Add Claim Command Sequence Diagram (extension)</div>
-</div>
-<div class="paragraph">
-<p>The <code>AddClaimCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+<div class="title">Figure 3. Add Claim Command Sequence Diagram (extension)</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>AddClaimCommandParser#parse()</code> - This operation takes in a String input from the user that will create <code>Claim</code>
-objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 't/'. The String value after the individual prefixes will
-create the respective object: d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and t/<code>tags</code>. A regex validation
-check will be imposed upon the creation of each argument. Any checks that fails the validation would prompt the user on
-the failed component.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
+<p>Upon calling for the command, the <code>AddClaimCommandParser#parse()</code> will be executed:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>date</code> uses <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY. The
-date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is valid)</em>.</p>
+<p>This operation takes in a String input from the user that will create <code>Claim</code> objects based on the prefixes 'd/',
+'c/', 'date/', 'n/' and 't/'. The String value after the individual prefixes will create the respective object:
+d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and t/<code>tags</code>. A regex validation check will be imposed upon the
+creation of each argument. Any checks that fails the validation would prompt the user on the failed component.</p>
 </li>
+<li>
+<p>Each of the parameters will be checked whether they are valid:</p>
+<div class="ulist">
+<ul>
 <li>
 <p><code>amount</code> uses <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of
 2 decimal places.</p>
 </li>
 <li>
-<p>After validation checks are completed with no errors, a <code>Claim</code> object will be constructed with <code>Id</code>, <code>Description</code>,
+<p><code>date</code> uses <code>Date#isValidDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY. The
+date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is valid)</em>. An example of validation in code is
+shown below.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> VALIDATION_REGEX = <span class="string"><span class="delimiter">&quot;</span><span class="content">(31[</span><span class="char">\\</span><span class="content">-.](0[13578]|1[02])[</span><span class="char">\\</span><span class="content">-.](18|19|20)[0-9]{2})|((29|30)[</span><span class="char">\\</span><span class="content">-.](01|0[3-9]|1[1-2])[</span><span class="char">\\</span><span class="content">-.](18|19|20)[0-9]{2})|((0[1-9]|1[0-9]|2[0-8])[</span><span class="char">\\</span><span class="content">-.](0[1-9]|1[0-2])[</span><span class="char">\\</span><span class="content">-.](18|19|20)[0-9]{2})|(29[</span><span class="char">\\</span><span class="content">-.](02)[</span><span class="char">\\</span><span class="content">-.](((18|19|20)(04|08|[2468][048]|[13579][26]))|2000))</span><span class="delimiter">&quot;</span></span>;
+<span class="directive">public</span> <span class="directive">static</span> <span class="type">boolean</span> isValidDate(<span class="predefined-type">String</span> test) {
+        <span class="keyword">return</span> test.matches(VALIDATION_REGEX);
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After the validation checks are completed successfully, a <code>Claim</code> object will be constructed with <code>Id</code>, <code>Description</code>,
 <code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Tags</code> as the parameters.</p>
 </li>
 <li>
@@ -509,18 +537,25 @@ date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is va
 </li>
 <li>
 <p><code>AddClaimCommand#execute</code> will check against all existing contacts against the input <code>name</code> to make sure
-the contact exists.</p>
+the contact exists:</p>
 </li>
 </ul>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="../images/AddClaimActivityDiagram.png" alt="AddClaimActivityDiagram">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
+        requireNonNull(model);
+        <span class="keyword">if</span> (model.hasClaim(toAdd)) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_DUPLICATE_CLAIM);
+        }
+        <span class="keyword">if</span> (!model.hasContactFor(toAdd)) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_CONTACT_NOT_FOUND);
+        }
+        model.addClaim(toAdd);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, toAdd));
+}</code></pre>
 </div>
-<div class="title">Figure 3. Add Claim Command Activity Diagram</div>
-</div>
-<div class="paragraph">
-<p>The above activity diagram models the workflow of the addition of a claim.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
@@ -604,6 +639,7 @@ complexities involved. Moreover, as we are trying to push a Minimum Viable Produ
 enough for small-scale organisations to pick up our app and use it, minimising the cons.</p>
 </div>
 </div>
+</div>
 <div class="sect3">
 <h4 id="approving-a-claim"><a class="link" href="#approving-a-claim">Approving a Claim</a></h4>
 <div class="paragraph">
@@ -631,4 +667,5 @@ components of our application.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:32:29 UTC</div></div></div></body></html>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:34:00 UTC</div></div></div></body></html>

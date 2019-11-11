@@ -356,7 +356,7 @@ as shown below!</p>
 <div class="sect2">
 <h3 id="adding-a-claim-code-add_claim-code"><a class="link" href="#adding-a-claim-code-add_claim-code">3.4. Adding a claim : <code>add_claim</code></a></h3>
 <div class="paragraph">
-<p>Adds a claim to the claims list.<br></p>
+<p>To add a claim to the claim list.<br></p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>add_claim</code></p>
@@ -365,7 +365,7 @@ as shown below!</p>
 <p>Format: <code>add_claim n/NAME d/DESCRIPTION_OF_CLAIM c/AMOUNT date/DATE [t/TAG]</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -373,19 +373,19 @@ as shown below!</p>
 </div>
 </div>
 <div class="paragraph">
-<p><a href="#UG-AddClaimExample">Figure 3.4.1</a> and <a href="#UG-AddClaimResult">Figure 3.4.2</a> shows what you can expect to see after entering a valid AddClaimCommand.</p>
+<p><a href="#UG-AddClaimExample">Figure 3.4.1</a> and <a href="#UG-AddClaimResult">Figure 3.4.2</a> shows what you can expect to see after adding a claim.</p>
 </div>
 <div id="UG-AddClaimExample" class="imageblock">
 <div class="content">
 <img src="images/UG-beforeAddClaim.png" alt="UG beforeAddClaim" width="800">
 </div>
-<div class="title">Figure 3.4.1: Type in the add_claim command.</div>
+<div class="title">Figure 3.4.1: Type in the command to add claim.</div>
 </div>
 <div id="UG-AddClaimResult" class="imageblock">
 <div class="content">
 <img src="images/UG-afterAddClaim.png" alt="UG afterAddClaim" width="800">
 </div>
-<div class="title">Figure 3.4.2: Result after adding the claim.</div>
+<div class="title">Figure 3.4.2: Result after addition of claim.</div>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -410,7 +410,7 @@ as shown below!</p>
 <p><code>DATE</code> should be a valid date in the form of "dd-MM-yyyy"<em>(eg. 29-02-2019 not valid)</em>.<br></p>
 </li>
 <li>
-<p>A contact must already exist with the inputted <code>NAME</code>.</p>
+<p>A contact must already exist with the inputted <code>NAME</code> <em>(if not who is claiming it?)</em></p>
 </li>
 </ul>
 </div>
@@ -420,7 +420,7 @@ as shown below!</p>
 <div class="sect2">
 <h3 id="approving-a-claim-code-approve-code"><a class="link" href="#approving-a-claim-code-approve-code">3.5. Approving a claim : <code>approve</code></a></h3>
 <div class="paragraph">
-<p>Approves an existing pending claim at the specified <code>INDEX</code>.<br></p>
+<p>To approve a claim at the specified <code>INDEX</code>.<br></p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>approve</code></p>
@@ -429,7 +429,7 @@ as shown below!</p>
 <p>Format: <code>approve INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -440,13 +440,13 @@ as shown below!</p>
 <p>The above example approves the first claim in the claim list.</p>
 </div>
 <div class="paragraph">
-<p><a href="#UG-ApproveExample">Figure 3.5.1</a> and <a href="#UG-ApproveResult">Figure 3.5.2</a> shows what you can expect to see after entering a valid AddClaimCommand.</p>
+<p><a href="#UG-ApproveExample">Figure 3.5.1</a> and <a href="#UG-ApproveResult">Figure 3.5.2</a> shows what you can expect to see after approving a claim.</p>
 </div>
 <div id="UG-ApproveExample" class="imageblock">
 <div class="content">
 <img src="images/UG-beforeApprove.png" alt="UG beforeApprove" width="800">
 </div>
-<div class="title">Figure 3.5.1: Type in the approve claim command.</div>
+<div class="title">Figure 3.5.1: Type in the command to approve claim.</div>
 </div>
 <div id="UG-ApproveResult" class="imageblock">
 <div class="content">
@@ -474,7 +474,7 @@ as shown below!</p>
 <p>The claim list must be currently displayed.</p>
 </li>
 <li>
-<p>Claim at the specified <code>INDEX</code> must be a pending claim.</p>
+<p>Claim at the specified <code>INDEX</code> must be a <span class="underline">pending</span> claim.</p>
 </li>
 <li>
 <p><code>INDEX</code> refers to the index number shown in the displayed claim list.</p>
@@ -491,7 +491,7 @@ claim list.</p>
 <div class="sect2">
 <h3 id="rejecting-a-claim-code-reject-code"><a class="link" href="#rejecting-a-claim-code-reject-code">3.6. Rejecting a claim : <code>reject</code></a></h3>
 <div class="paragraph">
-<p>Rejects an existing pending claim at the specified <code>INDEX</code>.<br></p>
+<p>To reject a claim at the specified <code>INDEX</code>.<br></p>
 </div>
 <div class="paragraph">
 <p>Keyword: <code>reject</code></p>
@@ -500,7 +500,7 @@ claim list.</p>
 <p>Format: <code>reject INDEX</code></p>
 </div>
 <div class="paragraph">
-<p>Examples:</p>
+<p>Example:</p>
 </div>
 <div class="literalblock">
 <div class="content">
@@ -511,13 +511,13 @@ claim list.</p>
 <p>The above example rejects the first claim in the claim list.</p>
 </div>
 <div class="paragraph">
-<p><a href="#UG-RejectExample">Figure 3.6.1</a> and <a href="#UG-RejectResult">Figure 3.6.2</a> shows what you can expect to see after entering a valid AddClaimCommand.</p>
+<p><a href="#UG-RejectExample">Figure 3.6.1</a> and <a href="#UG-RejectResult">Figure 3.6.2</a> shows what you can expect to see after rejecting a claim.</p>
 </div>
 <div id="UG-RejectExample" class="imageblock">
 <div class="content">
 <img src="images/UG-beforeReject.png" alt="UG beforeReject" width="800">
 </div>
-<div class="title">Figure 3.6.1: Type in the reject claim command.</div>
+<div class="title">Figure 3.6.1: Type in the command to reject claim.</div>
 </div>
 <div id="UG-RejectResult" class="imageblock">
 <div class="content">
@@ -542,17 +542,7 @@ claim list.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The displayed list must be the claim list.</p>
-</li>
-<li>
-<p>Claim at the specified <code>INDEX</code> must be a pending claim.</p>
-</li>
-<li>
-<p><code>INDEX</code> refers to the index number shown in the displayed claim list.</p>
-</li>
-<li>
-<p><code>INDEX</code> <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;, and cannot be larger than the maximum index of the displayed
-claim list.</p>
+<p>Warning as per <strong>Approve</strong> command!</p>
 </li>
 </ul>
 </div>
@@ -1705,4 +1695,4 @@ e.g. <code>tag 1 t/FOP t/Sports</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:32:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:34:00 UTC</div></div></div></body></html>

@@ -45,16 +45,18 @@
 <li><a href="#goto-a-different-view">G.2. Goto a different view</a></li>
 <li><a href="#viewing-help">G.3. Viewing Help</a></li>
 <li><a href="#deleting-a-contact">G.4. Deleting a contact</a></li>
-<li><a href="#adding-an-income-2">G.5. Adding an income</a></li>
-<li><a href="#deleting-an-income-2">G.6. Deleting an income</a></li>
-<li><a href="#editing-an-income-2">G.7. Editing an income</a></li>
-<li><a href="#entering-an-unknown-command-word-creating-a-shortcut">G.8. Entering an unknown command word / Creating a shortcut</a></li>
-<li><a href="#delete-a-shortcut">G.9. Delete a shortcut</a></li>
-<li><a href="#viewing-added-autocorrect-suggestion">G.10. Viewing added autocorrect suggestion</a></li>
-<li><a href="#displaying-budget-values">G.11. Displaying budget values</a></li>
-<li><a href="#sorting-the-various-lists">G.12. Sorting the various lists</a></li>
-<li><a href="#sorting-the-various-lists-in-reverse-order">G.13. Sorting the various lists in reverse order</a></li>
-<li><a href="#checking-each-individual-contact-or-claim">G.14. Checking each Individual Contact or Claim</a></li>
+<li><a href="#adding-a-claim-2">G.5. Adding a claim</a></li>
+<li><a href="#approving-or-rejecting-a-claim">G.6. Approving or rejecting a claim</a></li>
+<li><a href="#adding-an-income-2">G.7. Adding an income</a></li>
+<li><a href="#deleting-an-income-2">G.8. Deleting an income</a></li>
+<li><a href="#editing-an-income-2">G.9. Editing an income</a></li>
+<li><a href="#entering-an-unknown-command-word-creating-a-shortcut">G.10. Entering an unknown command word / Creating a shortcut</a></li>
+<li><a href="#delete-a-shortcut">G.11. Delete a shortcut</a></li>
+<li><a href="#viewing-added-autocorrect-suggestion">G.12. Viewing added autocorrect suggestion</a></li>
+<li><a href="#displaying-budget-values">G.13. Displaying budget values</a></li>
+<li><a href="#sorting-the-various-lists">G.14. Sorting the various lists</a></li>
+<li><a href="#sorting-the-various-lists-in-reverse-order">G.15. Sorting the various lists in reverse order</a></li>
+<li><a href="#checking-each-individual-contact-or-claim">G.16. Checking each Individual Contact or Claim</a></li>
 </ul>
 </li>
 </ul>
@@ -449,66 +451,101 @@ parameters to display the command list and explain the deeper features of the he
 <div class="sect2">
 <h3 id="claim-feature"><a class="link" href="#claim-feature">2.2. Claim feature</a></h3>
 <div class="paragraph">
-<p>The <code>add_claim</code> command allows for admins to register Claims into FinSec.</p>
+<p><code>Claim</code> is meant to model a claim made by a person. It has the following fields: <code>Id</code>, <code>Description</code>, <code>Amount</code>,
+<code>Date</code>, <code>Name</code> and <code>Tags</code>.</p>
+</div>
+<div class="sect3">
+<h4 id="adding-a-claim"><a class="link" href="#adding-a-claim">2.2.1. Adding a Claim</a></h4>
+<div class="sect4">
+<h5 id="overview-2"><a class="link" href="#overview-2">Overview</a></h5>
+<div class="paragraph">
+<p>The <code>add_claim</code> command allows for admins to register <code>Claims</code> into <code>FinSec</code>.</p>
 </div>
 <div class="paragraph">
 <p>The format for the <code>add_claim</code> command is as follows:</p>
 </div>
 <div class="literalblock">
 <div class="content">
-<pre>add_claim d/&lt;DESCRIPTION&gt; c/&lt;CASH AMOUNT&gt; date/&lt;DATE&gt; n/&lt;NAME&gt; p/&lt;PHONE NUMBER&gt;</pre>
+<pre>add_claim n/&lt;NAME&gt; d/&lt;DESCRIPTION&gt; c/&lt;CASH AMOUNT&gt; date/&lt;DATE&gt; [t/&lt;TAG&gt;]</pre>
 </div>
-</div>
-<div class="sect3">
-<h4 id="adding-a-claim"><a class="link" href="#adding-a-claim">2.2.1. Adding a Claim</a></h4>
-<div class="paragraph">
-<p><strong>Overview</strong></p>
 </div>
 <div class="paragraph">
 <p>The add claim <code>add_claim</code> mechanism is facilitated by <code>AddClaimCommand</code> and <code>AddClaimCommandParser</code>, taking in the
-following input from the user: <code>Description</code>, <code>Amount</code>, <code>Date</code> and <code>Name</code>, which will construct <code>Claim</code> objects.</p>
+following input from the user: <code>Description</code>, <code>Amount</code>, <code>Date</code>, <code>Name</code> and optionally <code>Tags</code>, which will construct
+<code>Claim</code> objects.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h5>
+<div class="paragraph">
+<p>Figure 9 is an activity diagram that models the workflow of the addition of a claim.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddClaimActivityDiagram.png" alt="AddClaimActivityDiagram">
+</div>
+<div class="title">Figure 9. Add Claim Command Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>Figure 10 and 11 shows the sequence diagrams in executing the <code>AddClaimCommand</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddClaimSequenceDiagram.png" alt="AddClaimSequenceDiagram">
 </div>
-<div class="title">Figure 9. Add Claim Command Sequence Diagram</div>
+<div class="title">Figure 10. Add Claim Command Sequence Diagram</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddClaimSequenceDiagram_Model.png" alt="AddClaimSequenceDiagram Model">
 </div>
-<div class="title">Figure 10. Add Claim Command Sequence Diagram (extension)</div>
-</div>
-<div class="paragraph">
-<p>The <code>AddClaimCommandParser</code> implements <code>Parser</code> with the following operation:</p>
+<div class="title">Figure 11. Add Claim Command Sequence Diagram (extension)</div>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>AddClaimCommandParser#parse()</code> - This operation takes in a String input from the user that will create <code>Claim</code>
-objects based on the prefixes 'd/', 'c/', 'date/', 'n/' and 't/'. The String value after the individual prefixes will
-create the respective object: d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and t/<code>tags</code>. A regex validation
-check will be imposed upon the creation of each argument. Any checks that fails the validation would prompt the user on
-the failed component.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>For example:</p>
-</div>
+<p>Upon calling for the command, the <code>AddClaimCommandParser#parse()</code> will be executed:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>date</code> uses <code>ParseUtil#parseDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY. The
-date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is valid)</em>.</p>
+<p>This operation takes in a String input from the user that will create <code>Claim</code> objects based on the prefixes 'd/',
+'c/', 'date/', 'n/' and 't/'. The String value after the individual prefixes will create the respective object:
+d/<code>description</code>, c/<code>amount</code>, date/<code>date</code>,  n/<code>name</code> and t/<code>tags</code>. A regex validation check will be imposed upon the
+creation of each argument. Any checks that fails the validation would prompt the user on the failed component.</p>
 </li>
+<li>
+<p>Each of the parameters will be checked whether they are valid:</p>
+<div class="ulist">
+<ul>
 <li>
 <p><code>amount</code> uses <code>ParserUtil#parseAmount()</code> to ensure that cash amount would only contain numbers and a maximum of
 2 decimal places.</p>
 </li>
 <li>
-<p>After validation checks are completed with no errors, a <code>Claim</code> object will be constructed with <code>Id</code>, <code>Description</code>,
+<p><code>date</code> uses <code>Date#isValidDate()</code> to ensure that the date entered is in the correct format of DD-MM-YYYY. The
+date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is valid)</em>. An example of validation in code is
+shown below.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> VALIDATION_REGEX = <span class="string"><span class="delimiter">&quot;</span><span class="content">(31[</span><span class="char">\\</span><span class="content">-.](0[13578]|1[02])[</span><span class="char">\\</span><span class="content">-.](18|19|20)[0-9]{2})|((29|30)[</span><span class="char">\\</span><span class="content">-.](01|0[3-9]|1[1-2])[</span><span class="char">\\</span><span class="content">-.](18|19|20)[0-9]{2})|((0[1-9]|1[0-9]|2[0-8])[</span><span class="char">\\</span><span class="content">-.](0[1-9]|1[0-2])[</span><span class="char">\\</span><span class="content">-.](18|19|20)[0-9]{2})|(29[</span><span class="char">\\</span><span class="content">-.](02)[</span><span class="char">\\</span><span class="content">-.](((18|19|20)(04|08|[2468][048]|[13579][26]))|2000))</span><span class="delimiter">&quot;</span></span>;
+<span class="directive">public</span> <span class="directive">static</span> <span class="type">boolean</span> isValidDate(<span class="predefined-type">String</span> test) {
+        <span class="keyword">return</span> test.matches(VALIDATION_REGEX);
+}</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>After the validation checks are completed successfully, a <code>Claim</code> object will be constructed with <code>Id</code>, <code>Description</code>,
 <code>Amount</code>, <code>Date</code>, <code>Name</code> and <code>Tags</code> as the parameters.</p>
 </li>
 <li>
@@ -516,18 +553,25 @@ date also has to be a valid date <em>(29-02-2019 is invalid but 29-09-2016 is va
 </li>
 <li>
 <p><code>AddClaimCommand#execute</code> will check against all existing contacts against the input <code>name</code> to make sure
-the contact exists.</p>
+the contact exists:</p>
 </li>
 </ul>
 </div>
-<div class="imageblock">
+<div class="listingblock">
 <div class="content">
-<img src="images/AddClaimActivityDiagram.png" alt="AddClaimActivityDiagram">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> CommandResult execute(Model model) <span class="directive">throws</span> CommandException {
+        requireNonNull(model);
+        <span class="keyword">if</span> (model.hasClaim(toAdd)) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_DUPLICATE_CLAIM);
+        }
+        <span class="keyword">if</span> (!model.hasContactFor(toAdd)) {
+                <span class="keyword">throw</span> <span class="keyword">new</span> CommandException(MESSAGE_CONTACT_NOT_FOUND);
+        }
+        model.addClaim(toAdd);
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(<span class="predefined-type">String</span>.format(MESSAGE_SUCCESS, toAdd));
+}</code></pre>
 </div>
-<div class="title">Figure 11. Add Claim Command Activity Diagram</div>
-</div>
-<div class="paragraph">
-<p>The above activity diagram models the workflow of the addition of a claim.</p>
 </div>
 <div class="paragraph">
 <p><strong>Example</strong></p>
@@ -609,6 +653,7 @@ may take more time.</p></td>
 <p>We have decided to opt for the first option primarily because it reduces the number of potential bugs and the
 complexities involved. Moreover, as we are trying to push a Minimum Viable Product, the implementation is still fast
 enough for small-scale organisations to pick up our app and use it, minimising the cons.</p>
+</div>
 </div>
 </div>
 <div class="sect3">
@@ -1036,7 +1081,7 @@ create more commands as the user uses the application.</p>
 object and displays it via the User Interface.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">2.6.1. Overview</a></h4>
+<h4 id="overview-3"><a class="link" href="#overview-3">2.6.1. Overview</a></h4>
 <div class="paragraph">
 <p>The <code><strong>Budget</strong></code> feature relies primarily on the <code><strong>Claim</strong></code> and <code><strong>Income</strong></code> features, and serves as an extension to
 calculate their difference.
@@ -1223,7 +1268,7 @@ with goto based on commands implemented with the revamp of the original list fea
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-3"><a class="link" href="#overview-3">2.7.1. Overview</a></h4>
+<h4 id="overview-4"><a class="link" href="#overview-4">2.7.1. Overview</a></h4>
 <div class="paragraph">
 <p>There are various message attributes in goto command: <code>MESSAGE_SUCCESS_CONTACTS</code>, <code>MESSAGE_SUCCESS_CLAIMS</code>, <code>MESSAGE_SUCCESS_INCOMES</code>, <code>MESSAGE FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the changing of View is successful. The attribute <code>View</code> is also stored as an attribute
@@ -1419,7 +1464,7 @@ would allow users to be clear that they are changing a page to the specific list
 the user is in the claims or contacts page. This command is called when the user wants to check each contact or claim individually.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-4"><a class="link" href="#overview-4">2.8.1. Overview</a></h4>
+<h4 id="overview-5"><a class="link" href="#overview-5">2.8.1. Overview</a></h4>
 <div class="paragraph">
 <p>Just like the Goto Command, there are various message attributes: <code>MESSAGE_SUCCESS_CONTACT</code>, <code>MESSAGE_SUCCESS_CLAIM</code>, <code>MESSAGE_FAILURE</code>,
 <code>MESSAGE_USAGE</code> that informs the user if the <code>check</code> command was successfully executed and if so which individual pop-up is showing. The 2 lists
@@ -1637,7 +1682,7 @@ work.
 It also provides some design considerations to give users an insight of how the current solutions are worked out.</p>
 </div>
 <div class="sect3">
-<h4 id="overview-5"><a class="link" href="#overview-5">2.9.1. Overview</a></h4>
+<h4 id="overview-6"><a class="link" href="#overview-6">2.9.1. Overview</a></h4>
 <div class="paragraph">
 <p>There are 2 ways that a user can sort the lists by. It gives the user flexibility in how he wants to see the lists. In
 addition, after sorting, the user can then employ the check method once again to see each individual object.</p>
@@ -3120,7 +3165,70 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-an-income-2"><a class="link" href="#adding-an-income-2">G.5. Adding an income</a></h3>
+<h3 id="adding-a-claim-2"><a class="link" href="#adding-a-claim-2">G.5. Adding a claim</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Adding a claim.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all claims using the <code>goto claims</code> command. All the claims will be listed.</p>
+</li>
+<li>
+<p>Test case: <code>add_claim n/John Doe d/Logistics for Event c/304.5 date/15-11-2019</code><br>
+Expected: <em>(if a contact with the name of "John Doe" exists)</em> A claim will be added to the claim list. Details of
+	the	added claim shown in the status message window.<br>
+Expected: <em>(if a contact with the name of "John Doe" does <span class="underline">not</span> exist)</em> Claim will not be added, and
+an error message stating the contact cannot be found will be shown in the status message window.</p>
+</li>
+<li>
+<p>Test case: <code>add_claim</code><br>
+Expected: No claim will be added, and error details would be shown in the status message window.</p>
+</li>
+<li>
+<p>Other incorrect <code>add_claim</code> commands to try: the valid command but with incorrect parameters.<br>
+For example: <code>add_claim n/John Doe d/Logistics for Event c/304.5 date/29-11-2019</code> or
+<code>add_claim n/John Doe d/Logistics for Event c/304.586 date/15-11-2019</code><br>
+Expected: An error message specifying the incorrect parameter will be shown in the status message window.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="approving-or-rejecting-a-claim"><a class="link" href="#approving-or-rejecting-a-claim">G.6. Approving or rejecting a claim</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Approving or rejecting a claim.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all claims using the <code>goto claims</code> command. All the claims will be listed. There should be
+some claims listed already.</p>
+</li>
+<li>
+<p>Test case: <code>approve 1</code> or <code>reject 1</code>
+Expected: <em>(if the first claim is pending)</em> The claim status of the first claim will be changed to approved or
+rejected, depending on the command. Successful message will be shown in the status message window.<br>
+Expected: <em>(if the first claim is not pending)</em> The claim status of the first claim will not be changed. Error
+message will be shown in the status message window.</p>
+</li>
+<li>
+<p>Test case: <code>approve 0</code> or <code>reject 10000000</code> <em>(or any number larger than the size of the claim list)</em><br>
+Expected: Error message will be shown in the status message window.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-income-2"><a class="link" href="#adding-an-income-2">G.7. Adding an income</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3128,7 +3236,7 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all incomes using the <code>goto_incomes</code> command. Multiple incomes in the list.</p>
+<p>Prerequisites: List all incomes using the <code>goto incomes</code> command. Multiple incomes in the list.</p>
 </li>
 <li>
 <p>Test case: <code>add_income d/Shirt sales c/307 date/11-11-2019 n/John Doe p/98765432</code><br>
@@ -3149,7 +3257,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-income-2"><a class="link" href="#deleting-an-income-2">G.6. Deleting an income</a></h3>
+<h3 id="deleting-an-income-2"><a class="link" href="#deleting-an-income-2">G.8. Deleting an income</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3157,7 +3265,7 @@ Expected: Similar to previous.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Prerequisites: List all incomes using the <code>goto_incomes</code> command. Multiple incomes in the list.</p>
+<p>Prerequisites: List all incomes using the <code>goto incomes</code> command. Multiple incomes in the list.</p>
 </li>
 <li>
 <p>Test case: <code>delete_income 1</code><br>
@@ -3178,7 +3286,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-income-2"><a class="link" href="#editing-an-income-2">G.7. Editing an income</a></h3>
+<h3 id="editing-an-income-2"><a class="link" href="#editing-an-income-2">G.9. Editing an income</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3207,7 +3315,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="entering-an-unknown-command-word-creating-a-shortcut"><a class="link" href="#entering-an-unknown-command-word-creating-a-shortcut">G.8. Entering an unknown command word / Creating a shortcut</a></h3>
+<h3 id="entering-an-unknown-command-word-creating-a-shortcut"><a class="link" href="#entering-an-unknown-command-word-creating-a-shortcut">G.10. Entering an unknown command word / Creating a shortcut</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3240,7 +3348,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="delete-a-shortcut"><a class="link" href="#delete-a-shortcut">G.9. Delete a shortcut</a></h3>
+<h3 id="delete-a-shortcut"><a class="link" href="#delete-a-shortcut">G.11. Delete a shortcut</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3269,7 +3377,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.10. Viewing added autocorrect suggestion</a></h3>
+<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.12. Viewing added autocorrect suggestion</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3297,7 +3405,7 @@ Expected: The dropdown list will not contain the word <code>test</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.11. Displaying budget values</a></h3>
+<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.13. Displaying budget values</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3352,7 +3460,7 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-various-lists"><a class="link" href="#sorting-the-various-lists">G.12. Sorting the various lists</a></h3>
+<h3 id="sorting-the-various-lists"><a class="link" href="#sorting-the-various-lists">G.14. Sorting the various lists</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3446,7 +3554,7 @@ list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-various-lists-in-reverse-order"><a class="link" href="#sorting-the-various-lists-in-reverse-order">G.13. Sorting the various lists in reverse order</a></h3>
+<h3 id="sorting-the-various-lists-in-reverse-order"><a class="link" href="#sorting-the-various-lists-in-reverse-order">G.15. Sorting the various lists in reverse order</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3540,7 +3648,7 @@ list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-each-individual-contact-or-claim"><a class="link" href="#checking-each-individual-contact-or-claim">G.14. Checking each Individual Contact or Claim</a></h3>
+<h3 id="checking-each-individual-contact-or-claim"><a class="link" href="#checking-each-individual-contact-or-claim">G.16. Checking each Individual Contact or Claim</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3577,4 +3685,4 @@ that belong to this claim.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:32:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 13:34:00 UTC</div></div></div></body></html>
