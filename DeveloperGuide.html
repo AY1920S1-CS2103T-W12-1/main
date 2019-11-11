@@ -49,11 +49,12 @@
 <li><a href="#deleting-an-income-2">G.6. Deleting an income</a></li>
 <li><a href="#editing-an-income-2">G.7. Editing an income</a></li>
 <li><a href="#entering-an-unknown-command-word-creating-a-shortcut">G.8. Entering an unknown command word / Creating a shortcut</a></li>
-<li><a href="#viewing-added-autocorrect-suggestion">G.9. Viewing added autocorrect suggestion</a></li>
-<li><a href="#displaying-budget-values">G.10. Displaying budget values</a></li>
-<li><a href="#sorting-the-various-lists">G.11. Sorting the various lists</a></li>
-<li><a href="#sorting-the-various-lists-in-reverse-order">G.12. Sorting the various lists in reverse order</a></li>
-<li><a href="#checking-each-individual-contact-or-claim">G.13. Checking each Individual Contact or Claim</a></li>
+<li><a href="#delete-a-shortcut">G.9. Delete a shortcut</a></li>
+<li><a href="#viewing-added-autocorrect-suggestion">G.10. Viewing added autocorrect suggestion</a></li>
+<li><a href="#displaying-budget-values">G.11. Displaying budget values</a></li>
+<li><a href="#sorting-the-various-lists">G.12. Sorting the various lists</a></li>
+<li><a href="#sorting-the-various-lists-in-reverse-order">G.13. Sorting the various lists in reverse order</a></li>
+<li><a href="#checking-each-individual-contact-or-claim">G.14. Checking each Individual Contact or Claim</a></li>
 </ul>
 </li>
 </ul>
@@ -3239,7 +3240,36 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.9. Viewing added autocorrect suggestion</a></h3>
+<h3 id="delete-a-shortcut"><a class="link" href="#delete-a-shortcut">G.9. Delete a shortcut</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a shortcut previously created.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: Create a shortcut <code>ai</code> to any default command and ensure there is no shortcut <code>test</code></p>
+</li>
+<li>
+<p>Test case: <code>delete_shortcut ai</code><br>
+Expected: Shortcut <code>ai</code> is deleted. Details of the deleted shortcut shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>delete_shortcut test</code><br>
+Expected: No shortcut is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete shortcut commands to try: ` <code>, `delete_shortcut x</code> (where x is a shortcut that has not been created)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.10. Viewing added autocorrect suggestion</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3267,7 +3297,7 @@ Expected: The dropdown list will not contain the word <code>test</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.10. Displaying budget values</a></h3>
+<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.11. Displaying budget values</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3322,7 +3352,7 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-various-lists"><a class="link" href="#sorting-the-various-lists">G.11. Sorting the various lists</a></h3>
+<h3 id="sorting-the-various-lists"><a class="link" href="#sorting-the-various-lists">G.12. Sorting the various lists</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3416,7 +3446,7 @@ list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-the-various-lists-in-reverse-order"><a class="link" href="#sorting-the-various-lists-in-reverse-order">G.12. Sorting the various lists in reverse order</a></h3>
+<h3 id="sorting-the-various-lists-in-reverse-order"><a class="link" href="#sorting-the-various-lists-in-reverse-order">G.13. Sorting the various lists in reverse order</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3510,7 +3540,7 @@ list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="checking-each-individual-contact-or-claim"><a class="link" href="#checking-each-individual-contact-or-claim">G.13. Checking each Individual Contact or Claim</a></h3>
+<h3 id="checking-each-individual-contact-or-claim"><a class="link" href="#checking-each-individual-contact-or-claim">G.14. Checking each Individual Contact or Claim</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3547,4 +3577,4 @@ that belong to this claim.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:21:59 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:40:57 UTC</div></div></div></body></html>
