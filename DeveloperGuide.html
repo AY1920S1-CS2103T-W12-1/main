@@ -45,9 +45,11 @@
 <li><a href="#viewing-help">G.2. Viewing Help</a></li>
 <li><a href="#deleting-a-contact">G.3. Deleting a contact</a></li>
 <li><a href="#adding-an-income-2">G.4. Adding an income</a></li>
-<li><a href="#entering-an-unknown-command-word">G.5. Entering an unknown command word</a></li>
-<li><a href="#viewing-added-autocorrect-suggestion">G.6. Viewing added autocorrect suggestion</a></li>
-<li><a href="#displaying-budget-values">G.7. Displaying budget values</a></li>
+<li><a href="#deleting-an-income-2">G.5. Deleting an income</a></li>
+<li><a href="#editing-an-income-2">G.6. Editing an income</a></li>
+<li><a href="#entering-an-unknown-command-word-creating-a-shortcut">G.7. Entering an unknown command word / Creating a shortcut</a></li>
+<li><a href="#viewing-added-autocorrect-suggestion">G.8. Viewing added autocorrect suggestion</a></li>
+<li><a href="#displaying-budget-values">G.9. Displaying budget values</a></li>
 </ul>
 </li>
 </ul>
@@ -3050,11 +3052,11 @@ Expected: FinSec displays an error message and usage instructions for help</p>
 Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message.</p>
 </li>
 <li>
-<p>Test case: <code>delete 0</code><br>
+<p>Test case: <code>delete_contact 0</code><br>
 Expected: No contact is deleted. Error details shown in the status message.</p>
 </li>
 <li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size)<br>
+<p>Other incorrect delete contact commands to try: <code>delete_contact</code>, <code>delete_contact x</code> (where x is larger than the list size)<br>
 Expected: Similar to previous.</p>
 </li>
 </ol>
@@ -3093,7 +3095,65 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="entering-an-unknown-command-word"><a class="link" href="#entering-an-unknown-command-word">G.5. Entering an unknown command word</a></h3>
+<h3 id="deleting-an-income-2"><a class="link" href="#deleting-an-income-2">G.5. Deleting an income</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting an income while all incomes are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all incomes using the <code>goto_incomes</code> command. Multiple incomes in the list.</p>
+</li>
+<li>
+<p>Test case: <code>delete_income 1</code><br>
+Expected: First income is deleted from the list. Details of the deleted income shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>delete_income 0</code><br>
+Expected: No income is deleted. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete income commands to try: <code>delete_income</code>, <code>delete_income x</code> (where x is larger than the list size)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-income-2"><a class="link" href="#editing-an-income-2">G.6. Editing an income</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing an income while all incomes are listed</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Prerequisites: List all incomes using the <code>goto_incomes</code> command. At least 1 income in the list.</p>
+</li>
+<li>
+<p>Test case: <code>edit_income 1 d/This is a test</code><br>
+Expected: The first income on the list description field is edited. Details of the edited income shown in the status message.</p>
+</li>
+<li>
+<p>Test case: <code>edit_income 1</code><br>
+Expected: The first income on the list is not edited. Error details shown in the status message.</p>
+</li>
+<li>
+<p>Other incorrect delete income commands to try: <code>edit_income 1 q/</code>, <code>edit_income 1 x/</code> (where x is an unknown field)<br>
+Expected: Similar to previous.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="entering-an-unknown-command-word-creating-a-shortcut"><a class="link" href="#entering-an-unknown-command-word-creating-a-shortcut">G.7. Entering an unknown command word / Creating a shortcut</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3126,7 +3186,7 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.6. Viewing added autocorrect suggestion</a></h3>
+<h3 id="viewing-added-autocorrect-suggestion"><a class="link" href="#viewing-added-autocorrect-suggestion">G.8. Viewing added autocorrect suggestion</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3154,7 +3214,7 @@ Expected: The dropdown list will not contain the word <code>test</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.7. Displaying budget values</a></h3>
+<h3 id="displaying-budget-values"><a class="link" href="#displaying-budget-values">G.9. Displaying budget values</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3209,4 +3269,4 @@ Expected: An error pops up stating that <code>budget</code> is a standalone comm
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:10:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 12:16:51 UTC</div></div></div></body></html>
